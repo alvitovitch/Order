@@ -23,4 +23,3 @@ def destroy
     render json: ["Please signin before doing that!"], status: 404
   end
 end
-end
