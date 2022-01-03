@@ -18,9 +18,14 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/env', '@babel/react']
-          }
+          },
+          
         },
-      }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader'
+    }
     ]
   },
   devtool: 'source-map'
