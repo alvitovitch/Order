@@ -14,12 +14,13 @@ def create
   end
 end
 
-def destroy
-  @user = current_user
-  if @user
-    logout!
-    render "/"
-  else
-    render json: ["Please signin before doing that!"], status: 404
+  def destroy
+    @user = current_user
+    if @user
+      logout!
+      render "/"
+    else
+      render json: ["Please signin before doing that!"], status: 404
+    end
   end
 end
