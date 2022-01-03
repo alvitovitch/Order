@@ -1,3 +1,26 @@
+
+#splashMain {
+    background: rgb(68,76,236); 
+}
+
+#splashText {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 20px;
+    padding: 40px 120px
+}
+
+#splashText h1 {
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    font-size: 56px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
 #splashNav {
 
     display: flex;

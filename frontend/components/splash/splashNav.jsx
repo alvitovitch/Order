@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 
 class SplashNav extends React.Component {
@@ -19,9 +20,9 @@ class SplashNav extends React.Component {
                     <li>Careers</li>
                 </ul>
             </div>
-            <div id="login">
+            <Link to="/api/login">
                 Login
-            </div>
+            </Link>
         </div>
         )
     }
