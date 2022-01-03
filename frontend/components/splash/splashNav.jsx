@@ -20,7 +20,7 @@ class SplashNav extends React.Component {
                     <li>Careers</li>
                 </ul>
             </div>
-            <Link to="/api/login">
+            <Link to="/login">
                 Login
             </Link>
         </div>

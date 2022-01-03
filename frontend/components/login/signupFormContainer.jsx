@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signup } from '../../util/session_api_util';
-import SessionForm from './sessionForm';
+import { createUser } from '../../actions/session_actions';
+import SignupForm from './signupForm';
 
 
 const mSTP = ({ errors }) => {
     return {
-        errors: errors.session,
+        errors: errors,
         formType: 'signup',
         navLink: <Link to="/login">log in instead</Link>
     }
@@ -15,8 +15,8 @@ const mSTP = ({ errors }) => {
 
 const mDTP = dispatch => {
     return {
-        processForm: (user) => dispatch(signup(user))
+        processForm: (user) => dispatch(createUser(user))
     }
 }
 
-export default connect(mSTP, mDTP)(SessionForm)
+export default connect(mSTP, mDTP)(SignupForm)
