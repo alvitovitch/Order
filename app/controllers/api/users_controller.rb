@@ -5,7 +5,7 @@
 
         if @user.save
             login!(@user)
-            redirect_to '/'
+            render :show
         else
             render json: @user.errors.full_messages, status: 422
         end

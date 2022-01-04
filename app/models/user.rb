@@ -14,7 +14,10 @@ class User < ApplicationRecord
 
         user = User.find_by(username: username)
         return nil unless user
-        user.is_password?(pass)
+        if user.is_password?(password)
+            return user
+        end
+        return nil
 
     end
 
@@ -41,7 +44,7 @@ class User < ApplicationRecord
         self.user_avatar ||= 'test string for now'
     end
 
-    def reset_session_token
+    def reset_session_token!
 
         self.session_token = SecureRandom.urlsafe_base64
         self.save!

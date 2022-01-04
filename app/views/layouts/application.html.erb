@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script type="text/javascript">
+      window.cloud = "<%= image_url('splash/clouds.svg') %>";
+    </script>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
+    <% if logged_in? %>
+      <script type= "text/javascript">
+        window.currentUser = <%= render(
+          "api/users/user.json.jbuilder",
+          user: current_user
+        ).html_safe%>
+      </script>
+    <% end %>
+
   </head>
 
   <body>

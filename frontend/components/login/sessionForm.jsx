@@ -10,6 +10,8 @@ class SessionForm extends React.Component {
             password: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        
+
     }
 
     update(field) {
@@ -19,6 +21,7 @@ class SessionForm extends React.Component {
     }
 
     handleSubmit(e) {
+        
         e.preventDefault()
         const user = Object.assign({}, this.state)
         this.props.processForm(user)
@@ -31,6 +34,7 @@ class SessionForm extends React.Component {
                     <h1>Welcome back!</h1>
                     <span>We're so excited to see you again!</span>
                 </div>
+                {this.props.errors.map(error => <li>{error}</li>)}
                 <form onSubmit={this.handleSubmit}>
                     <label>EMAIL OR PHONE NUMBER
                         <input type="text"

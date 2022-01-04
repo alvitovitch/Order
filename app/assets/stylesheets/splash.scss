@@ -19,6 +19,7 @@
     flex-direction: column;
     position: relative;
     z-index: 1;
+    align-self: center;
 }
 
 #splashText h1 {
@@ -93,13 +94,17 @@
 }
 
 #shoePeople {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    left: 50%;
+    margin-right: 370px;
 }
 
 #barPeople {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    right: 50%;
+    margin-left: 370px;
 }
 #imageDiv {
     display: flex;

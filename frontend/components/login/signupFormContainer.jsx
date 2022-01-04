@@ -8,8 +8,7 @@ import SignupForm from './signupForm';
 const mSTP = ({ errors }) => {
     return {
         errors: errors,
-        formType: 'signup',
-        navLink: <Link to="/login">log in instead</Link>
+      
     }
 }
 

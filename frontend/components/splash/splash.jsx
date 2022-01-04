@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import SplashNav from "./splashNav";
-import shoePeople from '../../images/splash/shoePeople.svg'
-import barPeople from '../../images/splash/barPeople.svg'
-import clouds from '../../images/splash/clouds.svg'
 
 
 class Splash extends React.Component {
@@ -18,7 +15,7 @@ class Splash extends React.Component {
                     <div>
                         < SplashNav />
                     </div>
-                    <img id='clouds' src={clouds} alt="clouds" />
+                    <img id='clouds' src={window.cloud} alt="clouds" />
                     <div id="splashText">
                             <h1>IMAGINE A PLACE...</h1>
                             <p>...where you can belong to a school club, a gaming group, or a worldwide art community. 
@@ -30,8 +27,8 @@ class Splash extends React.Component {
                         </div>
                     </div>
                     <div id='imageDiv'>
-                        <img id='shoePeople' src={shoePeople} alt="shoePeople" />
-                        <img id='barPeople' src={barPeople} alt="barPeople" />
+                        {/* <img id='shoePeople' src={shoePeople} alt="shoePeople" />
+                        <img id='barPeople' src={barPeople} alt="barPeople" /> */}
                     </div>
                 </div>
             </div>
