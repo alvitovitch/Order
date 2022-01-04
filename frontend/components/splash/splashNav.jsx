@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 class SplashNav extends React.Component {
 
     render() {
+        let buttonType = 'Open Order'
         return(
         <div id='splashNav'>
             <div id='logo'>
@@ -12,17 +13,14 @@ class SplashNav extends React.Component {
             </div>
             <div id='splashNavLinks'>
                 <ul>
-                    <li>Download</li>
-                    <li>Nitro</li>
-                    <li>Safety</li>
-                    <li>Support</li>
-                    <li>Blog</li>
-                    <li>Careers</li>
+                    <li className="nonWorkingButton">LinkedIn</li>
+                    <li className="nonWorkingButton">Github</li>
+                    <li className="nonWorkingButton">Instagram</li>
                 </ul>
             </div>
-            <Link to="/login">
-                Login
-            </Link>
+            <a id='loginHref'href="/#/login">
+                <button id='loginButton'>{buttonType}</button>     
+            </a>
         </div>
         )
     }

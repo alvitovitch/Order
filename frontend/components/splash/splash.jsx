@@ -21,14 +21,14 @@ class Splash extends React.Component {
                             <p>...where you can belong to a school club, a gaming group, or a worldwide art community. 
                                 Where just you and a handful of friends can spend time together. A place that makes it 
                                 easy to talk every day and hang out more often.</p>
-                        <div>
-                            <button>Download for Windows</button>
-                            <button>Open Order in your browser</button>
+                        <div id='splashButtonDiv'>
+                            <button id='downloadButton'>Download for Windows</button>
+                            <button id='openButton'>Open Order in your browser</button>
                         </div>
                     </div>
                     <div id='imageDiv'>
-                        {/* <img id='shoePeople' src={shoePeople} alt="shoePeople" />
-                        <img id='barPeople' src={barPeople} alt="barPeople" /> */}
+                        <img id='barPeople' src={window.barPeople} alt="barPeople" />
+                        <img id='shoePeople' src={window.shoePeople} alt="shoePeople" />
                     </div>
                 </div>
             </div>
