@@ -7,7 +7,7 @@ import SignupForm from './signupForm';
 
 const mSTP = ({ errors }) => {
     return {
-        errors: errors,
+        errors: errors.session
       
     }
 }
