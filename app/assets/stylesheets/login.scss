@@ -24,6 +24,19 @@
     width: 500px;
     position: relative;
     z-index: 2;
+    animation-duration: .5s;
+    animation-name: slidein
+}
+
+@keyframes slidein {
+    from {
+        top: -500px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 100%;
+    }
 }
 
 #loginForm {
@@ -53,10 +66,7 @@
 
 #loginHeader {
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
     width: 100%;
     font-family: inherit;
@@ -83,7 +93,7 @@
 
 #usernameInput {
     margin-top: 8px;
-    border: none;
+    border: 1px solid #202225;
     padding: 10px;
     height: 40px;
     font-size: 16px;
@@ -91,11 +101,12 @@
     width: 500px;
     border-radius: 3px;
     font-weight: 400;
+    background: #2c2e32;
+    color: #72767d;
 }
 
 #passwordInput {
     margin-top: 8px;
-    border: none;
     padding: 10px;
     height: 40px;
     font-size: 16px;
@@ -103,6 +114,10 @@
     width: 500px;
     border-radius: 3px;
     font-weight: 400;
+    background: #2c2e32;
+    color: #72767d;
+    border: 1px solid #202225;
+
 }
 
 .loginButton {

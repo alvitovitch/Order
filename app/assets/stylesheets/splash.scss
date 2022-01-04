@@ -99,11 +99,10 @@
 
 #clouds {
     display: flex;
-    align-self: center;
     position: absolute;
-    top: 0;
     z-index: 0;
-    height: inherit;
+    width: 100%;
+    bottom: 0;
 }
 
 #shoePeople {

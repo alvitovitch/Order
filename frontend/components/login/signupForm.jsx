@@ -8,12 +8,16 @@ class SignupFormContainer extends React.Component {
         this.state = {
             email: '',
             username: '',
-            password: ''
+            password: '',
+            month: '',
+            day: '',
+            year: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     update(field) {
+        debugger
         return e => this.setState({
             [field]: e.currentTarget.value
         })
@@ -26,6 +30,34 @@ class SignupFormContainer extends React.Component {
     }
 
     render() {
+        const daysOfMonth = {
+            'January': 31,
+            'Febuary': 28,
+            'March': 31,
+            'April': 30,
+            'May': 31,
+            'June': 30,
+            'July': 31,
+            'August': 31,
+            'September': 30,
+            'November': 30,
+            'December': 31
+        }
+        const monthDays = () => {
+            const days = []
+            for (let i = 1; i<= daysOfMonth[this.state.month]; i++) {
+                days.push(i)
+            }
+            return days
+        }
+
+        const years = () => {
+            const allYears = []
+            for (let i = 1900; i <= 2022; i++) {
+                allYears.push(i)
+            }
+            return allYears
+        }
         return (    
             <div id='signupBackground'>
                 <img id='clouds' src={window.cloud} alt="clouds" />
@@ -46,17 +78,39 @@ class SignupFormContainer extends React.Component {
                             value={this.state.username}
                             onChange={this.update('username')} />
                         </label>
-                        <label className='signupLabel'>Password
+                        <label className='signupLabel'>PASSWORD
                             <input type="password"
                             value={this.state.password} 
                             onChange={this.update('password')} />
                         </label>
-                        {/* <label>DATE OF BIRTH
-                            <input type="date"
-                            value={this.state.password} 
-                            onChange={this.update('password')} />
-                        </label> */}
-                        {/* <Link>Forgot your password?</Link> */}
+                            <label className='signupLabel'>DATE OF BIRTH
+                        <div id='birthdateSelectors'>
+                                <select id='selectMonth' onChange={this.update('month')} value={this.state.month}>
+                                    <option value="none" hidden selected></option>
+                                    <option value="January">January</option>
+                                    <option value="Febuary">Febuary</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                                <select id="selectDay" onChange={this.update('day')} value={this.state.day}>
+                                    <option value="none" hidden selected></option>
+                                    {monthDays().map(day => (<option value={day}>{day}</option>))}
+                                </select>
+                                <select id="year">
+                                    <option value="none" hidden selected></option>
+                                    {years().map(year => (<option value={year}>{year}</option>))}
+                                </select>
+                        </div>
+                            </label>
+                        <Link>Forgot your password?</Link>
                         <button id='signupButton'>Sign Up</button>
                         <Link to='/login'>Already have an account? </Link>
                     </form>
