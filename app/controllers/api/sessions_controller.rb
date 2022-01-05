@@ -5,12 +5,11 @@ def create
     params[:user][:username],
     params[:user][:password]
   )
-
   if @user 
     login!(@user)
     render '/api/users/show'
   else
-    render json: ["Invalid username/password combination"], status: 401
+    render json: ["Invalid username/email/password combination"], status: 401
   end
 end
 

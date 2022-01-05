@@ -15,7 +15,7 @@ class Splash extends React.Component {
                     <div>
                         < SplashNav />
                     </div>
-                    <img id='clouds' src={window.cloud} alt="clouds" />
+                    <img id='splashClouds' src={window.cloud} alt="clouds" />
                     <div id="splashText">
                             <h1>IMAGINE A PLACE...</h1>
                             <p>...where you can belong to a school club, a gaming group, or a worldwide art community. 

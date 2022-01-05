@@ -10,9 +10,13 @@ class User < ApplicationRecord
     #FIGVAPER
 
 
-    def self.find_by_credentials(username, password)
+    def self.find_by_credentials(identifier, password)
 
-        user = User.find_by(username: username)
+        user = User.find_by(username: identifier)
+        if !user
+            user = User.find_by(email: identifier)
+        end
+    
         return nil unless user
         if user.is_password?(password)
             return user
