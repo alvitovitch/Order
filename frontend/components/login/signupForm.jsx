@@ -17,7 +17,6 @@ class SignupFormContainer extends React.Component {
     }
 
     update(field) {
-        debugger
         return e => this.setState({
             [field]: e.currentTarget.value
         })
@@ -86,31 +85,30 @@ class SignupFormContainer extends React.Component {
                             <label className='signupLabel'>DATE OF BIRTH
                         <div id='birthdateSelectors'>
                                 <select id='selectMonth' onChange={this.update('month')} value={this.state.month}>
-                                    <option value="none" hidden selected></option>
-                                    <option value="January">January</option>
-                                    <option value="Febuary">Febuary</option>
-                                    <option value="March">March</option>
-                                    <option value="April">April</option>
-                                    <option value="May">May</option>
-                                    <option value="June">June</option>
-                                    <option value="July">July</option>
-                                    <option value="August">August</option>
-                                    <option value="September">September</option>
-                                    <option value="October">October</option>
-                                    <option value="November">November</option>
-                                    <option value="December">December</option>
+                                    <option value="none" hidden selected>Select</option>
+                                    <option value="January" id='January'>January</option>
+                                    <option value="Febuary" id='Feburary'>Febuary</option>
+                                    <option value="March" id='March'>March</option>
+                                    <option value="April" id='April'>April</option>
+                                    <option value="May" id='May'>May</option>
+                                    <option value="June" id='June'>June</option>
+                                    <option value="July" id='July'>July</option>
+                                    <option value="August" id='August'>August</option>
+                                    <option value="September" id='September'>September</option>
+                                    <option value="October" id='October'>October</option>
+                                    <option value="November" id='November'>November</option>
+                                    <option value="December" id='December'>December</option>
                                 </select>
                                 <select id="selectDay" onChange={this.update('day')} value={this.state.day}>
-                                    <option value="none" hidden selected></option>
-                                    {monthDays().map(day => (<option value={day}>{day}</option>))}
+                                    <option value="none" hidden selected>Select</option>
+                                    {monthDays().map(day => (<option value={day} id={day}>{day}</option>))}
                                 </select>
                                 <select id="year">
-                                    <option value="none" hidden selected></option>
-                                    {years().map(year => (<option value={year}>{year}</option>))}
+                                    <option value="none" hidden selected>Select</option>
+                                    {years().map(year => (<option value={year} id={year}>{year}</option>))}
                                 </select>
                         </div>
                             </label>
-                        <Link>Forgot your password?</Link>
                         <button id='signupButton'>Sign Up</button>
                         <Link to='/login'>Already have an account? </Link>
                     </form>

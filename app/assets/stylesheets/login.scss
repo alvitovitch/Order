@@ -24,7 +24,7 @@
     width: 500px;
     position: relative;
     z-index: 2;
-    animation-duration: .5s;
+    animation-duration: .3s;
     animation-name: slidein
 }
 
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    color: #72767d;
+    color: #888d96;
     font-family: inherit;
 
 }
@@ -59,7 +59,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    color: #72767d;
+    color: #888d96;
     font-family: inherit;
 
 }
@@ -84,7 +84,7 @@
 }
 
 #loginHeader span {
-    color: #72767d;
+    color: #888d96;
     font-family: inherit;
     font-size: 16px;
     line-height: 20px;
@@ -102,7 +102,7 @@
     border-radius: 3px;
     font-weight: 400;
     background: #2c2e32;
-    color: #72767d;
+    color: #888d96;
 }
 
 #passwordInput {

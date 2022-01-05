@@ -20,9 +20,9 @@
     align-self: center;
     align-items: flex-start;
     font-family: inherit;
-    width: 500px;
+    width: 480px;
     position: relative;
-    animation-duration: .5s;
+    animation-duration: .3s;
     animation-name: slidein
 }
 
@@ -43,12 +43,13 @@
     font-family: inherit;
     position: relative;
     z-index: 2;
+    width: inherit;
 }
 
 .signupLabel {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #72767d;
     font-family: inherit;
 
@@ -57,10 +58,7 @@
 
 #loginHeader {
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
     width: 100%;
     font-family: inherit;
@@ -70,10 +68,9 @@
 #loginHeader h1 {
     font-weight: 600;
     margin-bottom: 8px;
-    font-size: 24px;
     line-height: 30px;
     display: block;
-    font-size: 1.17em;
+    font-size: 1.5em;
    
 }
 
@@ -92,11 +89,14 @@
     height: 40px;
     font-size: 16px;
     box-sizing: border-box;
-    width: 500px;
+    width: inherit;
     border-radius: 3px;
     font-weight: 400;
 }
 
+#forgotPassword {
+    margin-top: 0;
+}
 
 #signupButton {
     width: 100%;
@@ -122,7 +122,7 @@ select {
     background: #2c2e32;
     color: #72767d;
     border: 1px solid #202225;
-    width: 100%;
+    width: 80%;
     height: 44px;
     border-radius: 5px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

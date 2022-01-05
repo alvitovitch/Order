@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
     attr_reader :password
     validates :username, :session_token, :password_digest, presence: true
-    validates :email, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true, format: { with: /\w+@\w+\.\w+/, message: "must be a valid email address!" }
     validates :password, length: { minimum: 6, maximum: 32, allow_nil: true}
 
     after_initialize :ensure_session_token!, :ensure_tag!, :ensure_avatar!
