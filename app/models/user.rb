@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
     #FIGVAPER
 
+    
+
 
     def self.find_by_credentials(identifier, password)
 
