@@ -11,9 +11,11 @@ class SignupFormContainer extends React.Component {
             password: '',
             month: '',
             day: '',
-            year: ''
+            year: '',
+            over13: true
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.oldEnough = this.oldEnough.bind(this)
     }
 
     update(field) {
@@ -24,9 +26,25 @@ class SignupFormContainer extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        if (!this.oldEnough()) {
+            debugger
+            this.setState({over13: false})
+        } else {
         const user = Object.assign({}, this.state)
         this.props.processForm(user)
+        }
     }
+
+    oldEnough() {
+        let birthdate = new Date(`${this.state.month} ${this.state.day}, ${this.state.year}`)
+        birthdate.setFullYear(birthdate.getFullYear() + 13)
+        const currentDate = new Date()
+        return currentDate > birthdate
+    }
+    componentDidMount() {
+        this.props.removeSessionErrors()
+    }
+
 
     render() {
         const daysOfMonth = {
@@ -56,6 +74,19 @@ class SignupFormContainer extends React.Component {
                 allYears.push(i)
             }
             return allYears
+        }
+
+        if (this.state.over13 === false) {
+            return (
+                <div id='signupBackground'>
+                <img id='clouds' src={window.cloud} alt="clouds" />
+                    <div id='SignupFormContainer'>
+                        <h1 id='unableHeader'>Unable to register</h1>
+                        <p>You need to be 13 or older in order to user Order.</p>
+                        <button id='signupButton' onClick={ () => this.props.history.push('/login')}>Back to Login</button>
+                    </div>
+                </div>
+            )
         }
         return (    
             <div id='signupBackground'>
@@ -103,7 +134,7 @@ class SignupFormContainer extends React.Component {
                                     <option value="none" hidden selected>Select</option>
                                     {monthDays().map(day => (<option value={day} id={day}>{day}</option>))}
                                 </select>
-                                <select id="year">
+                                <select id="year" onChange={this.update('year')} value={this.state.year}>
                                     <option value="none" hidden selected>Select</option>
                                     {years().map(year => (<option value={year} id={year}>{year}</option>))}
                                 </select>

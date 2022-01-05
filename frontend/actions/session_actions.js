@@ -23,6 +23,14 @@ export const receiveErrors = errors => ({
     errors
   });
 
+export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS'
+
+export const removeSessionErrors = () => (
+    {
+        type: REMOVE_SESSION_ERRORS
+    }
+)
+
 // export const SIGNUP_USER = 'SIGNUP_USER'
 // const signupUser = user => ({
 //     type: SIGNUP_USER,
