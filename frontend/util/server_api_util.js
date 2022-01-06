@@ -38,7 +38,7 @@ export const patchServer = server => (
 )
 // delete a server
 
-export const deleteServer = serverId => (
+export const removeServer = serverId => (
     {
         url: `/api/servers/${serverId}`,
         method: 'DETETE'

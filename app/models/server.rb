@@ -1,6 +1,22 @@
 class Server < ApplicationRecord
     
-    validates :server_name, :server_avatar, :creator_id, :type, presence: true
+    validates :server_name, :server_avatar, :creator_id, :server_type, presence: true
+
+    after_initialize :ensure_avatar!
+
+    has_many :categories,
+    foreign_key: :server_id,
+    class_name: :Category,
+    dependent: :destroy
+
+    has_many :channels,
+    through: :categories,
+    dependent: :destroy
+
+
+    def ensure_avatar!
+        self.server_avatar ||= 'server_avatar_string'
+    end
     
 
 end

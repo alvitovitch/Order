@@ -1,0 +1,21 @@
+class Api::ServersController < ApplicationController
+
+    def create
+        @server = Server.new(server_params)
+
+        if @server.save
+            render :show
+        else
+            render json: @server.errors.full_messages, status: 422
+        end
+    end
+
+
+    private
+
+    def server_params
+        params.require(:server).permit(:sever_name, :server_avatar, :creator_id, :server_type)
+    end
+
+
+end

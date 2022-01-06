@@ -6,5 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
+Server.delete_all
+Category.delete_all
+Channel.delete_all
+
 
 model_user = User.create!(username: 'DemoBro', email: 'example@test.fake', password: 'veryFake')
+
+model_server = Server.create!(server_name: 'Test Server', server_type: 1,  creator_id: User.first.id)
+model_category = Category.create!(name: 'Text Channels', server_id: Server.first.id)
+model_channel = Channel.create!(category_id: Category.first.id, name: 'Text Chat')

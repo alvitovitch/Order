@@ -10,21 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_192119) do
+ActiveRecord::Schema.define(version: 2022_01_06_220751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["server_id"], name: "index_categories_on_server_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_channels_on_category_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "server_id", null: false
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_memberships_on_role_id"
+    t.index ["server_id"], name: "index_memberships_on_server_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer "server_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["server_id", "name"], name: "index_roles_on_server_id_and_name", unique: true
+    t.index ["server_id"], name: "index_roles_on_server_id"
+  end
+
   create_table "servers", force: :cascade do |t|
     t.string "server_name", null: false
-    t.integer "type", null: false
+    t.integer "server_type", null: false
     t.string "server_avatar", null: false
     t.integer "creator_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_id"], name: "index_servers_on_creator_id"
     t.index ["server_name"], name: "index_servers_on_server_name"
-    t.index ["type"], name: "index_servers_on_type"
+    t.index ["server_type"], name: "index_servers_on_server_type"
   end
 
   create_table "users", force: :cascade do |t|
