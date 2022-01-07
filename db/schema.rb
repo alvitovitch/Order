@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_220751) do
+ActiveRecord::Schema.define(version: 2022_01_06_220617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,16 +40,6 @@ ActiveRecord::Schema.define(version: 2022_01_06_220751) do
     t.index ["role_id"], name: "index_memberships_on_role_id"
     t.index ["server_id"], name: "index_memberships_on_server_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.integer "server_id", null: false
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_roles_on_name"
-    t.index ["server_id", "name"], name: "index_roles_on_server_id_and_name", unique: true
-    t.index ["server_id"], name: "index_roles_on_server_id"
   end
 
   create_table "servers", force: :cascade do |t|

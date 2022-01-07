@@ -1,5 +1,5 @@
 import React from "react";
-import ServerIndexContainer from "./serverIndex";
+import ServerIndexContainer from "./serverIndexContainer";
 import ServerSplash from "./serverSplash";
 import ServerChannels from "./serverChannels";
 
@@ -7,13 +7,26 @@ import ServerChannels from "./serverChannels";
 class Home extends React.Component {
     constructor(props) {
         super(props)
+        
+        this.state = {
+            servers: props.servers
+        }
+        
     }
+
+    componentDidMount() {
+        this.props.getServers()
+    }
+    
 
     render() {
         if (this.props.currentUser) {
+            console.log(this.state.servers)
         return (
             <div id='homeContainer'>
-                <ServerIndexContainer />
+                <ServerIndexContainer servers={this.state.servers} />
+                <ul>
+                </ul>
                 <ServerChannels />
                 <ServerSplash />
                 <button onClick={this.props.logout}>click me to log out!</button>

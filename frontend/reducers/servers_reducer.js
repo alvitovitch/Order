@@ -10,9 +10,9 @@ const ServersReducer = (oldState = {}, action) => {
     let newState = Object.assign({}, oldState)
 
     switch(action.type) {
-
+        
         case RECEIVE_SERVERS:
-            return action.servers
+            return Object.assign({}, action.servers) 
 
         case RECEIVE_SERVER:
             return Object.assign({}, oldState, { [action.server.id]: action.server})
@@ -20,7 +20,7 @@ const ServersReducer = (oldState = {}, action) => {
         case DELETE_SERVER:
             delete newState[action.serverId]
             return newState
-            
+
         default:
             return oldState
     }
