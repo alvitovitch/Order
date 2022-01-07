@@ -9,7 +9,15 @@ class User < ApplicationRecord
 
     #FIGVAPER
 
-    
+    has_many :memberships,
+    foreign_key: :user_id,
+    class_name: :Membership
+
+    has_many :role, 
+    through: :memberships
+
+    has_many :servers,
+    through: :memberships
 
 
     def self.find_by_credentials(identifier, password)

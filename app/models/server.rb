@@ -13,6 +13,17 @@ class Server < ApplicationRecord
     through: :categories,
     dependent: :destroy
 
+    has_many :roles,
+    foreign_key: :server_id,
+    class_name: :Role
+
+    has_many :memberships,
+    foreign_key: :server_id,
+    class_name: :Membership
+
+    has_many :members,
+    through: :memberships
+
 
     def ensure_avatar!
         self.server_avatar ||= 'server_avatar_string'
