@@ -27,7 +27,6 @@ class SignupFormContainer extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         if (!this.oldEnough()) {
-            debugger
             this.setState({over13: false})
         } else {
         const user = Object.assign({}, this.state)

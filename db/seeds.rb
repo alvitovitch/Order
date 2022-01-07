@@ -9,11 +9,14 @@ User.delete_all
 Server.delete_all
 Category.delete_all
 Channel.delete_all
+Role.delete_all
+Membership.delete_all
 
 
 model_user = User.create!(username: 'DemoBro', email: 'example@test.fake', password: 'veryFake')
 
 model_server = Server.create!(server_name: 'Test Server', server_type: 1,  creator_id: User.first.id)
+model_server_2 = Server.create!(server_name: 'Test Server 2', server_type: 1,  creator_id: 0)
 model_category = Category.create!(name: 'Text Channels', server_id: Server.first.id)
 model_channel = Channel.create!(category_id: Category.first.id, name: 'Text Chat')
 model_role = Role.create!(server_id: Server.first.id, name: 'Test Role')

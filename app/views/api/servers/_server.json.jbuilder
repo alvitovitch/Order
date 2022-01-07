@@ -1,0 +1,1 @@
+json.extract! server, :id, :server_name, :server_avatar, :creator_id
