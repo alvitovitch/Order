@@ -15,6 +15,11 @@ class Api::ServersController < ApplicationController
         render :index
     end
 
+    def show
+        @server = Server.find_by(id: params[:id])
+        render :show
+    end
+
 
     private
 

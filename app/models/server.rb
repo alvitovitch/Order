@@ -28,6 +28,7 @@ class Server < ApplicationRecord
     def ensure_avatar!
         self.server_avatar ||= 'server_avatar_string'
     end
+
     
 
 end

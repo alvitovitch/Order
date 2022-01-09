@@ -6,11 +6,17 @@ class ServerIndexItem extends React.Component {
         super(props)
     }
 
+    makeActive() {
+
+    }
+
     render() {
         
         return(
             <div>
-                <button>{this.props.server.server_name}</button>
+                <a href={`/#/${this.props.server.id}`}>
+                    <button id={`server${this.props.server.id}ShowButton`} >{this.props.server.server_name}</button>
+                </a>
             </div>
         )
     }

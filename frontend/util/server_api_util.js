@@ -11,12 +11,14 @@ export const fetchServers = () => (
 
 // get a single server
 
-export const fetchServer = serverId => (
-    $.ajax({
+export const fetchServer = serverId => 
+    {
+        debugger
+        return $.ajax({
         url: `/api/servers/${serverId}`,
         method: 'GET'
     })
-)
+}
 
 // make a server
 
