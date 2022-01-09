@@ -13,7 +13,6 @@ export const fetchServers = () => (
 
 export const fetchServer = serverId => 
     {
-        debugger
         return $.ajax({
         url: `/api/servers/${serverId}`,
         method: 'GET'
