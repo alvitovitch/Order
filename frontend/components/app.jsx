@@ -8,6 +8,7 @@ import SessionForm from './login/sessionForm'
 import SignupFormContainer from './login/signupFormContainer'
 import Splash from './splash/splash'
 import ServerShowContainer from './server/serverShowContainer'
+import SelectedChannelPageContainer from './server/selectedChannelPageContainer'
 
 const App = ({ children }) => (
     <div>
@@ -16,6 +17,7 @@ const App = ({ children }) => (
             <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path='/signup' component={SignupFormContainer} />
             <ProtectedRoute path='/@me' component={HomeContainer} />
+            <ProtectedRoute path='/*/*' component={SelectedChannelPageContainer}/>
             <ProtectedRoute path='/*' component={ServerShowContainer}/>
             
         </Switch>
