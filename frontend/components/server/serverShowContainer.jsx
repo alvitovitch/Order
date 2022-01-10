@@ -10,16 +10,18 @@ import {
     removeCategory
 } from "../../actions/category_actions"
 const mSTP = (state, ownProps) => {
-    
   return  {
-    server: state.entities.servers[ownProps.match.params[0]]
+    servers: state.entities.servers,
+    server: state.entities.servers[ownProps.match.params[0]],
+    categories: Object.values(state.entities.categories),
+    channels: state.entities.channels
     }
 }
 
-const mDTP = (dispatch, ownProps) => {
+const mDTP = dispatch => {
     return {
-        fetchServer: () => dispatch(fetchServer(ownProps.match.params[0])),
-        fetchCategories: () => dispatch(fetchCategories(ownProps.match.params[0])),
+        fetchServer: serverId => dispatch(fetchServer(serverId)),
+        fetchCategories: serverId => dispatch(fetchCategories(serverId)),
         getServers: () => dispatch(fetchServers())
 
 

@@ -9,7 +9,7 @@ const CategoriesReducer = (oldState = {}, action) => {
     let newState = Object.assign({}, oldState)
     switch (action.type) {
         case RECEIVE_CATEGORIES:
-            return Object.values(action.categories)
+            return action.categories
         case RECEIVE_CATEGORY:
             newState[action.category.id] = action.category
             return newState

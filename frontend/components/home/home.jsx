@@ -7,7 +7,6 @@ import ServerChannels from "./serverChannels";
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        
         this.state = {
             servers: props.servers
         }
@@ -16,6 +15,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.props.getServers()
+
     }
     
 

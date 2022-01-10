@@ -2,7 +2,6 @@ import React from "react";
 
 class CategoryIndexItem extends React.Component {
     constructor(props){
-        debugger
         super(props)
     }
 

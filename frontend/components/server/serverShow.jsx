@@ -5,26 +5,25 @@ import CategoryIndexContainer from "../category/categoryIndexContainer";
 class ServerShow extends React.Component {
 
     constructor(props) {
+        debugger
         super(props)
-        this.state = {
-            server: props.server,
-            categories: props.categories
-        }
+        
 
     }
 
-    componentDidMount() {
-        this.props.fetchServer()
-        this.props.getServers()
-        this.props.fetchCategories()
+    componentDidMount() {  
+        this.props.fetchCategories(this.props.match.params[0])        
+        
     }
 
     render(){
-        if (this.props.server !== undefined) {
+        
+        if (this.props.categories.length !== 0) {
+            debugger
             return (
                 <div className="showPage">
                     <ServerIndexContainer servers={this.props.servers} />
-                    <CategoryIndexContainer server={this.props.server}/>
+                    <CategoryIndexContainer categories={this.props.categories}/>
                     <div>
                     </div>
                         <div>
@@ -33,7 +32,10 @@ class ServerShow extends React.Component {
                 </div>
             )}
         else {
-            return null 
+            return (
+                <div>Loading</div>
+                
+            ) 
         }
     }
 }

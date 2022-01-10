@@ -6,29 +6,28 @@ class CategoryIndex extends React.Component {
 
     constructor(props) {
         super(props)    
-        this.state = {
-            categories: props.categories
-        }
     }
 
-    componentDidMount() {
-        this.props.fetchCategories()
-            .then( categories => this.setState({categories: categories.values}))
-    }
+    
+ 
+    
+
     render() {
         debugger
-        if (this.state.categories !== undefined){
-            debugger
+        if (this.props.categories){
             return(
                 <div>
-                    {this.state.categories.map(category => (<CategoryIndexItem category={category}/>) )}
+                        {this.props.categories.map(category => (<CategoryIndexItem category={category}/>))}
                 </div>
             )
-        } else
-        return(
-            <div></div>
-        )
+        }
+        else {
+            return(
+                <div>categories loading</div>
+            )
+        }
     }
+    
 }
 
 export default CategoryIndex

@@ -3,16 +3,15 @@ import React from 'react';
 import CategoryIndex from './categoryIndex';
 import { fetchCategories } from '../../actions/category_actions'
 
-const mSTP = state => {
+const mSTP = (state, ownProps) => {
     return {
-        servers: Object.values(state.entities.servers)
+        categories: Object.values(state.entities.categories)
     }
     }
 
 const mDTP = (dispatch, ownProps) => {
-    
     return {
-        fetchCategories: () => dispatch(fetchCategories(ownProps.server.id))
+        fetchCategories: serverId => dispatch(fetchCategories(serverId))
     }
 }
 

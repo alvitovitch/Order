@@ -4,7 +4,7 @@ import { logoutSessionUser } from "../../actions/session_actions";
 import { fetchServers } from "../../actions/server_actions";
 import Home from "./home";
 
-const mSTP = state => {
+const mSTP = (state, ownProps) => {
     return {
         currentUser:  state.entities.users[state.session.id],
         servers: Object.values(state.entities.servers)
