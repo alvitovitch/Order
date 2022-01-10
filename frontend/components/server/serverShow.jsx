@@ -1,31 +1,35 @@
 import React from "react";
-
+import ServerIndexContainer from "../home/serverIndexContainer";
+import CategoryIndexContainer from "../category/categoryIndexContainer";
 
 class ServerShow extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            server: this.props.server
+            server: props.server,
+            categories: props.categories
         }
 
     }
 
     componentDidMount() {
         this.props.fetchServer()
+        this.props.getServers()
+        this.props.fetchCategories()
     }
 
     render(){
-        
-        if (this.state.server !== undefined) {
+        if (this.props.server !== undefined) {
             return (
-                <div>
-                    {this.state.server.server_name }
+                <div className="showPage">
+                    <ServerIndexContainer servers={this.props.servers} />
+                    <CategoryIndexContainer server={this.props.server}/>
                     <div>
+                    </div>
                         <div>
                             channels go here
                         </div>
-                    </div>
                 </div>
             )}
         else {

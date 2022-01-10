@@ -21,7 +21,6 @@ class Home extends React.Component {
 
     render() {
         if (this.props.currentUser) {
-            console.log(this.state.servers)
         return (
             <div id='homeContainer'>
                 <ServerIndexContainer servers={this.state.servers} />

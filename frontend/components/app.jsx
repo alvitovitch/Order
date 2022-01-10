@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import { ProtectedRoute, AuthRoute} from '../util/route_util'
 import HomeContainer from './home/homeContainer'
 import Login from './login/login'

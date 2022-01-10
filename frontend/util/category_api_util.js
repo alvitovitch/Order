@@ -34,7 +34,7 @@ export const updateCategory = (serverId, category) => (
     })
 )
 
-export const destroyCategory = (serverId, categoryId) => (
+export const deleteCategory = (serverId, categoryId) => (
     $.ajax({
         url: `/api/servers/${serverId}/categories/${categoryId}`,
         method: 'DELETE'

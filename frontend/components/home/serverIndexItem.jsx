@@ -6,9 +6,6 @@ class ServerIndexItem extends React.Component {
         super(props)
     }
 
-    makeActive() {
-
-    }
 
     render() {
         

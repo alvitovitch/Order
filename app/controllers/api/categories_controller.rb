@@ -11,7 +11,14 @@ class Api::CategoriesController < ApplicationController
 
     def index 
         @categories = Server.find_by(id: params[:server_id]).categories
+        render :index
     end
+
+    def show
+        @category = Category.find_by(id: params[:id])
+        render :show
+    end
+
 
     private
 

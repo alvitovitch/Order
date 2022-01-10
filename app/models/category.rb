@@ -10,5 +10,6 @@ class Category < ApplicationRecord
     foreign_key: :category_id,
     class_name: :Channel,
     dependent: :destroy
+    
 
 end
