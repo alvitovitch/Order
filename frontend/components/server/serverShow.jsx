@@ -5,7 +5,6 @@ import CategoryIndexContainer from "../category/categoryIndexContainer";
 class ServerShow extends React.Component {
 
     constructor(props) {
-        debugger
         super(props)
         
 
@@ -19,7 +18,6 @@ class ServerShow extends React.Component {
     render(){
         
         if (this.props.categories.length !== 0) {
-            debugger
             return (
                 <div className="showPage">
                     <ServerIndexContainer servers={this.props.servers} />

@@ -20,7 +20,6 @@ const removeCategory = categoryId => ({
 
 
 export const fetchCategories = serverId => dispatch => {
-    debugger
     return (categoryApiUtil.fetchCategories(serverId)
         .then(categories => dispatch(receiveCategories(categories)))
     )}

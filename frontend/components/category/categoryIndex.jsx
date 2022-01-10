@@ -13,7 +13,6 @@ class CategoryIndex extends React.Component {
     
 
     render() {
-        debugger
         if (this.props.categories){
             return(
                 <div>
