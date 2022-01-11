@@ -26,12 +26,12 @@ export const fetchCategories = serverId => dispatch => {
 
 export const fetchCategory = (serverId, categoryId) => dispatch => (
     categoryApiUtil.fetchCategory(serverId, categoryId)
-        .then(category => dispatch(fetchCategory(category)))
+        .then(category => dispatch(receiveCategory(category)))
 )
 
 export const createCategory = (serverId, category) => dispatch => {
     return categoryApiUtil.createCategory(serverId, category) 
-        .then(category => dispatch(fetchCategory(category)))
+        .then(category => dispatch(receiveCategory(category)))
 }
 
 export const patchCategory = (serverId, category) => dispatch => (

@@ -7,7 +7,8 @@ class CategoryIndex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: ''
+            name: '',
+            categories: this.props.categories
         }
         
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,7 +23,8 @@ class CategoryIndex extends React.Component {
                 name: this.state.name, server_id: this.props.server.id 
             }
         })
-        .then(document.getElementById('createCategory').style.visibility = 'hidden')
+        .then(document.getElementById('createCategoryBackground').style.visibility = 'hidden')
+        .then(this.setState({categories: this.props.categories}))
 
     }
 

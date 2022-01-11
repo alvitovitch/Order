@@ -6,12 +6,19 @@ class ChannelIndex extends React.Component {
     constructor(props) {
         super(props)
         this.showChannel = this.showChannel.bind(this)
+        this.state = {
+            channels: []
+        }
         
         
     }
 
     componentDidMount() {
+        
         this.props.fetchChannels(this.props.serverId, this.props.categoryId)
+        .then(channels => this.setState({channels: this.props.channels})).then(
+            console.log(this.props.channels)
+        )
     }
 
     showChannel(channel) {
@@ -19,16 +26,17 @@ class ChannelIndex extends React.Component {
     }
 
     render() {
-        if (this.props.channels.length > 0) {
+        debugger
+        if (this.state.channels.length > 0) {
             return (
-                <div class='channelIndex'>
+                <div className='channelIndex'>
                     {this.props.channels.map(channel => (
                     <button onClick={() => this.showChannel(channel)}>{channel.name}</button>))}
                 </div>
             )
         } else {
             return (
-                <div>_</div>
+                <div>loading</div>
             )
         }
     }

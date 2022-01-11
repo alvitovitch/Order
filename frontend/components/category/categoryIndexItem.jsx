@@ -12,9 +12,10 @@ class CategoryIndexItem extends React.Component {
 
     render() {
         return(
-            <div class='categoryItem'>
+            <div className='categoryItem'>
                 {this.props.category.name}
-                <ChannelIndexContainer serverId={this.props.category.server_id} categoryId={this.props.category.id} />
+                <ChannelIndexContainer serverId={this.props.category.server_id}
+                 categoryId={this.props.category.id} />
             </div>
         )
     }
