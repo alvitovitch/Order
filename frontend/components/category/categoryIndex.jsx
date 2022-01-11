@@ -22,14 +22,27 @@ class CategoryIndex extends React.Component {
                 name: this.state.name, server_id: this.props.server.id 
             }
         })
-        .then(
-        )
+        .then(document.getElementById('createCategory').style.visibility = 'hidden')
 
     }
 
     update(field) {
             return e=> this.setState({[field]: e.currentTarget.value})
         
+    }
+
+    show() {
+        const ele = document.getElementById('createCategoryBackground')
+        ele.style.visibility = 'visible' 
+    }
+
+    hideBackground(e) {
+        debugger
+        const bkg = document.getElementById('createCategoryBackground')
+        if (e.target === bkg){
+            debugger    
+            bkg.style.visibility = 'hidden'
+        }
     }
     
 
@@ -39,15 +52,18 @@ class CategoryIndex extends React.Component {
                 <div id='categoryIndex'>
                     <div id='serverName'>
                         {this.props.server.server_name}
+                        <button onClick={this.show}>+</button>
                     </div>
-                    <div id='createCategory' >
-                        <form onSubmit={this.handleSubmit}>Create Category
-                            <label>Category Name
-                                <input type="text" value={this.state.name} 
-                                onChange= {this.update('name')}/>
-                            </label>  
-                                <button>Create Category</button>
-                        </form>
+                    <div id='createCategoryBackground' onClick={e => this.hideBackground(e)}>
+                        <div id='createCategory' >
+                            <form onSubmit={this.handleSubmit}>Create Category
+                                <label>Category Name
+                                    <input type="text" value={this.state.name} 
+                                    onChange= {this.update('name')}/>
+                                </label>  
+                                    <button>Create Category</button>
+                            </form>
+                        </div>
                     </div>
                         {this.props.categories.map(category => (<CategoryIndexItemContainer category={category}/>))}
                         
