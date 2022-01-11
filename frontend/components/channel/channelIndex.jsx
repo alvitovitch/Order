@@ -4,11 +4,10 @@ import React from "react";
 class ChannelIndex extends React.Component {
 
     constructor(props) {
+        debugger
         super(props)
         this.showChannel = this.showChannel.bind(this)
-        this.state = {
-            channels: this.props.channels
-        }
+        
         
         
     }
@@ -16,19 +15,26 @@ class ChannelIndex extends React.Component {
     componentDidMount() {
         
         this.props.fetchChannels(this.props.serverId, this.props.categoryId)
-        .then(channels => this.setState({channels: this.props.channels}))
+        
     }
 
     showChannel(channel) {
         location.hash = `/${this.props.serverId}/${channel.id}`
     }
 
+    makeButton(channel) {
+        if (channel.category_id === this.props.categoryId) {
+            return (
+                <button onClick={() => this.showChannel(channel)}>{channel.name}</button>
+            )
+        }
+    }
+
     render() {
-        if (this.state.channels.length > 0) {
+        if (this.props.channels.length > 0) {
             return (
                 <div className='channelIndex'>
-                    {this.state.channels.map(channel => (
-                    <button onClick={() => this.showChannel(channel)}>{channel.name}</button>))}
+                    {this.props.channels.map(channel => (this.makeButton(channel)))}
                 </div>
             )
         } else {
