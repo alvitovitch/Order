@@ -4,8 +4,10 @@ import ChannelIndexContainer from "../channel/channelIndexContainer";
 class CategoryIndexItem extends React.Component {
     constructor(props){
         super(props)
+        
     }
 
+    
     
 
     render() {

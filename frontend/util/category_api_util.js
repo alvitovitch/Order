@@ -18,13 +18,13 @@ export const fetchCategory = (serverId, categoryId) => (
 
 // create a category
 
-export const createCategory = (serverId, category) => (
-    $.ajax({
+export const createCategory = (serverId, category) => {
+    return $.ajax({
         url: `/api/servers/${serverId}/categories`,
         method: 'POST',
         data: category
     })
-)
+}
 
 export const updateCategory = (serverId, category) => (
     $.ajax({

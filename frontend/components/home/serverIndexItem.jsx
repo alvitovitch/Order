@@ -12,7 +12,7 @@ class ServerIndexItem extends React.Component {
         return(
             <div>
                 <a href={`/#/${this.props.server.id}`}>
-                    <button id={`server${this.props.server.id}ShowButton`} >{this.props.server.server_name}</button>
+                    <button className='serverButton' id={`server${this.props.server.id}ShowButton`} >{this.props.server.server_name}</button>
                 </a>
             </div>
         )

@@ -7,9 +7,7 @@ import ServerChannels from "./serverChannels";
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            servers: props.servers
-        }
+        
         
     }
 
@@ -23,7 +21,7 @@ class Home extends React.Component {
         if (this.props.currentUser) {
         return (
             <div id='homeContainer'>
-                <ServerIndexContainer servers={this.state.servers} />
+                <ServerIndexContainer servers={this.props.servers} />
                 <ul>
                 </ul>
                 <ServerChannels />

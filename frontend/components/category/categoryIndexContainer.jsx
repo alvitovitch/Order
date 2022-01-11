@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import CategoryIndex from './categoryIndex';
-import { fetchCategories } from '../../actions/category_actions'
+import { fetchCategories, createCategory } from '../../actions/category_actions'
 
 const mSTP = (state, ownProps) => {
     return {
@@ -11,7 +11,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch, ownProps) => {
     return {
-        fetchCategories: serverId => dispatch(fetchCategories(serverId))
+        fetchCategories: serverId => dispatch(fetchCategories(serverId)),
+        createCategory: (serverId, category) => dispatch(createCategory(serverId, category))
     }
 }
 

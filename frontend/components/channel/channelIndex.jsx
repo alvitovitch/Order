@@ -19,7 +19,6 @@ class ChannelIndex extends React.Component {
     }
 
     render() {
-        debugger
         if (this.props.channels.length > 0) {
             return (
                 <div>
@@ -29,7 +28,7 @@ class ChannelIndex extends React.Component {
             )
         } else {
             return (
-                <div>loading</div>
+                <div>_</div>
             )
         }
     }

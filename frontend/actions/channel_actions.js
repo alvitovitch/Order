@@ -35,7 +35,7 @@ export const createChannel = (serverId, categoryId, channel) => dispatch => (
 )
 
 export const patchChannel = (serverId, categoryId, channel) => dispatch => (
-    channelApiUtil.updateCategory(serverId, categoryId, channel)
+    channelApiUtil.updateChannel(serverId, categoryId, channel)
         .then(channel => dispatch(receiveChannel(channel.id)))
 )
 
