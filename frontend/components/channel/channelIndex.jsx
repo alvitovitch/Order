@@ -26,17 +26,17 @@ class ChannelIndex extends React.Component {
     }
 
     render() {
-        debugger
         if (this.state.channels.length > 0) {
+            debugger
             return (
                 <div className='channelIndex'>
-                    {this.props.channels.map(channel => (
+                    {this.state.channels.map(channel => (
                     <button onClick={() => this.showChannel(channel)}>{channel.name}</button>))}
                 </div>
             )
         } else {
             return (
-                <div>loading</div>
+                <div style={{display:'none'}}>loading</div> 
             )
         }
     }

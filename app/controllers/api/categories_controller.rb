@@ -19,6 +19,13 @@ class Api::CategoriesController < ApplicationController
         render :show
     end
 
+    def destroy
+        @category = Category.find_by(id: params[:id])
+        if @category.server.creator_id == current_user.id
+            @category.delete
+        end
+    end
+
 
     private
 

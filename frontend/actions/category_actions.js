@@ -13,10 +13,12 @@ const receiveCategory = category => ({
 })
 
 export const REMOVE_CATEGORY = 'REMOVE_CATEGORY'
-const removeCategory = categoryId => ({
+const removeCategory = categoryId => {
+    debugger
+    {
     type: REMOVE_CATEGORY,
     categoryId
-})
+}}
 
 
 export const fetchCategories = serverId => dispatch => {

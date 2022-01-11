@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import CategoryIndex from './categoryIndex';
-import { fetchCategories, createCategory } from '../../actions/category_actions'
+import { fetchCategories, createCategory, deleteCategory } from '../../actions/category_actions'
 
 const mSTP = (state, ownProps) => {
     return {

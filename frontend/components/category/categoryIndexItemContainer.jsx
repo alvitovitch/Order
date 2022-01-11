@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import CategoryIndexItem from "./categoryIndexItem";
 
-import { createCategory } from '../../actions/category_actions'
+import { deleteCategory } from '../../actions/category_actions'
 
 const mSTP = state => {
    return {
@@ -10,6 +10,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => (
     {
+        deleteCategory: category => dispatch(deleteCategory(category.server_id, category.id))
+
     }
 )
 
