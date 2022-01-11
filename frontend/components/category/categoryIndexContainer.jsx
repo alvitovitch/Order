@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import CategoryIndex from './categoryIndex';
+import { createChannel } from '../../actions/channel_actions';
 import { fetchCategories, createCategory, deleteCategory } from '../../actions/category_actions'
 
 const mSTP = (state, ownProps) => {
@@ -12,7 +13,9 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch, ownProps) => {
     return {
         fetchCategories: serverId => dispatch(fetchCategories(serverId)),
-        createCategory: (serverId, category) => dispatch(createCategory(serverId, category))
+        createCategory: (serverId, category) => dispatch(createCategory(serverId, category)),
+        createChannel: (category, channel) => dispatch(createChannel(category.server_id, category.id, channel))
+
     }
 }
 

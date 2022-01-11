@@ -11,12 +11,13 @@ class Api::ChannelsController < ApplicationController
 
     def index 
         @channels = Category.find_by(id: params[:category_id]).channels
+        render :index
     end
 
     private
 
     def channel_params 
-        params.require(:channel).permit(:name, :server_id)
+        params.require(:channel).permit(:name, :category_id)
     end
 
 end

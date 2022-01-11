@@ -23,6 +23,7 @@ class Api::CategoriesController < ApplicationController
         @category = Category.find_by(id: params[:id])
         if @category.server.creator_id == current_user.id
             @category.delete
+            render :show
         end
     end
 

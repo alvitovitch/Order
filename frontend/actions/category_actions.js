@@ -14,8 +14,7 @@ const receiveCategory = category => ({
 
 export const REMOVE_CATEGORY = 'REMOVE_CATEGORY'
 const removeCategory = categoryId => {
-    debugger
-    {
+    return {
     type: REMOVE_CATEGORY,
     categoryId
 }}
@@ -41,7 +40,8 @@ export const patchCategory = (serverId, category) => dispatch => (
         .then(category => dispatch(receiveCategory(category.id)))
 )
 
-export const deleteCategory = (serverId, categoryId) => dispatch => (
-    categoryApiUtil.deleteCategory(serverId, categoryId)
+export const deleteCategory = (serverId, categoryId) => dispatch =>{ 
+    
+return categoryApiUtil.deleteCategory(serverId, categoryId)
         .then(category => dispatch(removeCategory(category.id)))
-)
+}

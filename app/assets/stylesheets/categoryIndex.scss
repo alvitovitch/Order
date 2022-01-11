@@ -8,6 +8,12 @@
     background-color: #2f3136;
 }
 
+.categoryTopLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px
+}
+
 #serverName {
     display: flex;
     flex-direction: row;

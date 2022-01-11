@@ -1,6 +1,10 @@
 import React from "react";
 import ServerIndexContainer from "../home/serverIndexContainer";
 import CategoryIndexContainer from "../category/categoryIndexContainer";
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { ProtectedRoute, AuthRoute} from '../../util/route_util'
+import selectedChannelPageContainer from "./selectedChannelPageContainer";
+
 
 class ServerShow extends React.Component {
 
@@ -24,9 +28,11 @@ class ServerShow extends React.Component {
                     <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
                     <div>
                     </div>
-                        <div>
-                            channels go here
-                        </div>
+                    <div id='middleComponent'>
+                        <Switch>
+                            <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
+                        </Switch>
+                    </div>       
                 </div>
             )}
         else {

@@ -7,10 +7,11 @@ const receiveChannels = channels => ({
 })
 
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL'
-const receiveChannel = channel => ({
+const receiveChannel = channel => {
+    return {
     type: RECEIVE_CHANNEL,
     channel
-})
+}}
 
 export const REMOVE_CHANNEL = 'REMOVE_CHANNEL'
 const removeChannel = channelId => ({
@@ -31,7 +32,7 @@ export const fetchChannel = (serverId, categoryId, channelId) => dispatch => (
 
 export const createChannel = (serverId, categoryId, channel) => dispatch => (
     channelApiUtil.createChannel(serverId, categoryId, channel)
-        .then(channel => dispatch(receiveChannel(channel.id)))
+        .then(channel => dispatch(receiveChannel(channel)))
 )
 
 export const patchChannel = (serverId, categoryId, channel) => dispatch => (

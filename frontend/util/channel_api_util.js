@@ -18,13 +18,14 @@ export const fetchChannel = (serverId, categoryId, channelId) => (
 
 // create a category
 
-export const createChannel = (serverId, categoryId, channel) => (
-    $.ajax({
+export const createChannel = (serverId, categoryId, channel) => 
+    {
+return $.ajax({
         url: `/api/servers/${serverId}/categories/${categoryId}/channels`,
         method: 'POST',
         data: channel
     })
-)
+    }
 
 export const updateChannel = (serverId, categoryId, channel) => (
     $.ajax({
