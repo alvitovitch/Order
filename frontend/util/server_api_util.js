@@ -21,13 +21,14 @@ export const fetchServer = serverId =>
 
 // make a server
 
-export const createServer = server => (
-    $.ajax({
+export const createServer = server => {
+    debugger
+    return $.ajax({
         url: `/api/servers`,
         method: 'POST',
         data: server
     })
-)
+}
 // update a server
 
 export const patchServer = server => (

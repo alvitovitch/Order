@@ -10,6 +10,7 @@ import {
     removeCategory
 } from "../../actions/category_actions"
 const mSTP = (state, ownProps) => {
+    debugger
   return  {
     servers: state.entities.servers,
     server: state.entities.servers[ownProps.match.params[0]],
@@ -22,7 +23,8 @@ const mDTP = dispatch => {
     return {
         fetchServer: serverId => dispatch(fetchServer(serverId)),
         fetchCategories: serverId => dispatch(fetchCategories(serverId)),
-        getServers: () => dispatch(fetchServers())
+        getServers: () => dispatch(fetchServers()),
+        
 
 
     }

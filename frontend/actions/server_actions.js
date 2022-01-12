@@ -40,6 +40,12 @@ export const patchServer = server => dispatch => (
         .then(server => dispatch(receiveServer(server.id)))
 )
 
+export const createServer = server => dispatch => {
+    debugger
+    return serverApiUtil.createServer(server)
+        .then(server => dispatch(receiveServer(server)))
+}
+
     // delete server and then fetch the server index
 export const removeServer = serverId => dispatch => (
     serverApiUtil.removeServer(serverId)

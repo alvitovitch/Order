@@ -15,9 +15,17 @@ class ServerShow extends React.Component {
     }
 
     componentDidMount() {  
+        this.props.getServers()
         this.props.fetchServer(this.props.match.params[0])
         this.props.fetchCategories(this.props.match.params[0])        
         
+    }
+
+    componentDidUpdate() {
+        debugger
+        if (this.props.categories.length > 0 && this.props.categories[0].server_id !== this.props.server.id){
+            this.props.fetchCategories(this.props.match.params[0])
+        }
     }
 
     render(){

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import ServerIndex from './serverIndex';
+import { createServer } from '../../actions/server_actions';
 
 const mSTP = (state, ownProps) => {
     
@@ -10,7 +11,7 @@ const mSTP = (state, ownProps) => {
     }
 
 const mDTP = dispatch => ({
-
+    createServer: server => dispatch(createServer(server))
 })
 
 

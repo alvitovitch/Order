@@ -31,4 +31,6 @@ class Server < ApplicationRecord
 
     
 
+    
+
 end
