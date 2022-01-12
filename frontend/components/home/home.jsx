@@ -22,12 +22,7 @@ class Home extends React.Component {
         return (
             <div id='homeContainer'>
                 <ServerIndexContainer servers={this.props.servers} />
-                <ul>
-                </ul>
                 <ServerChannels />
-                <ServerSplash />
-                <button onClick={this.props.logout}>click me to log out!</button>
-                this is home!
             </div>
         )}
         else 

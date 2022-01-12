@@ -50,15 +50,16 @@ class CategoryIndexItem extends React.Component {
     
 
     render() {
+        debugger
         return(
             <div className='categoryItem'>
                 <div className='categoryTopLine'>
-                {this.state.category.name}
+                {this.props.category.name}
                 <button onClick={this.handleDelete}>x</button>
                 <button onClick={this.show}>+</button>
                 </div>
-                <ChannelIndexContainer serverId={this.state.category.server_id}
-                 categoryId={this.state.category.id} />
+                <ChannelIndexContainer serverId={this.props.category.server_id}
+                 categoryId={this.props.category.id} />
                  <div>
                     
                 </div>

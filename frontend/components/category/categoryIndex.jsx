@@ -8,13 +8,21 @@ class CategoryIndex extends React.Component {
         super(props)
         this.state = {
             name: '',
-            categories: this.props.categories
+            categories: this.props.categories,
+            last_server: ''
         }
         
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
 
+    componentDidUpdate() {
+        if (this.props.server.id !== this.state.last_server){
+            this.props.fetchCategories(this.props.server.id).then(
+                this.setState({last_server: this.props.server.id})
+            )
+        }
+    }
     
     handleSubmit(e) {
         e.preventDefault()
@@ -36,7 +44,7 @@ class CategoryIndex extends React.Component {
                 }
             })
             .then(document.getElementById('createCategoryBackground').style.visibility = 'hidden')
-            .then(this.setState({categories: this.props.categories}))
+            .then(this.setState({name: ''}))
         }
 
     }
@@ -60,7 +68,7 @@ class CategoryIndex extends React.Component {
     
 
     render() {
-        if (this.props.categories){
+        if (this.props.categories.length > 0){
             return(
                 <div id='categoryIndex'>
                     <div id='serverName'>
@@ -94,9 +102,41 @@ class CategoryIndex extends React.Component {
                 </div>
             )
         }
-        else {
+        else if (this.props.server !== undefined) {
             return(
-                <div>categories loading</div>
+                <div id='categoryIndex'>
+                    <div id='serverName'>
+                        {this.props.server.server_name}
+                        <button onClick={this.show}>+</button>
+                    </div>
+                    <div id='createCategoryBackground' onClick={e => this.hideBackground(e)}>
+                        <div id='createCategory' >
+                            <form onSubmit={this.handleSubmit}>Create Category
+                                <label>Category Name
+                                    <input type="text" value={this.state.name} 
+                                    onChange= {this.update('name')}/>
+                                </label>  
+                                    <button>Create Category</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id='createChannelBackground' onClick={e => this.hideBackground(e)}>
+                            <div id='createChannel' >
+                                <form onSubmit={this.handleSubmit}>Create Channel
+                                    <label>Channel Name
+                                        <input type="text" value={this.state.name} 
+                                        onChange= {this.update('name')}/>
+                                    </label>  
+                                        <button>Create Channel</button>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>loading</div>
             )
         }
     }

@@ -16,10 +16,7 @@ Membership.delete_all
 model_user = User.create!(username: 'DemoBro', email: 'example@test.fake', password: 'veryFake')
 
 model_server = Server.create!(server_name: 'Test Server', server_type: 1,  creator_id: User.first.id)
-model_server_2 = Server.create!(server_name: 'Test Server 2', server_type: 1,  creator_id: 0)
 model_category = Category.create!(name: 'Text Channels', server_id: Server.first.id)
 model_channel = Channel.create!(category_id: Category.first.id, name: 'Text Chat')
 model_role = Role.create!(server_id: Server.first.id, name: 'Test Role')
-model_role = Role.create!(server_id: Server.second.id, name: 'Test Role 2')
 model_membership = Membership.create!(server_id: Server.first.id, user_id: User.first.id, role_id: Role.first.id)
-model_membership = Membership.create!(server_id: Server.second.id, user_id: User.first.id, role_id: Role.second.id)

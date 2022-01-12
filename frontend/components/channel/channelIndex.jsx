@@ -4,7 +4,6 @@ import React from "react";
 class ChannelIndex extends React.Component {
 
     constructor(props) {
-        debugger
         super(props)
         this.showChannel = this.showChannel.bind(this)
         

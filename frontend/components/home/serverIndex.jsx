@@ -40,22 +40,24 @@ class ServerIndex extends React.Component {
     render() {
         return(
             <div id='serverIndex'>
-                <button className="serverButton" id='homeButton' onClick={() => this.goHome()}></button>
                 <ul>
+                    <button className="serverButton" id='homeButton' onClick={() => this.goHome()}></button>
+                    <div id='seperator'></div>
                     {this.props.servers.map(server => ( <ServerIndexItem server={server}/>))}
                 </ul>
                 <button onClick={this.show}>+</button>
                 <div id='createServerBackground' onClick={e => this.hideBackground(e)}>
-                            <div id='createServer' >
-                                <form onSubmit={this.createServer}>Create Server
-                                    <label>Server Name
-                                        <input type="text" value={this.state.name} 
-                                        onChange= {this.update('name')}/>
-                                    </label>  
-                                        <button>Create Server</button>
-                                </form>
-                            </div>
-                    </div>
+                        <div id='createServer' >
+                            <form onSubmit={this.createServer}>Create Server
+                                <label>Server Name
+                                    <input type="text" value={this.state.name} 
+                                    onChange= {this.update('name')}/>
+                                </label>  
+                                    <button>Create Server</button>
+                            </form>
+                        </div>
+                </div>
+
             </div>
         )
     }

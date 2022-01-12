@@ -41,7 +41,6 @@ export const patchServer = server => dispatch => (
 )
 
 export const createServer = server => dispatch => {
-    debugger
     return serverApiUtil.createServer(server)
         .then(server => dispatch(receiveServer(server)))
 }

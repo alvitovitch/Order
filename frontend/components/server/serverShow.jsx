@@ -21,12 +21,6 @@ class ServerShow extends React.Component {
         
     }
 
-    componentDidUpdate() {
-        debugger
-        if (this.props.categories.length > 0 && this.props.categories[0].server_id !== this.props.server.id){
-            this.props.fetchCategories(this.props.match.params[0])
-        }
-    }
 
     render(){
         if (this.props.categories.length !== 0) {
@@ -45,7 +39,17 @@ class ServerShow extends React.Component {
             )}
         else {
             return (
-                <div>Loading</div>
+                <div className="showPage">
+                <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
+                <CategoryIndexContainer server={this.props.server}/>
+                <div>
+                </div>
+                <div id='middleComponent'>
+                    <Switch>
+                        <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
+                    </Switch>
+                </div>       
+            </div>
                 
             ) 
         }
