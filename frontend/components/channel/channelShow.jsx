@@ -1,6 +1,10 @@
 import React from "react";
+import consumer from "../../../app/javascript/channels/consumer";
+
 
 class channelShow extends React.Component {
+
+    
 
     render() {
         return <div>

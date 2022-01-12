@@ -1,7 +1,6 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    debugger
     @channel = Channel.find(params[:id])
     stream_for @channel
   end
