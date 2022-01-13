@@ -2,16 +2,21 @@ import React from "react";
 import { ServerShowContainer } from './serverShowContainer'
 import consumer from "../../../app/javascript/channels/consumer";
 
+
 class SelectedChannelPage extends React.Component {
 
     constructor(props) {
         super(props)
+        this.channel = ''
     }
 
     componentDidUpdate() {
+        debugger
         if (this.props.channel !== undefined) {
-            debugger
-        consumer.subscriptions.create({channel: 'MessagesChannel', id: this.props.channel.id}, {
+            if (this.channel !== '') {
+                this.channel.unsubscribe()
+            }
+        const channel = consumer.subscriptions.create({channel: 'MessagesChannel', id: this.props.channel.id}, {
             connected() {
               // Called when the subscription is ready for use on the server'
               console.log('hiii')
@@ -23,8 +28,12 @@ class SelectedChannelPage extends React.Component {
           
             received(data) {
               // Called when there's incoming data on the websocket for this channel
+              console.log(data)
             }
           });
+          this.channel = channel
+          debugger
+          this.channel.received({content: 'testing'})
         }
     }
 

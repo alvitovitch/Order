@@ -2,7 +2,7 @@ import React from "react";
 import ServerIndexContainer from "./serverIndexContainer";
 import ServerSplash from "./serverSplash";
 import ServerChannels from "./serverChannels";
-import MessageList from "../messages/messageList";
+//import MessageList from "../messages/messageList";
 import consumer from "../../../app/javascript/channels/consumer";
 
 
