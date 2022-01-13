@@ -8,7 +8,25 @@ class SelectedChannelPage extends React.Component {
         super(props)
     }
 
-    
+    componentDidUpdate() {
+        if (this.props.channel !== undefined) {
+            debugger
+        consumer.subscriptions.create({channel: 'MessagesChannel', id: this.props.channel.id}, {
+            connected() {
+              // Called when the subscription is ready for use on the server'
+              console.log('hiii')
+            },
+          
+            disconnected() {
+              // Called when the subscription has been terminated by the server
+            },
+          
+            received(data) {
+              // Called when there's incoming data on the websocket for this channel
+            }
+          });
+        }
+    }
 
     render() {
         if (this.props.channel !== undefined) {
