@@ -1,5 +1,6 @@
 import React from "react";
 import ServerIndexItem from "./serverIndexItem";
+import consumer from "../../../app/javascript/channels/consumer";
 
 //presentational component
 class ServerIndex extends React.Component {
@@ -11,6 +12,23 @@ class ServerIndex extends React.Component {
         this.goHome = this.goHome.bind(this)
         this.createServer = this.createServer.bind(this)
     }
+
+    // componentDidUpdate() {
+    //     consumer.subscriptions.create({channel: 'MessagesChannel', id: 108}, {
+    //         connected() {
+    //           // Called when the subscription is ready for use on the server'
+    //           console.log('hiii')
+    //         },
+          
+    //         disconnected() {
+    //           // Called when the subscription has been terminated by the server
+    //         },
+          
+    //         received(data) {
+    //           // Called when there's incoming data on the websocket for this channel
+    //         }
+    //       });
+    // }
     
     goHome() {
         location.hash = '#/@me'
@@ -38,6 +56,7 @@ class ServerIndex extends React.Component {
         document.getElementById('createServerBackground').style.visibility = 'hidden'
     }
     render() {
+           
         return(
             <div id='serverIndex'>
                 <ul>

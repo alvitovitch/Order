@@ -50,6 +50,7 @@ class CategoryIndexItem extends React.Component {
     
 
     render() {
+        debugger
         return(
             <div className='categoryItem'>
                 <div className='categoryTopLine'>

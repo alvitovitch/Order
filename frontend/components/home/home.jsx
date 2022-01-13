@@ -2,7 +2,10 @@ import React from "react";
 import ServerIndexContainer from "./serverIndexContainer";
 import ServerSplash from "./serverSplash";
 import ServerChannels from "./serverChannels";
-import consumer from '../../consumer'
+//import MessageList from "../messages/messageList";
+import consumer from "../../../app/javascript/channels/consumer";
+
+
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -32,6 +35,12 @@ class Home extends React.Component {
 
     render() {
         
+
+        
+          
+
+
+
         if (this.props.currentUser) {
         return (
             <div id='homeContainer'>

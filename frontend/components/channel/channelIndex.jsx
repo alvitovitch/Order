@@ -6,6 +6,7 @@ class ChannelIndex extends React.Component {
     constructor(props) {
         super(props)
         this.showChannel = this.showChannel.bind(this)
+        this.serverId = ''
         
         
         
@@ -15,6 +16,11 @@ class ChannelIndex extends React.Component {
         
         this.props.fetchChannels(this.props.serverId, this.props.categoryId)
         
+    }
+    componentDidUpdate() {
+        if (this.props.serverId === undefined || this.serverId !== this.props.serverId)
+        this.props.fetchChannels(this.props.serverId, this.props.categoryId)
+        this.serverId = this.props.serverId
     }
 
     showChannel(channel) {
