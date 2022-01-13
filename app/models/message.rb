@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-    validates :channel_id, :author_id, :body, :reply, presence: true
+    validates :channel_id, :body, presence: true
 
     belongs_to :author,
     foreign_key: :author_id,
@@ -15,5 +15,5 @@ class Message < ApplicationRecord
     has_one :server,
     through: :category
 
-
+    
 end

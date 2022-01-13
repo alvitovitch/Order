@@ -9,6 +9,11 @@ class Api::ChannelsController < ApplicationController
         end
     end
 
+    def show
+        @channel = Channel.find_by(id: params[:id])
+        render :show
+    end
+
     def index 
         @channels = Category.find_by(id: params[:category_id]).channels
         render :index
