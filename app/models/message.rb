@@ -7,12 +7,12 @@ class Message < ApplicationRecord
 
     belongs_to :channel,
     foreign_key: :channel_id,
-    class_name: :channel
+    class_name: :Channel
 
-    belongs_to :category,
+    has_one :category,
     through: :channel
 
-    belongs_to :server,
+    has_one :server,
     through: :category
 
 
