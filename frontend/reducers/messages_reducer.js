@@ -7,7 +7,6 @@ const MessagesReducer = (oldState = {}, action ) => {
     let newState = Object.assign({}, oldState)
     switch (action.type) {
         case RECEIVE_MESSAGES:
-            debugger
             return action.messages
         case RECEIVE_MESSAGE:
             newState[action.message.id] = action.message

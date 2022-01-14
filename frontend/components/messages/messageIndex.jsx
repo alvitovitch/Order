@@ -1,4 +1,5 @@
 import React from "react";
+import MessageIndexItemContainer from "./messageIndexItemContainer";
 
 class MessageIndex extends React.Component {
     constructor(props) {
@@ -39,13 +40,15 @@ class MessageIndex extends React.Component {
     }
 
     render() {
-        debugger
+        
         if (this.props.messages !== undefined && Object.values(this.props.messages).length > 0) {
         return(
-            <div>
-                {Object.values(this.props.messages).map(message => (<div>{message.body}</div>))}
+            <div id='messageIndex'>
+                <div id='messageIndexItems'>
+                    {Object.values(this.props.messages).map(message => (<MessageIndexItemContainer message={message}/>))}
+                </div>
                 <div>
-                    <form onSubmit={this.handleSubmit}>
+                    <form id='messageForm' onSubmit={this.handleSubmit}>
                                 <input type="text" value={this.state.body} 
                                 onChange= {this.update('body')}/>
                     </form>
@@ -53,7 +56,15 @@ class MessageIndex extends React.Component {
             </div>
         ) } else {
             return(
-                <div>Looks like no one has posted yet</div>
+                <div>
+                    <div>Looks like no one has posted yet</div>
+                    <div>
+                        <form id='messageForm' onSubmit={this.handleSubmit}>
+                                    <input type="text" value={this.state.body} 
+                                    onChange= {this.update('body')}/>
+                        </form>
+                    </div>
+                </div>
             )
         }
     } 

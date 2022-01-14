@@ -4,7 +4,6 @@ import { createMessage, fetchMessages } from "../../actions/message_actions";
 
 
 const mSTP = state => {
-    debugger
     return {
         messages: state.entities.messages
     }

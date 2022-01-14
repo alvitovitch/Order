@@ -11,7 +11,7 @@ class CategoryIndex extends React.Component {
             categories: this.props.categories,
             last_server: ''
         }
-        
+        this.deleteCategory = this.deleteCategory.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
@@ -49,6 +49,11 @@ class CategoryIndex extends React.Component {
 
     }
 
+    deleteCategory(e) {
+        e.currentTarget.action()()
+        e.currentTarget.style.display = 'none'
+    }
+
     update(field) {
             return e=> this.setState({[field]: e.currentTarget.value})
         
@@ -61,8 +66,11 @@ class CategoryIndex extends React.Component {
 
     hideBackground(e) {
         const bkg = document.getElementById('createCategoryBackground')
+        const oBkg = document.getElementById('createChannelBackground')
         if (e.target === bkg){
             bkg.style.visibility = 'hidden'
+        } else if (e.target === oBkg) {
+            oBkg.style.visibility = 'hidden'
         }
     }
     
@@ -97,6 +105,8 @@ class CategoryIndex extends React.Component {
                                 </form>
                             </div>
                     </div>
+                    <button id='deleteCategoryButton' onClick={e => this.deleteCategory(e)}>Delete Category</button>
+                    
                         {this.props.categories.map(category => (<CategoryIndexItemContainer category={category}/>))}
                         
                 </div>

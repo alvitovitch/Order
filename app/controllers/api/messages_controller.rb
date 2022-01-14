@@ -14,7 +14,6 @@ class Api::MessagesController < ApplicationController
     end
 
     def index
-        debugger
         @messages = Channel.find_by(id: params[:channel_id]).messages
         render :index
     end

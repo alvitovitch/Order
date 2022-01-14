@@ -1,0 +1,58 @@
+.messageItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.messageItemMain {
+    display: flex;
+    flex-direction: column;
+}
+
+.userAvatar {
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+    border-color: blue;
+    border-radius: 25px;
+}
+
+#middleComponent{
+    height: 100vh;
+    width: 70%;
+    background:#36393F ;
+}
+
+// #middleComponent::-webkit-scrollbar{
+//     color: blue;
+// }
+
+#messageIndex{
+    height: 92%;
+}
+
+#messageIndexItems {
+    height: 90%;
+    overflow-y: scroll;
+
+}
+
+#showPage {
+    height: inherit;
+}
+
+#messageForm {
+    width: 100%;
+    height: 10%;
+}
+
+#messageForm > input {
+    margin-top: 15px;
+    width: 100%;
+    height: 10%;
+}
+
+#selectedServer {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}

@@ -1,0 +1,31 @@
+.channelButton {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba($color: #000000, $alpha: 0);
+    width: 95%;
+    align-items: center;
+    color: grey;
+    border-style: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.hash {
+    font-size: 20px;
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+.channelButton:focus {
+    background-color: rgb(81, 81, 81);
+    color: white;
+    
+}
+
+.channelButton:focus .hash{
+    color: grey;
+
+}
+
+.channelButton:hover {
+    color: rgb(184, 184, 184);
+}

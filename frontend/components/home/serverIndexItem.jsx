@@ -16,7 +16,7 @@ class ServerIndexItem extends React.Component {
         return(
             <div>
                 <a href={`/#/${this.props.server.id}`}>
-                    <button onClick={this.handleClick} className='serverButton' id={`server${this.props.server.id}ShowButton`} >{this.props.server.server_name}</button>
+                    <button onClick={this.handleClick} className='serverButton' id={`server${this.props.server.id}ShowButton`} >{this.props.server.server_name.slice(0,3)}</button>
                 </a>
             </div>
         )

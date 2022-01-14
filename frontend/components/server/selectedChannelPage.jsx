@@ -37,8 +37,8 @@ class SelectedChannelPage extends React.Component {
           
             received(data) {
               // Called when there's incoming data on the websocket for this channel
-              debugger
-              fetch(data[0], data[1], data[3])
+              
+              fetch(data.messages[0], data.messages[1], data.messages[2])
             }
           });
           this.channel = channel
@@ -50,8 +50,10 @@ class SelectedChannelPage extends React.Component {
         if (this.props.channel !== undefined) {
             
         return(
-            <div>
-                {this.props.channel.name}
+            <div id='selectedServer'>
+                <div id='channelTitle'>
+                    {this.props.channel.name}
+                </div>
                 <MessageIndexContainer channel={this.props.channel} serverId={this.props.match.params[0]}/>
             </div>
         )
