@@ -1,5 +1,7 @@
 import React from "react";
 import CategoryIndexItemContainer from "./categoryIndexItemContainer";
+import consumer from "../../../app/javascript/channels/consumer";
+
 
 
 class CategoryIndex extends React.Component {
@@ -13,7 +15,7 @@ class CategoryIndex extends React.Component {
         }
         this.deleteCategory = this.deleteCategory.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-
+        this.channel = ''
     }
 
     componentDidUpdate() {
@@ -22,7 +24,37 @@ class CategoryIndex extends React.Component {
                 this.setState({last_server: this.props.server.id})
             )
         }
-    }
+            if (this.props.server !== undefined) {
+                // if (this.props.messages === undefined ||
+                //      (Object.values(this.props.messages).length === 0 && this.fetched === false) ||
+                //      Object.values(this.props.messages)[0].channel_id !== this.props.channel.id 
+                //      ) {
+                //     this.feteched = true
+                //     
+                // }
+                if (this.channel !== '') {
+                    this.channel.unsubscribe()
+                }
+            const fetch = () => this.props.fetchCategories(this.props.server.id)
+            const channel = consumer.subscriptions.create({channel: 'MessagesChannel', id: `category${this.state.last_server}`}, {
+                connected() {
+                  // Called when the subscription is ready for use on the server'
+                },
+              
+                disconnected() {
+                  // Called when the subscription has been terminated by the server
+                },
+              
+                received(data) {
+                  // Called when there's incoming data on the websocket for this channel
+                  debugger
+                  fetch
+                }
+              });
+              this.channel = channel
+              
+            }
+        }
     
     handleSubmit(e) {
         e.preventDefault()

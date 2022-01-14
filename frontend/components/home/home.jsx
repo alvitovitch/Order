@@ -16,7 +16,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.props.getServers()
-
+        this.props.getUsers()
     }
     
 
@@ -36,6 +36,9 @@ class Home extends React.Component {
                 <div id='rightComponentTwo'>
                     everything else
                 </div>
+                <button onClick={this.props.logout}>
+                    logout
+                </button>
             </div>
         )}
         else 
