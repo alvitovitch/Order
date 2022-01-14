@@ -35,7 +35,7 @@ class MessageIndex extends React.Component {
                 body: this.state.body,
                 reply: false
             }} )
-            .then(this.setState({body: ''}))
+            .then(this.setState({body: ``}))
             
     }
 
@@ -47,23 +47,19 @@ class MessageIndex extends React.Component {
                 <div id='messageIndexItems'>
                     {Object.values(this.props.messages).map(message => (<MessageIndexItemContainer message={message}/>))}
                 </div>
-                <div>
                     <form id='messageForm' onSubmit={this.handleSubmit}>
                                 <input type="text" value={this.state.body} 
-                                onChange= {this.update('body')}/>
+                                onChange= {this.update('body')} placeholder={`Message #${this.props.channel.name}`}/>
                     </form>
-                </div>
             </div>
         ) } else {
             return(
-                <div>
+                <div id='emptyChannel'>
                     <div>Looks like no one has posted yet</div>
-                    <div>
                         <form id='messageForm' onSubmit={this.handleSubmit}>
-                                    <input type="text" value={this.state.body} 
-                                    onChange= {this.update('body')}/>
+                                    <input type='text' value={this.state.body} 
+                                    onChange= {this.update('body')} placeholder={`Message #${this.props.channel.name}`}></input> 
                         </form>
-                    </div>
                 </div>
             )
         }

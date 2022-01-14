@@ -54,6 +54,7 @@ class ServerShow extends React.Component {
                     <Switch>
                         <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
                     </Switch>
+                    
                 </div>
                 <div id='rightComponent'>
                     <div>
