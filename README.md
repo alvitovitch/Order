@@ -37,9 +37,12 @@ Things you may want to cover:
 
 # Table of Contents #
 
-* About
+* [About]
+* [Technology Utilized]
+* [Live Chat]
+* [Code Related to Broadcasting]
 
-## About ##
+## About 
 ---
 Order is a clone of Discord, an instant messaging application where users create and join servers to build their own communities. Inside of a server users can create and destroy categories, the folders which contain the server's channels. Inside of those categories users can create and destroy channels, and inside of those users can write and send messages to one another in real time!
 
@@ -52,7 +55,7 @@ Order is a clone of Discord, an instant messaging application where users create
  * Javascript
  * Redis/Websockets
 
- ## Live Chat
+ ## Live Chat <a name="Live"></a>
  ____
 
  <img src='./app/assets/images/readme/messageIndex.png' />
