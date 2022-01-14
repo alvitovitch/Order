@@ -73,6 +73,14 @@
     justify-content: space-between;
 }
 
+.newChannelMessage {
+    margin: 20px;
+    font-size: 16px;
+    color: grey;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
 #selectedServer {
     display: flex;
     flex-direction: column;

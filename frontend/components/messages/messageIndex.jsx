@@ -55,7 +55,7 @@ class MessageIndex extends React.Component {
         ) } else {
             return(
                 <div id='emptyChannel'>
-                    <div>Looks like no one has posted yet</div>
+                    <div className="newChannelMessage">Looks like no one has posted yet</div>
                         <form id='messageForm' onSubmit={this.handleSubmit}>
                                     <input type='text' value={this.state.body} 
                                     onChange= {this.update('body')} placeholder={`Message #${this.props.channel.name}`}></input> 
