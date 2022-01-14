@@ -20,6 +20,18 @@
     
 }
 
+#createNewServerButton {
+    min-height: 48px;
+    width: 48px;
+    border-radius: 30px;
+    margin-top: 10px;
+    border-style: none;
+    border: 2px solid green;
+    background: none;
+    color: green;
+
+}
+
 #serverIndex::-webkit-scrollbar {
     display: none;
     transition: .5s;

@@ -66,7 +66,8 @@ class CategoryIndexItem extends React.Component {
 
     render() {
         document.addEventListener("contextmenu", e => {
-            if (e.target.className === 'categoryCollapse') {
+            debugger
+            if (e.target.className === 'categoryCollapse' || e.target.parentElement.className === 'categoryCollapse') {
                 e.preventDefault()
                 const deleteButton = document.getElementById('deleteCategoryButton')
                 deleteButton.style.display = 'flex'

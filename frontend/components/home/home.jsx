@@ -4,6 +4,7 @@ import ServerSplash from "./serverSplash";
 import ServerChannels from "./serverChannels";
 //import MessageList from "../messages/messageList";
 import consumer from "../../../app/javascript/channels/consumer";
+import CategoryIndexContainer from "../category/categoryIndexContainer";
 
 
 class Home extends React.Component {
@@ -32,6 +33,9 @@ class Home extends React.Component {
             <div id='homeContainer'>
                 <ServerIndexContainer servers={this.props.servers} />
                 <ServerChannels />
+                <div id='rightComponentTwo'>
+                    everything else
+                </div>
             </div>
         )}
         else 
