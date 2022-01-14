@@ -9,6 +9,7 @@ User.delete_all
 Server.delete_all
 Category.delete_all
 Channel.delete_all
+Message.delete_all
 Role.delete_all
 Membership.delete_all
 
