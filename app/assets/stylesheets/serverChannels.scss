@@ -10,3 +10,24 @@
     display: none;
     align-items: center;
 }
+
+.channelIndexItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.channelDeleteButton {
+    border-style: none;
+    color: grey;
+    background: rgba(0, 0, 0, 0);
+    font-size: 10px;
+    align-self: center;
+    padding-right: 10px;
+}
+
+.channelDeleteButton:hover {
+    cursor: pointer;
+    color: red;
+}

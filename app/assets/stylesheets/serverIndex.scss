@@ -26,6 +26,18 @@
     transition: .5s;
   }
 
+#newServerButton{
+    border-style: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: grey;
+    background-color: rgba($color: #000000, $alpha: 0);
+}
+
+#newServerButton:hover {
+    color: white;
+}
+
 .serverButton {
     height: 48px;
     width: 48px;
@@ -82,6 +94,10 @@
     color: grey;
     background: rgba(0, 0, 0, 0);
     font-size: 20px;
+}
+
+.addChannelButton:hover {
+    color: white;
 }
 
 .deleteCategoryButton {

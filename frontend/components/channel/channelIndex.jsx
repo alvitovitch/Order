@@ -30,14 +30,17 @@ class ChannelIndex extends React.Component {
     makeButton(channel) {
         if (channel.category_id === this.props.categoryId) {
             return (
-                <button className='channelButton' onClick={() => this.showChannel(channel)}>
-                    <div className="hash">
-                        #   
-                    </div>
-                    <div>
-                        {  channel.name}
-                    </div>
-                </button>
+                <div className="channelIndexItem">
+                    <button className='channelButton' onClick={() => this.showChannel(channel)}>
+                        <div className="hash">
+                            #   
+                        </div>
+                        <div>
+                            {  channel.name}
+                        </div>
+                    </button>
+                    <button className="channelDeleteButton" onClick={() => this.props.deleteChannel(this.props.serverId, this.props.categoryId, channel.id)}>X</button>
+                </div>
             )
         }
     }

@@ -81,27 +81,41 @@ class CategoryIndex extends React.Component {
                 <div id='categoryIndex'>
                     <div id='serverName'>
                         {this.props.server.server_name}
-                        <button onClick={this.show}>+</button>
+                        <button id='newServerButton' onClick={this.show}>+</button>
                     </div>
                     <div id='createCategoryBackground' onClick={e => this.hideBackground(e)}>
                         <div id='createCategory' >
-                            <form onSubmit={this.handleSubmit}>Create Category
-                                <label>Category Name
-                                    <input type="text" value={this.state.name} 
-                                    onChange= {this.update('name')}/>
-                                </label>  
-                                    <button>Create Category</button>
+                            <form id='createCategoryForm' onSubmit={this.handleSubmit}>
+                                <div id='createCategoryTitle'>
+                                    Create Category
+                                </div>
+                                    <div>
+                                        <div id='categoryName'>
+                                            CATEGORY NAME
+                                        </div>
+                                        <input className="inputBox" type="text" value={this.state.name} 
+                                        onChange= {this.update('name')}/>
+                                    </div>
+                                        <div id='createCategoryButtonDiv'>
+                                            <button id='createCategoryButton'>Create Category</button>
+                                        </div>
                             </form>
                         </div>
                     </div>
                     <div id='createChannelBackground' onClick={e => this.hideBackground(e)}>
                             <div id='createChannel' >
-                                <form onSubmit={this.handleSubmit}>Create Channel
-                                    <label>Channel Name
-                                        <input type="text" value={this.state.name} 
+                                <form id='createChannelForm' onSubmit={this.handleSubmit}>
+                                    <div id="createChannelTitle">
+                                        Create Channel
+                                    </div>
+                                    <div id='channelName'>
+                                        Channel Name    
+                                    </div>
+                                        <input className='inputBox' type="text" value={this.state.name} 
                                         onChange= {this.update('name')}/>
-                                    </label>  
-                                        <button>Create Channel</button>
+                                      <div id='createChannelButtonDiv'>
+                                        <button id='createChannelButton'>Create Channel</button>
+                                      </div>
                                 </form>
                             </div>
                     </div>

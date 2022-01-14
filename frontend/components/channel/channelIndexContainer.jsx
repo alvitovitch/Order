@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchChannels } from "../../actions/channel_actions";
+import { fetchChannels, deleteChannel } from "../../actions/channel_actions";
 import ChannelIndex from "./channelIndex";
 
 
@@ -11,7 +11,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        fetchChannels: (serverId, categoryId) => dispatch(fetchChannels(serverId, categoryId))
+        fetchChannels: (serverId, categoryId) => dispatch(fetchChannels(serverId, categoryId)),
+        deleteChannel: (serverId, categoryId, channelId) => dispatch(deleteChannel(serverId, categoryId, channelId))
     }
 }
 

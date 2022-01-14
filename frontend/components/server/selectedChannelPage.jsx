@@ -52,7 +52,12 @@ class SelectedChannelPage extends React.Component {
         return(
             <div id='selectedServer'>
                 <div id='channelTitle'>
-                    {this.props.channel.name}
+                    <div id='hash'>
+                        #
+                    </div>
+                    <div>
+                        {this.props.channel.name}
+                    </div>
                 </div>
                 <MessageIndexContainer channel={this.props.channel} serverId={this.props.match.params[0]}/>
             </div>

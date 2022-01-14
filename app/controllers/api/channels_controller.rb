@@ -19,6 +19,14 @@ class Api::ChannelsController < ApplicationController
         render :index
     end
 
+    def destroy
+        @channel = Channel.find_by(id: params[:id])
+        if @channel
+            @channel.destroy
+            render :show
+        end
+    end
+
     private
 
     def channel_params 
