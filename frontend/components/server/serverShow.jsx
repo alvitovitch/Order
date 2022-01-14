@@ -34,10 +34,16 @@ class ServerShow extends React.Component {
                         <Switch>
                             <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
                         </Switch>
-                    </div>       
+                    </div>
+                    <div id='rightComponent'>
+                        <div>
+                            hello World
+                        </div>
+                    </div> 
                 </div>
             )}
         else {
+
             return (
                 <div className="showPage">
                 <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
@@ -50,9 +56,9 @@ class ServerShow extends React.Component {
                     </Switch>
                 </div>
                 <div id='rightComponent'>
-                    <span>
-                    nothing for now
-                    </span>
+                    <div>
+                        hello World
+                    </div>
                 </div> 
             </div>
                 
