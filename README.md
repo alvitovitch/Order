@@ -20,7 +20,7 @@
 
 ## About 
 ---
-Order is a clone of Discord, an instant messaging application where users create and join servers to build their own communities. Inside of a server users can create and destroy categories, the folders which contain the server's channels. Inside of those categories users can create and destroy channels, and inside of those users can write and send messages to one another in real time!
+<a h='https://app-order-vitovitch.herokuapp.com/#/'>Order</a> is a clone of Discord, an instant messaging application where users create and join servers to build their own communities. Inside of a server users can create and destroy categories, the folders which contain the server's channels. Inside of those categories users can create and destroy channels, and inside of those users can write and send messages to one another in real time!
 
 ## Technology Utilized ##
 ---
