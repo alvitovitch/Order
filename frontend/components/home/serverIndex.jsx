@@ -62,7 +62,7 @@ class ServerIndex extends React.Component {
                 <ul>
                     <button className="serverButton" id='homeButton' onClick={() => this.goHome()}></button>
                     <div id='seperator'></div>
-                    {this.props.servers.map(server => ( <ServerIndexItem server={server}/>))}
+                    {this.props.servers.map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
                 </ul>
                 <button id='createNewServerButton' onClick={this.show}>+</button>
                 <div id='createServerBackground' onClick={e => this.hideBackground(e)}>

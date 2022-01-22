@@ -6,7 +6,6 @@ import Home from "./home";
 import { fetchUsers } from "../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
         currentUser:  state.entities.users[state.session.id],
         servers: Object.values(state.entities.servers)

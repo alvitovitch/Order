@@ -9,7 +9,6 @@ class MessageIndexItem extends React.Component {
 
 
     render() {
-        debugger
         return(
             <div className="messageItem">
                 <div className="messageAvatar">

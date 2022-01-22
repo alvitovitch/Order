@@ -47,7 +47,6 @@ class CategoryIndex extends React.Component {
               
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
-                  debugger
                   fetch
                 }
               });
@@ -153,7 +152,7 @@ class CategoryIndex extends React.Component {
                     </div>
                     <button id='deleteCategoryButton' onClick={e => this.deleteCategory(e)}>Delete Category</button>
                     
-                        {this.props.categories.map(category => (<CategoryIndexItemContainer category={category}/>))}
+                        {this.props.categories.map(category => (<CategoryIndexItemContainer key={category.id} category={category}/>))}
                         
                 </div>
             )
