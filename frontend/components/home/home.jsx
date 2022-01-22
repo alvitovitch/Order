@@ -4,6 +4,7 @@ import ServerSplash from "./serverSplash";
 import ServerChannels from "./serverChannels";
 //import MessageList from "../messages/messageList";
 import consumer from "../../../app/javascript/channels/consumer";
+import CategoryIndexContainer from "../category/categoryIndexContainer";
 
 
 class Home extends React.Component {
@@ -15,6 +16,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.props.getServers()
+<<<<<<< HEAD
         consumer.subscriptions.create("RoomChannel", {
             connected() {
               console.log('connected to room channel')
@@ -30,6 +32,9 @@ class Home extends React.Component {
               // Called when there's incoming data on the websocket for this channel
             }
           })
+=======
+        this.props.getUsers()
+>>>>>>> main
     }
     
 
@@ -47,7 +52,6 @@ class Home extends React.Component {
                 
                 <ServerIndexContainer servers={this.props.servers} />
                 <ServerChannels />
-
             </div>
         )}
         else 

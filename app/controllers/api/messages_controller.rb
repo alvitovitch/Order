@@ -2,7 +2,11 @@ class Api::MessagesController < ApplicationController
 
     def create
         @message = Message.new(message_params)
+        @message.author_id = current_user.id
         if @message.save
+            chan = @message.channel.id
+            message = [@message.server.id, @message.category.id, @message.channel_id]
+            ActionCable.server.broadcast chan, messages: message
             render :show
         else 
             render json: @message.errors.full_messages, status: 422

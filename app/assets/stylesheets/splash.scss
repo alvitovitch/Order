@@ -100,7 +100,7 @@
     display: flex;
     position: absolute;
     z-index: 0;
-    width: 100ew;
+    width: 100vw;
 }
 
 #clouds {
@@ -181,7 +181,6 @@
     cursor: not-allowed;
     font-weight: 500;
     display: inline-flex;
-    -webkit-box-align: center;
     align-items: center;
     box-sizing: border-box;
     transition-property: background-color,color,box-shadow,-webkit-box-shadow;

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { logoutSessionUser } from "../../actions/session_actions";
 import { fetchServers } from "../../actions/server_actions";
 import Home from "./home";
+import { fetchUsers } from "../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
     return {
@@ -13,7 +14,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logoutSessionUser()),
-    getServers: () => dispatch(fetchServers())
+    getServers: () => dispatch(fetchServers()),
+    getUsers: () => dispatch(fetchUsers())
 })
 
 export default connect(mSTP, mDTP)(Home)

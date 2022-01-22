@@ -4,6 +4,8 @@ import {
     fetchServers,
     fetchServer
 } from "../../actions/server_actions"
+import { logoutSessionUser } from "../../actions/session_actions";
+
 import {
     fetchCategories,
     patchCategory,

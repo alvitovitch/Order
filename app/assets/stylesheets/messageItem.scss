@@ -1,0 +1,32 @@
+.messageAvatar {
+    padding: 10px;
+}
+
+.messageUsername {
+    color: rgb(41, 198, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+}
+
+.messageBody {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 3px;
+
+}
+.messageItemMain {
+    padding: 10px;
+}
+
+.date {
+    color: grey;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.nameDate {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}

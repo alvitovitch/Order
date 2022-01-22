@@ -1,14 +1,4 @@
-#createChannel {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    background-color: green;
-    height: 360px;
-    width: 500px;
-    left: 33%;
-    top: 20%;
-    z-index: 2;
-}
+
 #createChannelBackground {
     position: absolute;
     z-index: 1;
@@ -19,3 +9,4 @@
     background-color: rgba(0,0,0,.3);
     visibility: hidden;
 }
+
