@@ -32,11 +32,12 @@ class CategoryIndex extends React.Component {
                 //     this.feteched = true
                 //     
                 // }
-                if (this.channel !== '') {
+                if (this.channel !== '' && this.channel.id !== this.props.server.id) {
+                    //console.log(this.channel)
                     this.channel.unsubscribe()
                 }
             const fetch = () => this.props.fetchCategories(this.props.server.id)
-            const channel = consumer.subscriptions.create({channel: 'MessagesChannel', id: `category${this.state.last_server}`}, {
+            const channel = consumer.subscriptions.create({channel: 'CategoriesChannel', id: `${this.state.last_server}`}, {
                 connected() {
                   // Called when the subscription is ready for use on the server'
                 },
@@ -47,7 +48,8 @@ class CategoryIndex extends React.Component {
               
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
-                  fetch
+                  console.log(data)
+                  fetch()
                 }
               });
               this.channel = channel
