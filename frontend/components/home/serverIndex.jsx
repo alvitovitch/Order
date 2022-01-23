@@ -13,22 +13,37 @@ class ServerIndex extends React.Component {
         this.createServer = this.createServer.bind(this)
     }
 
-    // componentDidUpdate() {
-    //     consumer.subscriptions.create({channel: 'MessagesChannel', id: 108}, {
-    //         connected() {
-    //           // Called when the subscription is ready for use on the server'
-    //           console.log('hiii')
-    //         },
-          
-    //         disconnected() {
-    //           // Called when the subscription has been terminated by the server
-    //         },
-          
-    //         received(data) {
-    //           // Called when there's incoming data on the websocket for this channel
-    //         }
-    //       });
-    // }
+    // Since the server index is always displayed on the screen when it is rendered it subscribes the current
+    // user to their own channel
+    // Whenever a user is added to a server all members of that server fetch the user
+
+    componentDidUpdate() {
+        if (this.props.currentUser !== undefined){
+
+            const fetchUser = this.props.fetchUser
+            consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
+                connected() {
+                  // Called when the subscription is ready for use on the server'
+                  console.log('hiii')
+                },
+              
+                disconnected() {
+                  // Called when the subscription has been terminated by the server
+                },
+              
+                received(data) {
+                    debugger
+                  // Called when there's incoming data on the websocket for this channel
+                  switch (data.type) {
+                      case 'fetchUser':
+                        fetchUser(data.userId)
+                      default:
+                          console.log('Not sure what that was @serverIndex')
+                  }
+                }
+              });
+        }
+    }
     
     goHome() {
         location.hash = '#/@me'

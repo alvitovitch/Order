@@ -20,6 +20,15 @@ class Api::CategoriesController < ApplicationController
         render :show
     end
 
+    def update
+        @category = Category.find_by(id: params[:id])
+        if @category.server.creator_id == current_user.id
+            @category.update(category_params)
+            ActionCable.server.broadcast "#{@category.server_id}", messages: 'hi'
+            render :show
+        end
+    end
+
     def destroy
         @category = Category.find_by(id: params[:id])
         if @category.server.creator_id == current_user.id

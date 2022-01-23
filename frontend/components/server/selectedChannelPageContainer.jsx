@@ -5,7 +5,8 @@ import {fetchMessages, fetchMessage, createMessage} from '../../actions/message_
 const mSTP = (state, ownProps) => {
     return{
         channel: state.entities.channels[ownProps.match.params[1]],
-        messages: state.entities.messages
+        messages: state.entities.messages,
+        users: state.entities.users
     }
 }
 
