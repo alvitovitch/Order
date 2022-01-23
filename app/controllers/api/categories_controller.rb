@@ -3,7 +3,7 @@ class Api::CategoriesController < ApplicationController
     def create
         @category = Category.new(category_params)
         if @category.save
-            ActionCable.server.broadcast "category#{@category.server_id}", messages: 'hi'
+            ActionCable.server.broadcast "#{@category.server_id}", messages: 'hi'
             render :show
         else
             render json: @category.errors.full_messages, status: 422
@@ -24,6 +24,7 @@ class Api::CategoriesController < ApplicationController
         @category = Category.find_by(id: params[:id])
         if @category.server.creator_id == current_user.id
             @category.delete
+            ActionCable.server.broadcast "#{@category.server_id}", messages: 'hi'
             render :show
         end
     end
