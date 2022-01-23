@@ -12,6 +12,9 @@ class SelectedChannelPage extends React.Component {
         this.fetched = false
     }
 
+    componentDidMount() {
+        
+    }
     
     componentDidUpdate() {
         if (this.props.channel !== undefined) {

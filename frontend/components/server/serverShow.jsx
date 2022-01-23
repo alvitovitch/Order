@@ -19,6 +19,7 @@ class ServerShow extends React.Component {
         this.props.getServers()
         this.props.fetchServer(this.props.match.params[0])
         this.props.fetchCategories(this.props.match.params[0])        
+        this.props.fetchUsers()
         
     }
 

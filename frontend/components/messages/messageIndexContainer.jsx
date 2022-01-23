@@ -5,7 +5,8 @@ import { createMessage, fetchMessages } from "../../actions/message_actions";
 
 const mSTP = state => {
     return {
-        messages: state.entities.messages
+        messages: state.entities.messages,
+        users: state.entities.users
     }
 }
 
