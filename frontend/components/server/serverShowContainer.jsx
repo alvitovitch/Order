@@ -14,13 +14,15 @@ import {
 import { fetchUsers } from "../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {
-    
+    debugger
   return  {
     servers: state.entities.servers,
     server: state.entities.servers[ownProps.match.params[0]],
     categories: Object.values(state.entities.categories),
     channels: state.entities.channels,
-    users: state.entities.users
+    users: state.entities.users,
+    currentUser:  state.entities.users[state.session.id],
+
     }
 }
 

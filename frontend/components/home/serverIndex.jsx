@@ -24,7 +24,6 @@ class ServerIndex extends React.Component {
             consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
                 connected() {
                   // Called when the subscription is ready for use on the server'
-                  console.log('hiii')
                 },
               
                 disconnected() {
@@ -75,7 +74,7 @@ class ServerIndex extends React.Component {
         return(
             <div id='serverIndex'>
                 <ul>
-                    <button className="serverButton" id='homeButton' onClick={() => this.goHome()}></button>
+                    <button  id='homeButton' onClick={() => this.goHome()}></button>
                     <div id='seperator'></div>
                     {this.props.servers.map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
                 </ul>

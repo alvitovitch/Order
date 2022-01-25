@@ -2,15 +2,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 72px;
+    min-width: 90px;
+    max-width: 90px;
     background: #202225;
     min-height: 100%;
     overflow: scroll;
 }
 
 #homeButton {
+    
     background-color: rgb(54, 182, 79);
-
+    height: 55px;
+    width: 55px;
+    border-radius: 18px;
+    border: none;
+    margin-top: 10px;
+    transition: 0.3s;
+    color: white;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #seperator {
@@ -21,8 +31,8 @@
 }
 
 #createNewServerButton {
-    min-height: 48px;
-    width: 48px;
+    min-height: 55px;
+    width: 55px;
     border-radius: 30px;
     margin-top: 10px;
     border-style: none;
@@ -50,8 +60,8 @@
 }
 
 .serverButton {
-    height: 48px;
-    width: 48px;
+    height: 55px;
+    width: 55px;
     border-radius: 30px;
     border: none;
     background-color: rgb(68,76,236);
@@ -63,7 +73,7 @@
 }
 
 .serverButton:hover {
-    border-radius: 12px;
+    border-radius: 18px;
     cursor: pointer;
 }
 

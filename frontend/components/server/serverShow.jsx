@@ -5,6 +5,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import { ProtectedRoute, AuthRoute} from '../../util/route_util'
 import selectedChannelPageContainer from "./selectedChannelPageContainer";
 import consumer from "../../../app/javascript/channels/consumer";
+import UserInfoContainer from "../userInfo/userInfoContainer";
 
 
 class ServerShow extends React.Component {
@@ -16,10 +17,10 @@ class ServerShow extends React.Component {
     }
 
     componentDidMount() {  
+        this.props.fetchUsers()
         this.props.getServers()
         this.props.fetchServer(this.props.match.params[0])
         this.props.fetchCategories(this.props.match.params[0])        
-        this.props.fetchUsers()
         
     }
 
@@ -59,12 +60,16 @@ class ServerShow extends React.Component {
 
 
     render(){
-        if (this.props.categories.length !== 0) {
+        if (this.props.categories.length !== 0 && this.props.users.length !== 0) {
             return (
                 <div className="showPage">
-                    <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
-                    <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
-                    <div>
+                    <div id='leftComponent'>
+                        <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
+                        <div id='leftRightColumn'>
+                            <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
+                            <UserInfoContainer currentUser={this.props.currentUser} /> 
+                        </div>
+
                     </div>
                     <div id='middleComponent'>
                         <Switch>
@@ -82,10 +87,14 @@ class ServerShow extends React.Component {
 
             return (
                 <div className="showPage">
-                <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
-                <CategoryIndexContainer server={this.props.server}/>
-                <div>
-                </div>
+                    <div id='leftComponent'>
+                        <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
+                        <div id='leftRightColumn'>
+                            <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
+                        {this.props.currentUser ? <UserInfoContainer /> : null}    
+                        </div>
+
+                    </div>
                 <div id='middleComponent'>
                     <Switch>
                         <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />

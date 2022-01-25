@@ -1,6 +1,11 @@
 #serverChannels {
-    width: 240px;
+    min-width: 300px;
     background-color: #2f3136;
+}
+
+#leftComponent {
+    display: flex;
+    flex-direction: row;
 }
 
 .channelIndex {

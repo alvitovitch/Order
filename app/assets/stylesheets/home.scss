@@ -4,3 +4,36 @@
     height: 100vh;
     width: 100vw;
 }
+
+#leftRightColumn {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+#searchBar {
+    min-height: 55px;
+    background-color: rgb(65, 62, 73);
+}
+
+#dmList {
+    min-height: -webkit-calc(100% - 114px);
+    overflow: hidden scroll;
+}
+
+#dmList::-webkit-scrollbar {
+    display: none;
+}
+
+#userInfoContainer {
+    display: flex;
+    background: #3b3f44;
+    min-height: 55px;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 0 2px 0;
+}
+#tag {
+    color: grey;
+    font-size: smaller;
+}
