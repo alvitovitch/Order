@@ -1,7 +1,6 @@
 import React from "react";
 import ServerIndexContainer from "./serverIndexContainer";
-import ServerSplash from "./serverSplash";
-import ServerChannels from "./serverChannels";
+import UserInfoContainer from "../userInfo/userInfoContainer";
 //import MessageList from "../messages/messageList";
 import consumer from "../../../app/javascript/channels/consumer";
 import CategoryIndexContainer from "../category/categoryIndexContainer";
@@ -31,8 +30,18 @@ class Home extends React.Component {
         if (this.props.currentUser) {
         return (
             <div id='homeContainer'>
-                <ServerIndexContainer servers={this.props.servers} />
-                <ServerChannels />
+                <div id="leftComponent">
+                    <ServerIndexContainer servers={this.props.servers} />
+                    <div id='leftRightColumn'>
+                        <div id='searchBar'>
+                            search bar here
+                        </div>
+                        <div id='dmList'>
+                            this will be filled with dms
+                        </div>
+                        <UserInfoContainer />
+                    </div>
+                </div>
                 <div id='rightComponentTwo'>
                     everything else
                 </div>

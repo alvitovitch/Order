@@ -153,8 +153,9 @@ class CategoryIndex extends React.Component {
                             </div>
                     </div>
                     <button id='deleteCategoryButton' onClick={e => this.deleteCategory(e)}>Delete Category</button>
-                    
+                    <div id='indexOfCategories'>
                         {this.props.categories.map(category => (<CategoryIndexItemContainer key={category.id} category={category}/>))}
+                    </div>
                         
                 </div>
             )

@@ -4,8 +4,9 @@
 
 
 #categoryIndex {
-    min-width: 240px;
+    min-width: 300px;
     background-color: #2f3136;
+    min-height: -webkit-calc(100% - 59px);
 }
 
 .categoryTopLine {
@@ -33,7 +34,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     align-items: center;
-    height: 36px;
+    height: 55px;
     padding-left: 10px;
     padding-right: 10px;
     justify-content: space-between;

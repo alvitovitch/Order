@@ -2,3 +2,8 @@
     width: 100%;
 }
 
+#indexOfCategories {
+    max-height: -webkit-calc(100vh - 125px);
+    min-height: -webkit-calc(100vh - 125px);
+    overflow-y: scroll;
+}

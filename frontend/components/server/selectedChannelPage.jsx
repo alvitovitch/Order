@@ -1,5 +1,4 @@
 import React from "react";
-import { ServerShowContainer } from './serverShowContainer'
 import consumer from "../../../app/javascript/channels/consumer";
 import MessageIndexContainer from "../messages/messageIndexContainer";
 

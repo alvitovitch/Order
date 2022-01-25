@@ -11,5 +11,5 @@ export default combineReducers({
     servers: ServersReducer,
     categories: CategoriesReducer,
     channels: ChannelsReducer,
-    messages: MessagesReducer
+    messages: MessagesReducer,
 })
