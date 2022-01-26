@@ -3,6 +3,7 @@ import {
     RECEIVE_SERVER,
     DELETE_SERVER
 } from '../actions/server_actions'
+import { LOGOUT_USER } from "../actions/session_actions";
 
 
 const ServersReducer = (oldState = {}, action) => {
@@ -19,7 +20,8 @@ const ServersReducer = (oldState = {}, action) => {
         case DELETE_SERVER:
             delete newState[action.serverId]
             return newState
-
+        case LOGOUT_USER:
+            return {}
         default:
             return oldState
     }

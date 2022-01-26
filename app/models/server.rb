@@ -24,6 +24,11 @@ class Server < ApplicationRecord
     has_many :members,
     through: :memberships
 
+    # def mods 
+    #     self.members.where(self.roles.name: 'Creator')
+    # end
+    
+
 
     def ensure_avatar!
         self.server_avatar ||= 'server_avatar_string'

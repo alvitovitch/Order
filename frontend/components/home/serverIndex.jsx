@@ -31,7 +31,6 @@ class ServerIndex extends React.Component {
                 },
               
                 received(data) {
-                    debugger
                   // Called when there's incoming data on the websocket for this channel
                   switch (data.type) {
                       case 'fetchUser':

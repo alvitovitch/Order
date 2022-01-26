@@ -3,6 +3,7 @@ import {
     RECEIVE_CHANNEL,
     REMOVE_CHANNEL
 } from '../actions/channel_actions'
+import { LOGOUT_USER } from "../actions/session_actions";
 
 const ChannelsReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
@@ -17,6 +18,8 @@ const ChannelsReducer = (oldState = {}, action) => {
         case REMOVE_CHANNEL:
             delete newState[action.channelId]
             return newState
+        case LOGOUT_USER:
+            return {}
         default:
             return oldState;
     }

@@ -1,6 +1,7 @@
 import { 
     RECEIVE_MESSAGES, RECEIVE_MESSAGE
 } from '../actions/message_actions'
+import { LOGOUT_USER } from "../actions/session_actions";
 
 const MessagesReducer = (oldState = {}, action ) => {
     Object.freeze(oldState)
@@ -11,6 +12,8 @@ const MessagesReducer = (oldState = {}, action ) => {
         case RECEIVE_MESSAGE:
             newState[action.message.id] = action.message
             return newState
+        case LOGOUT_USER:
+            return {}
         default:
             return oldState;
     }

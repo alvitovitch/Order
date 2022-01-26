@@ -6,7 +6,7 @@ import { ProtectedRoute, AuthRoute} from '../../util/route_util'
 import selectedChannelPageContainer from "./selectedChannelPageContainer";
 import consumer from "../../../app/javascript/channels/consumer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
-
+import MemberRoles from "./memberRoles";
 
 class ServerShow extends React.Component {
 
@@ -17,9 +17,9 @@ class ServerShow extends React.Component {
     }
 
     componentDidMount() {  
+        this.props.fetchServer(this.props.match.params[0])
         this.props.fetchUsers()
         this.props.getServers()
-        this.props.fetchServer(this.props.match.params[0])
         this.props.fetchCategories(this.props.match.params[0])        
         
     }
@@ -60,7 +60,8 @@ class ServerShow extends React.Component {
 
 
     render(){
-        if (this.props.categories.length !== 0 && this.props.users.length !== 0) {
+        debugger
+        if (this.props.categories.length !== 0 && this.props.users.length !== 0 && this.props.server.members !== undefined) {
             return (
                 <div className="showPage">
                     <div id='leftComponent'>
@@ -78,9 +79,12 @@ class ServerShow extends React.Component {
                     </div>
                     <div id='rightComponent'>
                         <div>
-                            hello World
+                            <div id='memberSearchBar'>
+                                This will be a search bar
+                            </div>
+                            <MemberRoles server={this.props.server} />
                         </div>
-                    </div> 
+                  </div> 
                 </div>
             )}
         else {
@@ -103,7 +107,10 @@ class ServerShow extends React.Component {
                 </div>
                 <div id='rightComponent'>
                     <div>
-                        hello World
+                        <div id='memberSearchBar'>
+                            This will be a search bar
+                        </div>
+                        
                     </div>
                 </div> 
             </div>

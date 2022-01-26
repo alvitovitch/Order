@@ -3,7 +3,9 @@ import {
     RECEIVE_CURRENT_USER,
     REMOVE_SESSION_ERRORS
   } from '../actions/session_actions';
-  
+  import { LOGOUT_USER } from "../actions/session_actions";
+
+
   export default (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
@@ -13,7 +15,9 @@ import {
         return [];
       case REMOVE_SESSION_ERRORS: 
         return []
-      default:
+      case LOGOUT_USER:
+        return []
+        default:
         return state;
     }
   };

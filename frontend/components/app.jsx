@@ -9,7 +9,7 @@ import SignupFormContainer from './login/signupFormContainer'
 import Splash from './splash/splash'
 import ServerShowContainer from './server/serverShowContainer'
 import SelectedChannelPageContainer from './server/selectedChannelPageContainer'
-
+import { PersistGate } from 'redux-persist/integration/react'
 const App = ({ children }) => (
     <div>
         <Switch>

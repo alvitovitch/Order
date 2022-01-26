@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
                         <span>We're so excited to see you again!</span>
                     </div>
                     <div id='loginErrors'>
-                        {this.props.errors.map(error => <li>{error}</li>)}
+                        {Object.values(this.props.errors).map(error => <li>{error}</li>)}
                     </div>
                     <form id='loginForm' onSubmit={this.handleSubmit}>
                         <label id="emailLabel">EMAIL OR PHONE NUMBER

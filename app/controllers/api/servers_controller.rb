@@ -8,7 +8,7 @@ class Api::ServersController < ApplicationController
             d_cat.save
             d_chan = Channel.new(name: 'Text Channel', category_id: d_cat.id)
             d_chan.save
-            d_role = Role.new(name: 'Creator', server_id: @server.id)
+            d_role = Role.new(name: 'Moderator', server_id: @server.id)
             d_role.save
             d_mem = Membership.new(server_id: @server.id, role_id: d_role.id, user_id: current_user.id)
             d_mem.save
