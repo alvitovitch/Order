@@ -48,7 +48,6 @@ class CategoryIndex extends React.Component {
               
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
-                  console.log(data)
                   fetch()
                 }
               });
@@ -83,6 +82,7 @@ class CategoryIndex extends React.Component {
     }
 
     deleteCategory(e) {
+        debugger
         e.currentTarget.action()()
         e.currentTarget.style.display = 'none'
     }

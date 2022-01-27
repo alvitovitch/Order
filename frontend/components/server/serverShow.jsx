@@ -13,13 +13,14 @@ class ServerShow extends React.Component {
     constructor(props) {
         super(props)
         this.channel = ''
-
+        this.server = 'hi'
     }
 
     componentDidMount() {  
-        this.props.fetchServer(this.props.match.params[0])
         this.props.fetchUsers()
-        this.props.getServers()
+        this.props.getServers().then(
+          () =>  this.props.fetchServer(this.props.match.params[0])
+        )
         this.props.fetchCategories(this.props.match.params[0])        
         
     }
@@ -56,11 +57,17 @@ class ServerShow extends React.Component {
           this.channel = channel
           
         }
+       
+        if (this.server === 'hi' || this.server !== this.props.server.id) {
+            debugger
+            this.server = this.props.server.id
+            this.props.fetchServer(this.props.match.params[0])
+        }
     }
 
 
     render(){
-        debugger
+        
         if (this.props.categories.length !== 0 && this.props.users.length !== 0 && this.props.server.members !== undefined) {
             return (
                 <div className="showPage">

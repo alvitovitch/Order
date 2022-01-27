@@ -31,7 +31,7 @@ class ChannelIndex extends React.Component {
         if (channel.category_id === this.props.categoryId) {
             return (
                 <div className="channelIndexItem" key={channel.id}>
-                    <button className='channelButton' onClick={() => this.showChannel(channel)}>
+                    <button id={`channel${channel.id}`} className='channelButton' onClick={() => this.showChannel(channel)}>
                         <div className="hash">
                             #   
                         </div>

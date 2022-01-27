@@ -8,17 +8,20 @@ class MemberRoles extends React.Component {
     }
 
     render() {
-        debugger
+        const that = this
         const Roles = Object.values(this.props.server.roles).map(role => {
             return(
-                <div>
-                    <h1>{role.name}</h1>
-                    <div>
+                <div className="memberRoles">
+                    <h1 className="roleTitle">{role.name.toUpperCase()} - {Object.values(this.props.server.members).filter(member => member.role === role.name).length}</h1>
+                    <div className="member">
                         {Object.values(this.props.server.members).map(member => {
                             if (member.role === role.name){
-                                return <div>
+                                return <div className='roleMember' key={member.id}>
                                     <img className='roleAvatar' src={window.userAvatar} alt="userAvatar" />
-                                    {member.username}
+                                    <div className='roleUsername'>
+                                        {member.username}
+                                    </div>
+                                        
                                     </div>
                             }})}
                     </div>

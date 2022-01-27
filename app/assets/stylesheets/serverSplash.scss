@@ -7,3 +7,45 @@
     min-height: -webkit-calc(100vh - 125px);
     overflow-y: scroll;
 }
+
+
+.memberRoles {
+    display: flex;
+    flex-direction: column;
+}
+
+.roleMember {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 15px 15px 15px;
+    align-items: center;
+}
+
+.roleAvatar {
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+    border-color: blue;
+    border-radius: 25px;
+    margin-left: 7px;
+}
+.roleTitle {
+    color: rgb(113, 113, 113);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    margin: 25px 15px 0;
+
+}
+
+.roleUsername {
+    color: rgb(0, 115, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+#memberSearchBar {
+    height: 46px;
+    border-bottom: 1px solid #202225;
+    background-color: #36393F;
+}

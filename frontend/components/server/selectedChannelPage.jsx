@@ -12,7 +12,6 @@ class SelectedChannelPage extends React.Component {
     }
 
     componentDidMount() {
-        
     }
     
     componentDidUpdate() {
@@ -44,10 +43,10 @@ class SelectedChannelPage extends React.Component {
             }
           });
           this.channel = channel
-          
         }
+        
     }
-
+    
     render() {
         if (this.props.channel !== undefined) {
             
