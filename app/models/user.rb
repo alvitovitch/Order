@@ -23,6 +23,18 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Message
 
+    has_many :friendships,
+    foreign_key: :user_id,
+    class_name: :Friendship,
+    dependent: :destroy
+
+    has_many :received_friendships,
+    foreign_key: :friend_id,
+    class_name: :Friendship,
+    dependent: :destroy
+
+    has_many :friends,
+    through: :friendships
     
 
 

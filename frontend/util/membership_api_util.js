@@ -11,7 +11,7 @@ export const fetchMemberships = (serverId) => (
 
 export const fetchMembership = (serverId, membershipId) => (
     $.ajax({
-        url: `/api/servers/${serverId}/membership/${membershipId}`,
+        url: `/api/servers/${serverId}/memberships/${membershipId}`,
         method: 'GET'
     })
 )
@@ -20,7 +20,7 @@ export const fetchMembership = (serverId, membershipId) => (
 
 export const createMembership = (serverId, membershipId, membership) => (
     $.ajax({
-        url: `/api/servers/${serverId}/membership/${membershipId}`,
+        url: `/api/servers/${serverId}/memberships/${membershipId}`,
         method: 'POST',
         data: membership
     })
@@ -28,7 +28,7 @@ export const createMembership = (serverId, membershipId, membership) => (
 
 export const updateMembership = (serverId, membershipId, membership) => (
     $.ajax({
-        url: `/api/servers/${serverId}/membership/${membershipId}`,
+        url: `/api/servers/${serverId}/memberships/${membershipId}`,
         method: 'PATCH',
         data: membership
     })

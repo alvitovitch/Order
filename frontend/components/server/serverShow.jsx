@@ -82,7 +82,18 @@ class ServerShow extends React.Component {
                     <div id='middleComponent'>
                         <Switch>
                             <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
-                            <JoinServerContainer server={this.props.server} />
+                            <div>
+                                <div id='channelTitle'>
+                                    <div id='hash'>
+                                        #
+                                    </div>
+                                    <div>
+                                    Welcome
+                                    </div>
+                                </div>
+                                    <JoinServerContainer server={this.props.server} />
+
+                            </div>
                         </Switch>
                     </div>
                     <div id='rightComponent'>

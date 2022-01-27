@@ -4,6 +4,7 @@ import UserInfoContainer from "../userInfo/userInfoContainer";
 //import MessageList from "../messages/messageList";
 import consumer from "../../../app/javascript/channels/consumer";
 import CategoryIndexContainer from "../category/categoryIndexContainer";
+import DmIndex from "./dmIndex";
 
 
 class Home extends React.Component {
@@ -39,7 +40,15 @@ class Home extends React.Component {
                             </div>
                         </div>
                         <div id='dmList'>
-                            this will be filled with dms
+                            <div id='friends'>
+                                <img id='friendImage' src={window.people} alt="" />
+                                <div id='friendsImage'>
+                                Friends
+                                </div>
+                            </div>
+                            <div>
+                                <DmIndex servers={this.props.servers}/>
+                            </div>
                         </div>
                         <UserInfoContainer />
                     </div>
