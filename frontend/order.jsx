@@ -8,9 +8,7 @@ import {persistStore} from "redux-persist"
 
 document.addEventListener('DOMContentLoaded', () => {
     let store = {}
-    console.log('hellooooooooooo')
     if (window.currentUser) {
-        console.log(window.currentUser)
         const preloadedState = {
             session: { id: window.currentUser.id },
             entities: {

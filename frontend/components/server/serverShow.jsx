@@ -7,6 +7,7 @@ import selectedChannelPageContainer from "./selectedChannelPageContainer";
 import consumer from "../../../app/javascript/channels/consumer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
 import MemberRoles from "./memberRoles";
+import JoinServerContainer from "./joinServerContainer";
 
 class ServerShow extends React.Component {
 
@@ -41,7 +42,6 @@ class ServerShow extends React.Component {
         const channel = consumer.subscriptions.create({channel: 'ServersChannel', id: this.props.server.id}, {
             connected() {
               // Called when the subscription is ready for use on the server'
-              console.log(`connected to server`)
             },
           
             disconnected() {
@@ -59,7 +59,7 @@ class ServerShow extends React.Component {
         }
        
         if (this.server === 'hi' || this.server !== this.props.server.id) {
-            debugger
+            
             this.server = this.props.server.id
             this.props.fetchServer(this.props.match.params[0])
         }
@@ -82,6 +82,7 @@ class ServerShow extends React.Component {
                     <div id='middleComponent'>
                         <Switch>
                             <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
+                            <JoinServerContainer server={this.props.server} />
                         </Switch>
                     </div>
                     <div id='rightComponent'>

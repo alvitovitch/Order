@@ -8,9 +8,7 @@ class UsersChannel < ApplicationCable::Channel
     end
   
     def receive(data)
-      console.log(data)
-      console.log(@channel)
-        UsersChannel.broadcast_to(@channel, 'hi')
+      UsersChannel.broadcast_to(@channel, 'hi')
     #   user = User.find_by(id: data['currentUserId'])
     #   message = @channel.messages.create(content: data['content', user: user])
     #   MessagesChannel.broadcast_to(@channel, MessageSerializer.new(message).serialized_json)

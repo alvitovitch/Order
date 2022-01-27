@@ -3,7 +3,6 @@ class ServersChannel < ApplicationCable::Channel
       # stream_from "some_channel"
       # @channel = Channel.find(params[:id])
       # stream_for @channel
-      console.log(params[:id])
       stream_from "#{params[:id]}"
     end
   

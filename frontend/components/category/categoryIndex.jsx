@@ -82,7 +82,6 @@ class CategoryIndex extends React.Component {
     }
 
     deleteCategory(e) {
-        debugger
         e.currentTarget.action()()
         e.currentTarget.style.display = 'none'
     }

@@ -4,6 +4,7 @@ import ServersReducer from "./servers_reducer";
 import CategoriesReducer from './categories_reducer'
 import ChannelsReducer from "./channels_reducer";
 import MessagesReducer from "./messages_reducer";
+import MembershipsReducer from "./memberships_reducer";
 
 
 export default combineReducers({
@@ -12,4 +13,5 @@ export default combineReducers({
     categories: CategoriesReducer,
     channels: ChannelsReducer,
     messages: MessagesReducer,
+    memberships: MembershipsReducer
 })

@@ -15,9 +15,7 @@ import {
         return [];
       case REMOVE_SESSION_ERRORS: 
         return []
-      case LOGOUT_USER:
-        return []
-        default:
+      default:
         return state;
     }
   };

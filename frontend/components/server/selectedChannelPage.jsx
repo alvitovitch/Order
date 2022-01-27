@@ -1,7 +1,7 @@
 import React from "react";
 import consumer from "../../../app/javascript/channels/consumer";
 import MessageIndexContainer from "../messages/messageIndexContainer";
-
+import JoinServerContainer from "./joinServerContainer";
 
 class SelectedChannelPage extends React.Component {
 
@@ -66,8 +66,16 @@ class SelectedChannelPage extends React.Component {
         }
         else {
             return(
-                <div>
-                    loading
+                <div id='selectedServer'>
+                    <div id='channelTitle'>
+                        <div id='hash'>
+                            #
+                        </div>
+                        <div>
+                           Welcome
+                        </div>
+                    </div>
+                    <JoinServerContainer server={this.props.server} />
                 </div>
             )
         }
