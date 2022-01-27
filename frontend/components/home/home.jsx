@@ -17,22 +17,22 @@ class Home extends React.Component {
     componentDidMount() {
         this.props.getServers()
         this.props.getUsers()
+        this.props.getFriendships()
     }
     
 
     render() {
         
-
-        
+        const dmSevers = this.props.servers.filter(server => server.server_type === 0)
           
 
-
+        debugger
 
         if (this.props.currentUser) {
         return (
             <div id='homeContainer'>
                 <div id="leftComponent">
-                    <ServerIndexContainer servers={this.props.servers} />
+                    <ServerIndexContainer />
                     <div id='leftRightColumn'>
                         <div id='searchBar'>
                             <div id='leftSearchBar'>
@@ -47,7 +47,7 @@ class Home extends React.Component {
                                 </div>
                             </div>
                             <div>
-                                <DmIndex servers={this.props.servers}/>
+                                <DmIndex servers={dmSevers} currentUser={this.props.currentUser}/>
                             </div>
                         </div>
                         <UserInfoContainer />

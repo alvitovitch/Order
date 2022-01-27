@@ -9,7 +9,6 @@ class ServerIndexItem extends React.Component {
 
     handleClick() {
         location.hash = `#/${this.props.server.id}`
-        document.getElementById(`server${this.props.server.id}ShowButton`) 
     }
 
     render() {

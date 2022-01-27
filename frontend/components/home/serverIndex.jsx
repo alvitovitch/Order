@@ -45,6 +45,8 @@ class ServerIndex extends React.Component {
     
     goHome() {
         location.hash = '#/@me'
+        debugger
+
     }
 
     update(field) {
@@ -75,7 +77,7 @@ class ServerIndex extends React.Component {
                 <ul>
                     <button  id='homeButton' onClick={() => this.goHome()}></button>
                     <div id='seperator'></div>
-                    {this.props.servers.map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
+                    {this.props.servers.filter(server => server.server_type === 1).map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
                 </ul>
                 <button id='createNewServerButton' onClick={this.show}>+</button>
                 <div id='createServerBackground' onClick={e => this.hideBackground(e)}>
