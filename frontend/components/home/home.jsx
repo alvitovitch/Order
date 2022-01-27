@@ -34,7 +34,9 @@ class Home extends React.Component {
                     <ServerIndexContainer servers={this.props.servers} />
                     <div id='leftRightColumn'>
                         <div id='searchBar'>
-                            search bar here
+                            <div id='leftSearchBar'>
+                                Find or start a conversation
+                            </div>
                         </div>
                         <div id='dmList'>
                             this will be filled with dms
