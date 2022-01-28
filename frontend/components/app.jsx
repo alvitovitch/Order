@@ -8,7 +8,6 @@ import SessionForm from './login/sessionForm'
 import SignupFormContainer from './login/signupFormContainer'
 import Splash from './splash/splash'
 import ServerShowContainer from './server/serverShowContainer'
-import SelectedChannelPageContainer from './server/selectedChannelPageContainer'
 import { PersistGate } from 'redux-persist/integration/react'
 const App = ({ children }) => (
     <div>
@@ -19,8 +18,7 @@ const App = ({ children }) => (
             <ProtectedRoute path='/@me' component={HomeContainer} />
             <ProtectedRoute path='/@me/*' component={HomeContainer} />
             <ProtectedRoute path='/*/*' component={ServerShowContainer}/>
-            <ProtectedRoute path='/*' component={ServerShowContainer}/>
-            
+            <ProtectedRoute path='/*' component={ServerShowContainer}/>            
         </Switch>
     </div>
 )

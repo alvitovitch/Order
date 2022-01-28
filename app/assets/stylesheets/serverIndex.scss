@@ -11,7 +11,7 @@
 
 #homeButton {
     
-    background-color: rgb(54, 182, 79);
+    background-color: rgb(71, 71, 72);
     height: 55px;
     width: 55px;
     border-radius: 18px;
@@ -23,10 +23,10 @@
     font-size: large;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-#homeButton:active {
-    margin-top: 12.5px;
-    margin-bottom: 0px
+#homeButton:hover {
+    background-color: rgba(54, 182, 79, .7);
 }
+
 
 #seperator {
     margin-top: 5px;
