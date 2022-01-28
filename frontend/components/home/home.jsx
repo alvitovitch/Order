@@ -1,9 +1,9 @@
 import React from "react";
 import ServerIndexContainer from "./serverIndexContainer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
-//import MessageList from "../messages/messageList";
-import consumer from "../../../app/javascript/channels/consumer";
-import CategoryIndexContainer from "../category/categoryIndexContainer";
+import { Switch } from "react-router-dom";
+import { ProtectedRoute } from "../../util/route_util";
+import SelectedDmContainer from "../server/dms/selectedDmContainer";
 import DmIndex from "./dmIndex";
 
 
@@ -25,9 +25,6 @@ class Home extends React.Component {
         
         const dmSevers = this.props.servers.filter(server => server.server_type === 0)
           
-
-        debugger
-
         if (this.props.currentUser) {
         return (
             <div id='homeContainer'>
@@ -53,8 +50,10 @@ class Home extends React.Component {
                         <UserInfoContainer />
                     </div>
                 </div>
-                <div id='rightComponentTwo'>
-                    everything else
+                <div id='middleComponent'>
+                    <Switch>
+                        <ProtectedRoute path='/@me/*' component={SelectedDmContainer} />
+                    </Switch>
                 </div>
                 <button onClick={this.props.logout}>
                     logout

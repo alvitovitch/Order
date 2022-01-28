@@ -24,6 +24,15 @@ class ChannelIndex extends React.Component {
     }
 
     showChannel(channel) {
+        const last = location.hash.split('/')[2]
+        if (last !== undefined) {
+            const lastButton = document.getElementById(`channel${last}`)
+            lastButton.style.background = 'rgba(0, 0, 0, 0)'
+            lastButton.style.color = 'grey'
+        }
+        const thisButton = document.getElementById(`channel${channel.id}`)
+        thisButton.style.background = 'rgb(81, 81, 81)';
+        thisButton.style.color = 'white';
         location.hash = `/${this.props.serverId}/${channel.id}`
     }
 

@@ -6,10 +6,16 @@ class Api::FriendshipsController < ApplicationController
             if @friendship.is_mutual?
                 friend_server = Server.new(server_name: @friendship.user.username + @friendship.friend.username, server_type: 0, creator_id: @freindship.user_id)
                 friend_server.save
-                user_membership = Membership.new(server_id: friend_server.id, role_id: Role.first.id , user_id: @friendships.user_id)
+                friend_role = Role.new(name: 'Friend', server_id: friend_server.id)
+                friend_role.save
+                user_membership = Membership.new(server_id: friend_server.id, role_id: friend_role.id , user_id: @friendships.user_id)
                 user_membership.save
-                friend_membership = Membership.new(server_id: friend_server.id, role_id: Role.first.id , user_id: @friendships.friend_id)
+                friend_membership = Membership.new(server_id: friend_server.id, role_id: friend_role.id , user_id: @friendships.friend_id)
                 friend_membership.save
+                category = Category.new(name: 'Text Channel', server_id: friend_server.id)
+                category.save
+                channel = Channel.new(category_id: category.id, name: 'Friend Chat')
+                channel.save
             end
             render :show
         else

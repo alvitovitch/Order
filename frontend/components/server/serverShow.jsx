@@ -68,7 +68,7 @@ class ServerShow extends React.Component {
 
     render(){
         
-        if (this.props.categories.length !== 0 && this.props.users.length !== 0 && this.props.server.members !== undefined) {
+        if (this.props.users.length !== 0 && this.props.server.members !== undefined) {
             return (
                 <div className="showPage">
                     <div id='leftComponent'>

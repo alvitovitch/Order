@@ -45,7 +45,6 @@ class ServerIndex extends React.Component {
     
     goHome() {
         location.hash = '#/@me'
-        debugger
 
     }
 

@@ -10,8 +10,7 @@ const ChannelsReducer = (oldState = {}, action) => {
     let newState = Object.assign({}, oldState)
     switch (action.type) {
         case RECEIVE_CHANNELS:
-            newState = Object.assign(newState, action.channels)
-            return newState
+            return action.channels 
         case RECEIVE_CHANNEL:
             newState[action.channel.id] = action.channel
             return newState
