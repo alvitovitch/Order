@@ -1,6 +1,6 @@
 import React from "react";
-import consumer from "../../../../app/javascript/channels/consumer";
-import MessageIndexContainer from "../../messages/messageIndexContainer";
+import consumer from "../../../app/javascript/channels/consumer";
+import MessageIndexContainer from "../messages/messageIndexContainer";
 
 
 class SelectedDmPage extends React.Component {

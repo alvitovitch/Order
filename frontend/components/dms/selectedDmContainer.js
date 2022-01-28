@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import { fetchCategories } from "../../../actions/category_actions";
-import { fetchChannels } from "../../../actions/channel_actions";
-import { fetchMessages } from "../../../util/message_api_util";
+import { fetchCategories } from "../../actions/category_actions";
+import { fetchChannels } from "../../actions/channel_actions";
+import { fetchMessages } from "../../util/message_api_util";
 import SelectedDmPage from "./selectedDm";
 
 

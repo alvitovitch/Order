@@ -22,7 +22,10 @@
 .dmIndexItem {
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    margin: 9px;
+    padding: 6px 2px;
     align-items: center;
-    gap: 10px
+    gap: 10px;
+    border-radius: 6px;
+    cursor: pointer;
 }

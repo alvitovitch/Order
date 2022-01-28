@@ -44,6 +44,12 @@ class ServerIndex extends React.Component {
     }
     
     goHome() {
+        const last = location.hash.split('/')[2]
+        if (last !== undefined) {
+            const lastButton = document.getElementById(`friendshipServer${last}`)
+            lastButton.style.background = 'rgba(0, 0, 0, 0)'
+            lastButton.style.color = 'grey'
+        }
         location.hash = '#/@me'
 
     }

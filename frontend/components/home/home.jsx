@@ -3,7 +3,7 @@ import ServerIndexContainer from "./serverIndexContainer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
 import { Switch } from "react-router-dom";
 import { ProtectedRoute } from "../../util/route_util";
-import SelectedDmContainer from "../server/dms/selectedDmContainer";
+import SelectedDmContainer from "../dms/selectedDmContainer";
 import DmIndex from "./dmIndex";
 
 
