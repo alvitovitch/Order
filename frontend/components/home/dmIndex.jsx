@@ -29,6 +29,9 @@ class DmIndex extends React.Component {
         const dmServers = Object.values(this.props.servers).filter(server => server.server_type === 0)
         return (
             <div>
+                <div id='directMessages'>
+                    Direct Messages
+                </div>
                 {dmServers.map(server => (<div className='dmIndexItem' id={`friendshipServer${server.id}`} onClick={() => this.handleClick(server.id)} >
                     <img className='dmIndexItemAvatar' src={window.userAvatar} alt="" />
                     <div className="dmIndexItemName">

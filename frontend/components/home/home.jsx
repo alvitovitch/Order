@@ -5,6 +5,7 @@ import { Switch } from "react-router-dom";
 import { ProtectedRoute } from "../../util/route_util";
 import SelectedDmContainer from "../dms/selectedDmContainer";
 import DmIndex from "./dmIndex";
+import FriendsIndexContainer from "./friendsIndexContainer";
 
 
 class Home extends React.Component {
@@ -55,6 +56,7 @@ class Home extends React.Component {
                 <div id='middleComponent'>
                     <Switch>
                         <ProtectedRoute path='/@me/*' component={SelectedDmContainer} />
+                        <ProtectedRoute path='/@me' component={FriendsIndexContainer} />
                     </Switch>
                 </div>
                 <button onClick={this.props.logout}>

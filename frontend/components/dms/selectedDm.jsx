@@ -56,7 +56,6 @@ class SelectedDmPage extends React.Component {
     }
     
     render() {   
-        debugger
         //if (this.props.categories !== undefined && this.props.server.id === Object.values(this.props.categories)[0].server_id && this.props.channel.category_id !==  Object.values(this.props.categories)[0].id) {
             return(
                 <div id='selectedServer'>

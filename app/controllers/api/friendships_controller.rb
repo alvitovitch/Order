@@ -32,6 +32,7 @@ class Api::FriendshipsController < ApplicationController
 
     def index
         @friendships = current_user.friendships
+        @pending = current_user.received_friendships
         render :index
     end
 
