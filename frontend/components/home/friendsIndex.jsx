@@ -46,13 +46,26 @@ class FriendsIndex extends React.Component {
                     return this.props.users[friendship.user_id]
                 }})
             })
-        }
-        
+        } else if (e.target.id = 'online') {
+            this.setState({selected: e.target,
+                friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                    if (friendship.mutual === false){
+                    return this.props.users[friendship.user_id]
+                }
+
+            })
+        })
+        }  
     }
 
     render() {
         debugger
-        let selectedFriends = <div>looks like you have no friends</div>
+        let selectedFriends = <div id='wumpus'>
+            <img id='wumpus-image' src={window.wumpus} alt="" />
+            <span>
+            Looks like there's nothing here. Here's a wumpus to keep you company!
+            </span>
+            </div>
         if (this.state !== null){
             if (this.state.friendships[0] !== undefined){
                 selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItemContainer friend={friend} /> ))
@@ -68,7 +81,7 @@ class FriendsIndex extends React.Component {
                         <div className="friend-options" onClick={this.handleClick} id='online'>Online</div>
                         <div className="friend-options" onClick={this.handleClick} id='all'>All</div>
                         <div className="friend-options" onClick={this.handleClick} id='pending'>Pending</div>
-                        <div className="friend-options" onClick={this.handleClick} id='blocked'>Blocked</div>
+                        <div className="friend-options"  id='blocked'>Blocked</div>
                     </div>
                 </div>
                 <div id='friends-list'>

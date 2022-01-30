@@ -91,3 +91,24 @@
 #friends:hover {
     background-color: rgba(128, 128, 128, 0.122);
 }
+
+#wumpus {
+    height: -webkit-calc(100vh - 59px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+#wumpus-image {
+    height: auto;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+#blocked {
+    cursor: not-allowed;
+}

@@ -44,6 +44,7 @@
 }
 
 .friend-index-item{
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -56,7 +57,11 @@
 
 .friend-index-item:hover {
     background-color: rgba(128, 128, 128, 0.204);
+    .friend-username .friend-tag{
+        color: grey;
+    }
 }
+    
 
 #friends-list-title {
     color: grey;
@@ -64,3 +69,13 @@
     font-size: 18px; 
     margin: 10px;
 }
+
+.friend-tag {
+    color: rgba(128, 128, 128, 0);
+    margin-left: 5px;
+}
+
+.friend-username{
+    display: flex;
+}
+

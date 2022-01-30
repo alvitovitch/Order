@@ -14,7 +14,10 @@ class FriendIndexItem extends React.Component {
             <div onClick={() => location.hash = `/@me/${this.server.id}`} className="friend-index-item">
                     <img className='userAvatar' src={window.userAvatar} alt="" />
                 <div className="friend-username">
-                    {`${this.props.friend.username}${this.props.friend.tag}`}
+                    {`${this.props.friend.username}`}
+                <div className="friend-tag">
+                    {`${this.props.friend.tag}`}
+                </div>
                 </div>
             </div>
         )
