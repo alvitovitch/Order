@@ -2,7 +2,7 @@ import React from "react";
 import ServerIndexContainer from "./serverIndexContainer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
 import { Switch } from "react-router-dom";
-import { ProtectedRoute } from "../../util/route_util";
+import { Route } from "react-router-dom";
 import SelectedDmContainer from "../dms/selectedDmContainer";
 import DmIndex from "./dmIndex";
 import FriendsIndexContainer from "./friendsIndexContainer";
@@ -55,8 +55,8 @@ class Home extends React.Component {
                 </div>
                 <div id='middleComponent'>
                     <Switch>
-                        <ProtectedRoute path='/@me/*' component={SelectedDmContainer} />
-                        { this.props.friendships.pending !== undefined ? <ProtectedRoute path='/@me' component={FriendsIndexContainer} /> : <div></div> }
+                        <Route path='/@me/*' component={SelectedDmContainer} />
+                        { this.props.friendships.pending !== undefined ? <Route path='/@me' component={FriendsIndexContainer} /> : <div></div> }
                     </Switch>
                 </div>
                 <button onClick={this.props.logout}>
