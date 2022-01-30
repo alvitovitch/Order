@@ -4,22 +4,29 @@ import FriendIndexItemContainer from "./friendIndexItemContainer";
 class FriendsIndex extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            friendships: this.props.friendships.outgoing_friendships.map(friendship => {if (friendship.mutual === true){
-                return this.props.users[friendship.friend_id]
-            } }),
-        }
+        
         this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
-        this.setState({selected: document.getElementById('all')})
+        if (this.props.friendships !== undefined){
+            this.setState({selected: document.getElementById('all'),
+                friendships: this.props.friendships.outgoing_friendships.map(friendship => {if (friendship.mutual === true){
+                    return this.props.users[friendship.friend_id]
+                }})
+             })
+        } 
         
     }
     
     componentDidUpdate() {
-        this.state.selected.style.background = 'rgba(128, 128, 128, 0.326)'
-        this.state.selected.style.color = 'white'
+        if (this.state !== null){
+            if (this.state.selected !== undefined){
+                this.state.selected.style.background = 'rgba(128, 128, 128, 0.326)'
+                this.state.selected.style.color = 'white'
+            }
+        }
+        
     }
 
     handleClick(e) {
@@ -44,10 +51,13 @@ class FriendsIndex extends React.Component {
     }
 
     render() {
+        debugger
         let selectedFriends = <div>looks like you have no friends</div>
-        if (this.state.friendships[0] !== undefined){
-            selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItemContainer friend={friend} /> ))
-        } 
+        if (this.state !== null){
+            if (this.state.friendships[0] !== undefined){
+                selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItemContainer friend={friend} /> ))
+            } 
+        }
         return(
             <div id='friends-index'>
                 <div id='friends-index-top-bar'>
@@ -62,7 +72,7 @@ class FriendsIndex extends React.Component {
                     </div>
                 </div>
                 <div id='friends-list'>
-                    <div id='friends-list-title'>{this.state.selected === undefined ? 'Online' : `${this.state.selected.id.toUpperCase()} FRIENDS - ${this.state.friendships.filter(friendship => friendship !== undefined).length}`}</div>
+                    <div id='friends-list-title'>{this.state === null ? 'Online' : `${this.state.selected.id.toUpperCase()} FRIENDS - ${this.state.friendships.filter(friendship => friendship !== undefined).length}`}</div>
                     {selectedFriends}
                 </div>
             </div>

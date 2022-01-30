@@ -11,7 +11,7 @@ import FriendsIndexContainer from "./friendsIndexContainer";
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        
+
         
     }
 
@@ -56,7 +56,7 @@ class Home extends React.Component {
                 <div id='middleComponent'>
                     <Switch>
                         <ProtectedRoute path='/@me/*' component={SelectedDmContainer} />
-                        <ProtectedRoute path='/@me' component={FriendsIndexContainer} />
+                        { this.props.friendships.pending !== undefined ? <ProtectedRoute path='/@me' component={FriendsIndexContainer} /> : <div></div> }
                     </Switch>
                 </div>
                 <button onClick={this.props.logout}>
