@@ -3,7 +3,6 @@ import FriendsIndex from "./friendsIndex";
 
 
 const mSTP = state => {
-    debugger
     return {
         friendships: state.entities.friendships,
         users: state.entities.users

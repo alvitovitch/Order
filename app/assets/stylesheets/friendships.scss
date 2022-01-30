@@ -1,3 +1,44 @@
 // Place all the styles related to the Friendships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#friends-index-top-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: grey;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    padding: 12.5px ;
+    border-bottom:  1px solid #202225;
+}
+
+#friend-index-image-word{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    padding-right: 20px;
+    border-right: rgba(128, 128, 128, 0.435) solid 2px;
+    gap: 10px;
+}
+
+
+#friend-index-options {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.friend-options {
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.friend-options:hover {
+    background: rgba(128, 128, 128, 0.326);
+    color: rgba(255, 255, 255, 0.714);
+}

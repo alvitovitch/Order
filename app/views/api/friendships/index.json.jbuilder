@@ -1,10 +1,8 @@
-json.outgoing_friendships @friendships.each do |friendship|
-    json.set! friendship.id do
-        json.partial! 'api/friendships/friendship', friendship: friendship
-    end
+json.outgoing_friendships @friendships do |friendship|  
+    json.partial! 'api/friendships/friendship', friendship: friendship  
 end
 
-json.pending @pending.each do |pending|
+json.pending @pending do |pending|
     if !pending.is_mutual?
             json.partial! 'api/friendships/friendship', friendship: pending
     end
