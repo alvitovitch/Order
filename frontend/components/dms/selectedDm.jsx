@@ -12,9 +12,8 @@ class SelectedDmPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchCategories(this.props.server.id)
-        this.props.fetchChannels(this.props.server.id, Object.values(this.props.categories)[0].id)
-
+        debugger
+        this.props.fetchCategories(this.props.server.id).then()
     }
     
     componentDidUpdate() {
@@ -24,15 +23,6 @@ class SelectedDmPage extends React.Component {
                 this.channel.unsubscribe()
             }
         const fetch = this.props.fetchMessages
-        if (this.props.categories !== undefined )
-        {
-            if (Object.values(this.props.categories)[0].server_id !== this.props.server.id){
-                this.props.fetchCategories(this.props.server.id)
-            }
-            if (this.props.channel !== undefined && this.props.channel.category_id !== Object.values(this.props.categories)[0].id){
-                this.props.fetchChannels(this.props.server.id, Object.values(this.props.categories)[0].id)
-            }
-        }
         
 
         const channel = consumer.subscriptions.create({channel: 'MessagesChannel', id: this.props.channel.id}, {
