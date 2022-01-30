@@ -5,13 +5,15 @@ class FriendsIndex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            friendships: this.props.friendships.outgoing_friendships.map(friendship => (this.props.users[friendship.user_id])),
+            friendships: this.props.friendships.outgoing_friendships.map(friendship => {if (friendship.mutual === true){
+                return this.props.users[friendship.user_id]
+            } }),
         }
         this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
-        this.setState({selected: document.getElementById('online')})
+        this.setState({selected: document.getElementById('all')})
         
     }
     
@@ -23,10 +25,30 @@ class FriendsIndex extends React.Component {
     handleClick(e) {
         this.state.selected.style.background = '';
         this.state.selected.style.color = '';
-        this.setState({selected: e.target})
+        if (e.target.id == 'all') {
+                this.setState({selected: e.target,
+                    friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                        if (friendship.mutual === true){
+                        return this.props.users[friendship.user_id]
+                    }})
+                })
+        } else if (e.target.id = 'pending') {
+            this.setState({selected: e.target,
+                friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                    if (friendship.mutual === false){
+                    return this.props.users[friendship.user_id]
+                }})
+            })
+        }
+        
     }
 
     render() {
+        let selectedFriends = <div>looks like you have no friends</div>
+        if (this.state.friendships[0] !== undefined){
+            selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItem friend={friend} /> ))
+        } 
+        
         return(
             <div id='friends-index'>
                 <div id='friends-index-top-bar'>
@@ -41,7 +63,7 @@ class FriendsIndex extends React.Component {
                     </div>
                 </div>
                 <div id='friends-list'>
-                    {this.state.friendships.map(friend => ( <FriendIndexItem friend={friend} /> ))}
+                    {selectedFriends}
                 </div>
             </div>
         )
