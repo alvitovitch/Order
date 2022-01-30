@@ -84,4 +84,10 @@
     padding: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#friends:hover {
+    background-color: rgba(128, 128, 128, 0.122);
 }

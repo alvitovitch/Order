@@ -29,6 +29,9 @@
     border-radius: 6px;
     cursor: pointer;
 }
+.dmIndexItem:hover {
+    background-color: rgba(128, 128, 128, 0.265);
+}
 
 #directMessages {
     color: grey;

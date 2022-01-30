@@ -40,7 +40,7 @@ class Home extends React.Component {
                             </div>
                         </div>
                         <div id='dmList'>
-                            <div id='friends'>
+                            <div id='friends' onClick={() => location.hash = '/@me'}>
                                 <img id='friendImage' src={window.people} alt="" />
                                 <div id='friendsImage'>
                                 Friends

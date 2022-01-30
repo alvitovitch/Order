@@ -1,12 +1,12 @@
 import React from "react";
-import FriendIndexItem from "./friendIndexItem";
+import FriendIndexItemContainer from "./friendIndexItemContainer";
 
 class FriendsIndex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             friendships: this.props.friendships.outgoing_friendships.map(friendship => {if (friendship.mutual === true){
-                return this.props.users[friendship.user_id]
+                return this.props.users[friendship.friend_id]
             } }),
         }
         this.handleClick = this.handleClick.bind(this)
@@ -46,9 +46,8 @@ class FriendsIndex extends React.Component {
     render() {
         let selectedFriends = <div>looks like you have no friends</div>
         if (this.state.friendships[0] !== undefined){
-            selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItem friend={friend} /> ))
+            selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItemContainer friend={friend} /> ))
         } 
-        
         return(
             <div id='friends-index'>
                 <div id='friends-index-top-bar'>
@@ -63,6 +62,7 @@ class FriendsIndex extends React.Component {
                     </div>
                 </div>
                 <div id='friends-list'>
+                    <div id='friends-list-title'>{this.state.selected === undefined ? 'Online' : `${this.state.selected.id.toUpperCase()} FRIENDS - ${this.state.friendships.filter(friendship => friendship !== undefined).length}`}</div>
                     {selectedFriends}
                 </div>
             </div>
