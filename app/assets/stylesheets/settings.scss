@@ -1,0 +1,254 @@
+#settings-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: #36393f;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+#settings-avatar {
+    height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background: purple;
+    margin-right: 10px;
+}
+
+#username-info {
+    color: whitesmoke;
+}
+
+#user-info-top {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+    color: white;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 20px;
+}
+
+#user-info-pic-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: grey;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#user-info-box-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#settings-left{
+    width: 25vw;
+    background: #2f3136;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding-right: 5%;
+}
+
+#settings-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    background-color: #202225;
+    height: 50%;
+    border-radius: 30px;
+}
+
+#logout {
+    border-style: none;
+    color: red;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgba($color: #000000, $alpha: 0);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+   
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#logout:hover {
+    background-color: rgba(128, 128, 128, 0.387);
+}
+
+#buttonContainer{
+    width: 35%;
+    border-top: solid 1px rgba($color: #797979, $alpha: .7);
+    border-bottom: solid 1px rgba($color: #797979, $alpha: .7);
+}
+
+#settings-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5%;
+    width: 100%;
+}
+
+#leave-settings {
+    border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    border: solid grey 3px;
+    background-color: rgba(128, 128, 128, 0);
+    font-size: 20px;
+    color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+#leave-settings:hover {
+    background-color: rgba(128, 128, 128, 0.32);
+}
+
+#user-info-box {
+    width: 90%;
+    height: 80%;
+}
+
+#edit-user-button {
+    font-size: 20px;
+    color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #5865f2;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: not-allowed;
+}
+
+#edit-user-button:hover {
+    background-color: #7680f7;
+}
+
+#info-fields {
+    display: flex;
+    background: #3d4047;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    height: 70%;
+    justify-content: space-around;
+    font-size: larger;
+}
+
+#field-username {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+}
+
+#info-fields h3 {
+    color: grey;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+}
+
+#info-fields h2 {
+    color: white;
+    font-size: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#username-info-2 {
+    margin-top: 5px;
+    display: flex;
+}
+
+.edit-button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    color: white;
+    border-style: none;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+#field-email {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+}
+
+#field-phone {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+}
+
+#username-form-container {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.755);
+    display: none;
+}
+
+#username-form {
+    display: flex;
+    height: 20%;
+    width: 20%;
+    background: #36393f;
+    border-radius: 5px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    color: grey;
+    justify-content: center;
+}
+
+#username-form label {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 10px;
+}
+
+#username-form input {
+    font-size: 18px;
+    height: 20px;
+}

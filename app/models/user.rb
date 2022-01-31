@@ -11,7 +11,9 @@ class User < ApplicationRecord
 
     has_many :memberships,
     foreign_key: :user_id,
-    class_name: :Membership
+    class_name: :Membership,
+    dependent: :destroy
+
 
     has_many :role, 
     through: :memberships

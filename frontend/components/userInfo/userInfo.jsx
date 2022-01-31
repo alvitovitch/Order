@@ -1,9 +1,13 @@
 import React from "react";
+import SettingsModalContainer from "../userSettings/settingsModalContainer";
 
 
 
 class UserInfo extends React.Component {
 
+    handleClick() {
+        document.getElementById('settings-container').style.display = 'flex'
+    }
 
     render() {
         return (
@@ -19,7 +23,8 @@ class UserInfo extends React.Component {
                         </div>
                     </div>
                 </div>
-                <img id='gear' src={window.gear} alt="" />
+                <img onClick={this.handleClick} id='gear' src={window.gear} alt="" />
+                 <SettingsModalContainer/>
             </div>
         )
     }

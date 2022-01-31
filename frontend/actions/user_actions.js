@@ -16,6 +16,14 @@ const receiveUser = user => (
     }   
 )
 
+export const REMOVE_USER = 'REMOVE_USER'
+const removeUser = userId => (
+    {
+        type: REMOVE_USER,
+        userId
+    }
+)
+
 export const fetchUser = userId => dispatch => (
     usersUtil.fetchUser(userId)
         .then(user => dispatch(receiveUser(user)))
@@ -23,4 +31,14 @@ export const fetchUser = userId => dispatch => (
 export const fetchUsers = () => dispatch => (
     usersUtil.fetchUsers()
         .then(users => dispatch(receiveUsers(users)))
+)
+
+export const updateUser = user => dispatch => (
+    usersUtil.updateUser(user)
+        .then(user => dispatch(receiveUser(user)))
+)
+
+export const deleteUser = (userId) => dispatch => (
+    usersUtil.deleteUser(userId)
+        .then(user => dispatch(removeUser(user.id)))
 )
