@@ -11,7 +11,6 @@ import FriendsIndexContainer from "./friendsIndexContainer";
 class Home extends React.Component {
     constructor(props) {
         super(props)
-
         
     }
 
