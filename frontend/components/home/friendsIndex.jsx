@@ -78,7 +78,7 @@ class FriendsIndex extends React.Component {
                         <img id='friendImage' src={window.people} alt="" /> Friends
                     </div>
                     <div id='friend-index-options'>
-                        <div className="friend-options" onClick={this.handleClick} id='online'>Online</div>
+                        <div className="friend-options" id='blocked' >Online</div>
                         <div className="friend-options" onClick={this.handleClick} id='all'>All</div>
                         <div className="friend-options" onClick={this.handleClick} id='pending'>Pending</div>
                         <div className="friend-options"  id='blocked'>Blocked</div>
