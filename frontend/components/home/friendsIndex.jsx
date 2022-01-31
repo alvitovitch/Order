@@ -32,24 +32,24 @@ class FriendsIndex extends React.Component {
     handleClick(e) {
         this.state.selected.style.background = '';
         this.state.selected.style.color = '';
-        if (e.target.id == 'all') {
+        if (e.target.id === 'all') {
                 this.setState({selected: e.target,
                     friendships: this.props.friendships.outgoing_friendships.map(friendship => {
                         if (friendship.mutual === true){
                         return this.props.users[friendship.friend_id]
                     }}).filter(friendship => friendship !== undefined)
                 })
-        } else if (e.target.id = 'pending') {
+        } else if (e.target.id === 'pending') {
             this.setState({selected: e.target,
                 friendships: this.props.friendships.outgoing_friendships.map(friendship => {
                     if (friendship.mutual === false){
                     return this.props.users[friendship.friend_id]
                 }}).filter(friendship => friendship !== undefined)
             })
-        } else if (e.target.id = 'online') {
+        } else if (e.target.id === 'online') {
             this.setState({selected: e.target,
                 friendships: this.props.friendships.outgoing_friendships.map(friendship => {
-                    if (friendship.mutual === false){
+                    if (friendship.mutual === true){
                     return this.props.users[friendship.friend_id]
                 }
 

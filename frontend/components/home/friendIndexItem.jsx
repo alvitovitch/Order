@@ -7,17 +7,11 @@ class FriendIndexItem extends React.Component {
         debugger
     }
 
-    componentDidUpdate() {
-        
-            this.server = Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0]
-        
-
-    }
 
     render() {
-        if (this.server !== undefined){
+        if (Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0] !== undefined){
             return (
-                <div onClick={() => location.hash = `/@me/${this.server.id}`} className="friend-index-item">
+                <div onClick={() => location.hash = `/@me/${Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0].id}`} className="friend-index-item">
                         <img className='userAvatar' src={window.userAvatar} alt="" />
                     <div className="friend-username">
                         {`${this.props.friend.username}`}
