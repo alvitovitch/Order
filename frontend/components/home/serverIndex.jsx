@@ -70,13 +70,13 @@ class ServerIndex extends React.Component {
         document.getElementById('createServerBackground').style.visibility = 'hidden'
     }
     render() {
-           
+        debugger 
         return(
             <div id='serverIndex'>
                 <ul>
                     <button  id='homeButton' onClick={() => this.goHome()}></button>
                     <div id='seperator'></div>
-                    {this.props.servers.filter(server => server.server_type === 1).map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
+                    {this.props.servers.filter(server => server.server_type === 1 && (Object.values(server.members).filter(member => member.id === this.props.currentUser.id).length > 0)).map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
                 </ul>
                 <button id='createNewServerButton' onClick={this.show}>+</button>
                 <div id='createServerBackground' onClick={e => this.hideBackground(e)}>

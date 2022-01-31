@@ -10,7 +10,7 @@ const MembershipsReducer = (oldState = {}, action ) => {
     switch (action.type) {
         case RECEIVE_MEMBERSHIPS:
             newState = Object.assign(newState, action.memberships)
-            return newState
+            return action.memberships
         case RECEIVE_MEMBERSHIP:
             newState[action.membership.id] = action.membership
             return newState

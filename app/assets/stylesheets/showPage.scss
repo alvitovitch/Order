@@ -12,11 +12,23 @@
 #joinServerBox {
     display: flex;
     position: relative;
-    top: 35%;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     align-self: center;
     justify-content: center;
-    background-color: grey;
+    color: grey;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    gap: 15px;
+    align-items: center;
 }
 
+#joinServerBox button{
+    border-style: none;
+    width: fit-content;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    background: #33bb3f;
+}

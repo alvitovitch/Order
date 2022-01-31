@@ -18,9 +18,9 @@ export const fetchMembership = (serverId, membershipId) => (
 
 // create a membership
 
-export const createMembership = (serverId, membershipId, membership) => (
+export const createMembership = (serverId, membership) => (
     $.ajax({
-        url: `/api/servers/${serverId}/memberships/${membershipId}`,
+        url: `/api/servers/${serverId}/memberships/`,
         method: 'POST',
         data: membership
     })

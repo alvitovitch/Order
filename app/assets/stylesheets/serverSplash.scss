@@ -49,3 +49,15 @@
     border-bottom: 1px solid #202225;
     background-color: #36393F;
 }
+
+#join-server {
+    height: -webkit-calc(100vh - 59px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-text {
+    width: 50%;
+}

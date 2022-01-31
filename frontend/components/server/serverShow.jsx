@@ -27,6 +27,7 @@ class ServerShow extends React.Component {
     }
 
     componentDidUpdate() {
+        if (this.props.server !== undefined) {
         if (this.props.channel !== undefined) {
             // if (this.props.messages === undefined ||
             //      (Object.values(this.props.messages).length === 0 && this.fetched === false) ||
@@ -62,81 +63,87 @@ class ServerShow extends React.Component {
             
             this.server = this.props.server.id
             this.props.fetchServer(this.props.match.params[0])
-        }
+        } }
     }
 
 
     render(){
-        
-        if (this.props.users.length !== 0 && this.props.server.members !== undefined) {
-            return (
-                <div className="showPage">
-                    <div id='leftComponent'>
-                        <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
-                        <div id='leftRightColumn'>
-                            <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
-                            <UserInfoContainer currentUser={this.props.currentUser} /> 
-                        </div>
+        if (this.props.server !== undefined){
 
-                    </div>
-                    <div id='middleComponent'>
-                        <Switch>
-                            <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
-                            <div>
-                                <div id='channelTitle'>
-                                    <div id='hash'>
-                                        #
+            if (this.props.users.length !== 0 && this.props.server.members !== undefined) {
+                return (
+                    <div className="showPage">
+                        <div id='leftComponent'>
+                            <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
+                            <div id='leftRightColumn'>
+                                <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
+                                <UserInfoContainer currentUser={this.props.currentUser} /> 
+                            </div>
+    
+                        </div>
+                        <div id='middleComponent'>
+                            <Switch>
+                                <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
+                                <div>
+                                    <div id='channelTitle'>
+                                        <div id='hash'>
+                                            #
+                                        </div>
+                                        <div>
+                                        Welcome
+                                        </div>
                                     </div>
-                                    <div>
-                                    Welcome
-                                    </div>
+                                        <JoinServerContainer server={this.props.server} />
+    
                                 </div>
-                                    <JoinServerContainer server={this.props.server} />
-
+                            </Switch>
+                        </div>
+                        <div id='rightComponent'>
+                            <div>
+                                <div id='memberSearchBar'>
+                                    This will be a search bar
+                                </div>
+                                <MemberRoles server={this.props.server} />
                             </div>
-                        </Switch>
+                      </div> 
                     </div>
-                    <div id='rightComponent'>
-                        <div>
-                            <div id='memberSearchBar'>
-                                This will be a search bar
+                )}
+                else {
+        
+                    return (
+                        <div className="showPage">
+                            <div id='leftComponent'>
+                                <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
+                                <div id='leftRightColumn'>
+                                    <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
+                                {this.props.currentUser ? <UserInfoContainer /> : null}    
+                                </div>
+        
                             </div>
-                            <MemberRoles server={this.props.server} />
+                        <div id='middleComponent'>
+                            <Switch>
+                                <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
+                            </Switch>
+                            
                         </div>
-                  </div> 
-                </div>
-            )}
-        else {
-
-            return (
-                <div className="showPage">
-                    <div id='leftComponent'>
-                        <ServerIndexContainer servers={this.props.servers} server={this.props.server} />
-                        <div id='leftRightColumn'>
-                            <CategoryIndexContainer categories={this.props.categories} server={this.props.server}/>
-                        {this.props.currentUser ? <UserInfoContainer /> : null}    
-                        </div>
-
+                        <div id='rightComponent'>
+                            <div>
+                                <div id='memberSearchBar'>
+                                    This will be a search bar
+                                </div>
+                                
+                            </div>
+                        </div> 
                     </div>
-                <div id='middleComponent'>
-                    <Switch>
-                        <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
-                    </Switch>
-                    
-                </div>
-                <div id='rightComponent'>
-                    <div>
-                        <div id='memberSearchBar'>
-                            This will be a search bar
-                        </div>
                         
-                    </div>
-                </div> 
-            </div>
-                
-            ) 
+                    ) 
+                }
+            } else {
+                return (
+                    <div>loading</div>
+                )
+            }
         }
-    }
 }
 
 export default ServerShow
