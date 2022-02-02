@@ -14,7 +14,6 @@
     end
 
     def update
-        debugger
         @user = User.find_by(id: params[:user][:id])
         if @user.update(user_params)
             render :show

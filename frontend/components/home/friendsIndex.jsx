@@ -11,9 +11,10 @@ class FriendsIndex extends React.Component {
     componentDidMount() {
         if (this.props.friendships !== undefined){
             this.setState({selected: document.getElementById('all'),
-                friendships: this.props.friendships.outgoing_friendships.map(friendship => {if (friendship.mutual === true){
-                    return this.props.users[friendship.friend_id]
-                }}).filter(friendship => friendship !== undefined)
+                        friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                            if (friendship.mutual === true){
+                            return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+                        }}).filter(friendship => friendship !== undefined)
              })
         } 
         
@@ -36,21 +37,26 @@ class FriendsIndex extends React.Component {
                 this.setState({selected: e.target,
                     friendships: this.props.friendships.outgoing_friendships.map(friendship => {
                         if (friendship.mutual === true){
-                        return this.props.users[friendship.friend_id]
+                        return {friend: this.props.users[friendship.friend_id], friendship: friendship}
                     }}).filter(friendship => friendship !== undefined)
                 })
         } else if (e.target.id === 'pending') {
             this.setState({selected: e.target,
                 friendships: this.props.friendships.outgoing_friendships.map(friendship => {
                     if (friendship.mutual === false){
-                    return this.props.users[friendship.friend_id]
-                }}).filter(friendship => friendship !== undefined)
+                        return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+                }}).filter(friendship => friendship !== undefined).concat(
+                    this.props.friendships.pending.map(friendship => {
+                        if (friendship.mutual === false){
+                        return {friend: this.props.users[friendship.user_id], friendship: friendship}
+                    }}).filter(friendship => friendship !== undefined)
+                )
             })
         } else if (e.target.id === 'online') {
             this.setState({selected: e.target,
                 friendships: this.props.friendships.outgoing_friendships.map(friendship => {
                     if (friendship.mutual === true){
-                    return this.props.users[friendship.friend_id]
+                    return {friend: this.props.users[friendship.friend_id], friendship: friendship}
                 }
 
             }).filter(friendship => friendship !== undefined)
@@ -59,7 +65,6 @@ class FriendsIndex extends React.Component {
     }
 
     render() {
-        debugger
         let selectedFriends = <div id='wumpus'>
             <img id='wumpus-image' src={window.wumpus} alt="" />
             <span>
@@ -68,7 +73,7 @@ class FriendsIndex extends React.Component {
             </div>
         if (this.state !== null){
             if (this.state.friendships[0] !== undefined){
-                selectedFriends = this.state.friendships.map(friend => ( <FriendIndexItemContainer friend={friend} /> ))
+                selectedFriends = Object.values(this.state.friendships).map(friend => ( <FriendIndexItemContainer friend={friend.friend} friendship={friend.friendship} /> ))
             } 
         }
         return(

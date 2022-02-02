@@ -7,6 +7,12 @@
 #gear {
     height: 30px;
     filter: invert(.6);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#gear:hover{
+    background-color: rgba(128, 128, 128, 0.34);
 }
 
 #joinServerBox {

@@ -53,6 +53,7 @@
     font-size: 18px;
     padding: 10px;
     border-radius: 10px;
+    justify-content: space-between;
 }
 
 .friend-index-item:hover {
@@ -61,7 +62,12 @@
         color: grey;
     }
 }
-    
+
+.friend-name-tag {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 #friends-list-title {
     color: grey;

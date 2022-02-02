@@ -4,7 +4,6 @@ import FriendsIndex from "./friendsIndex";
 
 
 const mSTP = state => {
-    debugger
     return {
         friendships: state.entities.friendships,
         users: state.entities.users,
@@ -13,7 +12,6 @@ const mSTP = state => {
 }
 
 const mDTP = dispatch => {
-    debugger
     return {
         fetchFriendships: (userId) => dispatch( fetchFriendships(userId))
     }

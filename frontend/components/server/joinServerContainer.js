@@ -5,7 +5,6 @@ import { createMembership, fetchMemberships } from "../../actions/membership_act
 
 
 const mSTP = (state, ownProps) => {
-    debugger
     return{
         servers: state.entities.servers,
         categories: Object.values(state.entities.categories),

@@ -12,13 +12,13 @@ class DmIndex extends React.Component {
     handleClick(serverId) {
         const last = location.hash.split('/')[2]
         if (last !== undefined) {
-            debugger
+            
             const lastButton = document.getElementById(`friendshipServer${last}`)
             lastButton.style.background = 'rgba(0, 0, 0, 0)'
             lastButton.style.color = 'grey'
         }
         const thisButton = document.getElementById(`friendshipServer${serverId}`)
-        debugger
+        
         thisButton.style.background = 'rgb(59 62 69)';
         thisButton.style.color = 'white';
         location.hash = `#/@me/${serverId}`

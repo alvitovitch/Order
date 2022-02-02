@@ -58,9 +58,6 @@ class Home extends React.Component {
                         { this.props.friendships.pending !== undefined ? <Route path='/@me' component={FriendsIndexContainer} /> : <div></div> }
                     </Switch>
                 </div>
-                <button onClick={this.props.logout}>
-                    logout
-                </button>
             </div>
         )}
         else 

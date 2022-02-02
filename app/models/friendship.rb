@@ -1,6 +1,8 @@
 class Friendship < ApplicationRecord
 
     validates :user_id, :friend_id, presence: true
+    validates :friend_id, uniqueness: {scope: :user_id, message: 
+    "You can't friend the same person twice!"}
 
     belongs_to :user,
     foreign_key: :user_id,

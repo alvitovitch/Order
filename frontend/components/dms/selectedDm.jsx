@@ -12,7 +12,6 @@ class SelectedDmPage extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchCategories(this.props.server.id).then()
     }
     

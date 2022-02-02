@@ -61,3 +61,36 @@
 #top-text {
     width: 50%;
 }
+
+#addFriendButton {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    color: #b9bbbe;
+    background-color: #202225;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid #202225 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#addFriendButton:hover {
+    background-color: #444cec;
+
+}
+
+#unFriendButton {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    color: #b9bbbe;
+    background-color: #202225;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid #202225 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#unFriendButton:hover {
+    background-color: #444cec;
+}

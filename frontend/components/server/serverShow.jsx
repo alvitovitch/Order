@@ -6,8 +6,8 @@ import { ProtectedRoute, AuthRoute} from '../../util/route_util'
 import selectedChannelPageContainer from "./selectedChannelPageContainer";
 import consumer from "../../../app/javascript/channels/consumer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
-import MemberRoles from "./memberRoles";
 import JoinServerContainer from "./joinServerContainer";
+import MemberRolesContainer from "./memberRolesContainer";
 
 class ServerShow extends React.Component {
 
@@ -103,7 +103,7 @@ class ServerShow extends React.Component {
                                 <div id='memberSearchBar'>
                                     This will be a search bar
                                 </div>
-                                <MemberRoles server={this.props.server} />
+                                <MemberRolesContainer server={this.props.server} />
                             </div>
                       </div> 
                     </div>

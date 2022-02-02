@@ -9,13 +9,12 @@ Object.freeze(oldState)
 let newState = Object.assign({}, oldState)
 switch (action.type) {
     case RECEIVE_FRIENDSHIPS:
-        newState = Object.assign(newState, action.friendships)
-        return newState
+        return action.friendships
     case RECEIVE_FRIENDSHIP:
-        newState[action.friendship.id] = action.friendship
+        newState['outgoing_friendships'][action.friendship.id] = action.friendship
         return newState
     case REMOVE_FRIENDSHIP:
-        delete newState[action.freindshipId]
+        delete newState['outgoing_friendships'][action.friendshipId]
         return newState
     case LOGOUT_USER:
         return {}

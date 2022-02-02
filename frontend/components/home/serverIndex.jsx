@@ -21,6 +21,7 @@ class ServerIndex extends React.Component {
         if (this.props.currentUser !== undefined){
 
             const fetchUser = this.props.fetchUser
+            const fetchFriends = () => this.props.fetchFriendships(this.props.currentUser.id)
             consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
                 connected() {
                   // Called when the subscription is ready for use on the server'
@@ -35,6 +36,8 @@ class ServerIndex extends React.Component {
                   switch (data.type) {
                       case 'fetchUser':
                         fetchUser(data.userId)
+                    case 'friendship':
+                        fetchFriends()
                       default:
                           console.log('Not sure what that was @serverIndex')
                   }
@@ -70,7 +73,6 @@ class ServerIndex extends React.Component {
         document.getElementById('createServerBackground').style.visibility = 'hidden'
     }
     render() {
-        debugger 
         return(
             <div id='serverIndex'>
                 <ul>

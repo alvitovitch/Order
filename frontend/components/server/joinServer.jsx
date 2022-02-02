@@ -12,7 +12,6 @@ class JoinServer extends React.Component {
     }
 
     handleMembership() {
-        debugger
         const membership = { membership:{
             server_id: this.props.server.id,
             user_id: this.props.currentUser.id,
@@ -22,7 +21,6 @@ class JoinServer extends React.Component {
         } 
         if (!Object.values(this.props.memberships).includes(this.props.currentUser)) {
             
-            debugger
             this.props.createMembership(this.props.server.id, membership)
         }
 

@@ -3,7 +3,7 @@ import FriendIndexItem from "./friendIndexItem";
 
 
 const mSTP = state => {
-    debugger
+    
     return {
         servers: state.entities.servers,
         users: state.entities.users,

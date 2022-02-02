@@ -44,5 +44,5 @@ export const createFriendship = (userId, friendship) => dispatch => (
 
 export const deleteFriendship = (userId, friendshipId) => dispatch => (
     friendshipApiUtil.deleteFriendship(userId, friendshipId)
-        .then(friendship => dispatch(removeFriendship(friendship)))
+        .then(friendship => dispatch(removeFriendship(friendship.id)))
 )

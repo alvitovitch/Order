@@ -18,9 +18,9 @@ export const fetchFriendship = (userId, friendshipId) => (
 
 // create a Friendship
 
-export const createFriendship = (userId, friendshipId, friendship) => (
+export const createFriendship = (userId, friendship) => (
     $.ajax({
-        url: `/api/users/${userId}/friendships/${friendshipId}`,
+        url: `/api/users/${userId}/friendships`,
         method: 'POST',
         data: friendship
     })

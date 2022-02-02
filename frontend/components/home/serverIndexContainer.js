@@ -3,6 +3,7 @@ import React from 'react';
 import ServerIndex from './serverIndex';
 import { createServer } from '../../actions/server_actions';
 import { fetchUser } from '../../actions/user_actions';
+import { fetchFriendships } from '../../actions/friendship_actions';
 
 const mSTP = (state, ownProps) => {
     
@@ -16,7 +17,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     createServer: server => dispatch(createServer(server)),
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    fetchFriendships: userId => dispatch( fetchFriendships(userId))
 })
 
 

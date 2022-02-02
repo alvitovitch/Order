@@ -4,33 +4,59 @@ class FriendIndexItem extends React.Component {
 
     constructor(props){
         super(props)
-        debugger
     }
 
+    click(e) {
+        if (e.target.className !== 'delete-friendship' ){
+            location.hash = `/@me/${Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0].id}`
+        }
+    }
+
+    deleteFriendship() {
+        if (this.props.friendship.mutual === true){
+
+        }
+    }
 
     render() {
         if (Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0] !== undefined){
             return (
-                <div onClick={() => location.hash = `/@me/${Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0].id}`} className="friend-index-item">
+                <div onClick={e => this.click(e) } className="friend-index-item">
+                    <div className="friend-name-tag">
                         <img className='userAvatar' src={window.userAvatar} alt="" />
-                    <div className="friend-username">
-                        {`${this.props.friend.username}`}
-                    <div className="friend-tag">
-                        {`${this.props.friend.tag}`}
+                        <div className="friend-username">
+                            {`${this.props.friend.username}`}
+                            <div className="friend-tag">
+                                {`${this.props.friend.tag}`}
+                            </div>
+                        </div>
                     </div>
+                    <div className="friend-buttons">
+                        <button className="delete-friendship">X</button> 
                     </div>
                 </div>
             )
         } else if (this.props.friend !== undefined) {
             return (
                 <div className="friend-index-item">
-                    <img className='userAvatar' src={window.userAvatar} alt="" />
-                    <div className="friend-username">
-                        {`${this.props.friend.username}`}
-                    <div className="friend-tag">
-                        {`${this.props.friend.tag}`}
+                    <div className="friend-name-tag">
+                        <img className='userAvatar' src={window.userAvatar} alt="" />
+                        <div className="friend-username">
+                            {`${this.props.friend.username}`}
+                        <div className="friend-tag">
+                            {`${this.props.friend.tag}`}
+                        </div>
+                        </div>
                     </div>
-                    </div>
+                        
+                       {this.props.friendship.user_id === this.props.currentUser.id ? 
+                            <div className="friend-buttons">                                <button className='accept-friend'>
+                                </button> <button className="delete-friendship">X</button>
+                           </div>
+                           : 
+                            <div className="friend-buttons">
+                                <button className="delete-friendship">X</button> 
+                            </div>}
                 </div>
             )
         } else {

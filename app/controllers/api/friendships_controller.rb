@@ -17,9 +17,10 @@ class Api::FriendshipsController < ApplicationController
                 channel = Channel.new(category_id: category.id, name: 'Friend Chat')
                 channel.save
             end
+            ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'friendship'
             render :show
         else
-            render json: @freindship.errors.full_messages, status: 422
+            render json: @friendship.errors.full_messages, status: 422
         end
     end
 
@@ -39,6 +40,10 @@ class Api::FriendshipsController < ApplicationController
 
     def destroy
         @friendship = Friendship.find_by(id: params[:id])
+        if @friendship.is_mutual?
+            other_friendship = Friendship.find_by(user_id: @friendship.friend_id, friend_id: @friendship.user_id)
+            other_friendship.delete
+        end
         @friendship.delete
         render :show
     end

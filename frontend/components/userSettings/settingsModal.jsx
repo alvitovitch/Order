@@ -27,21 +27,27 @@ class SettingsModal extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault()
         const user = Object.assign({}, this.state)
         this.props.updateUser({user: user})
+        e.currentTarget.parentElement.style.display = 'none'
     }
 
-    close(e){
-        debugger
-        const bkg = document.getElementById('username-form-container')
-        if (e.target === bkg){
-            bkg.style.display = 'none'
+    close(e){        
+        if (e.target.id === 'username-form-container' || e.target.id === 'email-form-container' || e.target.id === 'phone_number-form-container'){
+           e.target.style.display = 'none'
         }
     }
 
     openUsername(){
         document.getElementById('username-form-container').style.display = 'flex'
+    }
+    openPhone(){
+        document.getElementById('phone_number-form-container').style.display = 'flex'
+    }
+    openEmail(){
+        document.getElementById('email-form-container').style.display = 'flex'
     }
 
 
@@ -88,7 +94,7 @@ class SettingsModal extends React.Component {
                                             <h2>{this.props.currentUser.email}</h2>
                                         </div>
                                     </div>
-                                    <button className="edit-button" >Edit</button>
+                                    <button onClick={this.openEmail} className="edit-button" >Edit</button>
                                 </div>
                                 <div id='field-phone'>
                                     <div>
@@ -97,7 +103,7 @@ class SettingsModal extends React.Component {
                                             <h2>{this.props.currentUser.phone_number === null ? 'Feel free to add your phone number' : this.props.currentUser.phone_number }</h2>
                                         </div>
                                     </div>
-                                    <button className="edit-button" >Edit</button>
+                                    <button onClick={this.openPhone} className="edit-button" >Edit</button>
                                 </div>
                         </div>
                     </div>
@@ -109,6 +115,26 @@ class SettingsModal extends React.Component {
                     <label>
                         USERNAME
                         <input onChange={this.update('username')} id='username-input' value={this.state.username} type="text"/>
+                    </label>
+                    <button id="edit-user-button">Done</button>
+                </form>
+            </div>
+            <div onClick={this.close} id='email-form-container'>
+                <form id='email-form' onSubmit={this.handleSubmit}>
+                    Change your email
+                    <label>
+                        EMAIL
+                        <input onChange={this.update('email')} id='email-input' value={this.state.email} type="text"/>
+                    </label>
+                    <button id="edit-user-button">Done</button>
+                </form>
+            </div>
+            <div onClick={this.close} id='phone_number-form-container'>
+                <form id='phone_number-form' onSubmit={this.handleSubmit}>
+                    Change your phone number
+                    <label>
+                        PHONE NUMBER
+                        <input onChange={this.update('phone_number')} id='phone_number-input' value={this.state.phone_number} type="text"/>
                     </label>
                     <button id="edit-user-button">Done</button>
                 </form>

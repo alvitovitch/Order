@@ -1,4 +1,4 @@
-json.outgoing_friendships @friendships do |friendship|  
+json.outgoing_friendships @friendships.each do |friendship|  
     json.partial! 'api/friendships/friendship', friendship: friendship  
 end
 
