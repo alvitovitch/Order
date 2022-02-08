@@ -78,7 +78,7 @@ class CategoryIndexItem extends React.Component {
           });
         document.addEventListener('click', e => {
             const deleteButton = document.getElementById('deleteCategoryButton')
-            if (deleteButton.style.display === 'flex' &&
+            if (deleteButton !== undefined && deleteButton.style.display === 'flex' &&
             e.currentTarget !== deleteButton ) {
                 deleteButton.style.display = 'none'
             }

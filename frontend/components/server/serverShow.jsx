@@ -3,7 +3,7 @@ import ServerIndexContainer from "../home/serverIndexContainer";
 import CategoryIndexContainer from "../category/categoryIndexContainer";
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import { ProtectedRoute, AuthRoute} from '../../util/route_util'
-import selectedChannelPageContainer from "./selectedChannelPageContainer";
+import SelectedChannelPageContainer from "./selectedChannelPageContainer";
 import consumer from "../../../app/javascript/channels/consumer";
 import UserInfoContainer from "../userInfo/userInfoContainer";
 import JoinServerContainer from "./joinServerContainer";
@@ -83,8 +83,8 @@ class ServerShow extends React.Component {
                         </div>
                         <div id='middleComponent'>
                             <Switch>
-                                <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
-                                <div>
+                                <ProtectedRoute path='/*/*' component={SelectedChannelPageContainer} />
+                                <>
                                     <div id='channelTitle'>
                                         <div id='hash'>
                                             #
@@ -95,7 +95,7 @@ class ServerShow extends React.Component {
                                     </div>
                                         <JoinServerContainer server={this.props.server} />
     
-                                </div>
+                                </>
                             </Switch>
                         </div>
                         <div id='rightComponent'>
@@ -122,7 +122,7 @@ class ServerShow extends React.Component {
                             </div>
                         <div id='middleComponent'>
                             <Switch>
-                                <ProtectedRoute path='/*/*' component={selectedChannelPageContainer} />
+                                <ProtectedRoute path='/*/*' component={SelectedChannelPageContainer} />
                             </Switch>
                             
                         </div>

@@ -32,7 +32,7 @@ class MemberRoles extends React.Component {
             unfriendButton.style.left = `${e.pageX}px`
             unfriendButton.style.top = `${e.pageY}px`
             unfriendButton.friend = member.id
-        } else if (member.id !== currentUser.id) {
+        } else if (member.id !== this.props.currentUser.id) {
             const friendButton = document.getElementById('addFriendButton')
             friendButton.style.display = 'flex'
             friendButton.style.left = `${e.pageX}px`
@@ -54,7 +54,7 @@ class MemberRoles extends React.Component {
         })
         const Roles = Object.values(this.props.server.roles).map(role => {
             return(
-                <div className="memberRoles">
+                <div className="memberRoles" key={role.id}>
                     <h1 className="roleTitle">{role.name.toUpperCase()} - {Object.values(this.props.server.members).filter(member => member.role === role.name).length}</h1>
                     <div className="member">
                         {Object.values(this.props.server.members).map(member => {

@@ -73,7 +73,7 @@ class FriendsIndex extends React.Component {
             </div>
         if (this.state !== null){
             if (this.state.friendships[0] !== undefined){
-                selectedFriends = Object.values(this.state.friendships).map(friend => ( <FriendIndexItemContainer friend={friend.friend} friendship={friend.friendship} /> ))
+                selectedFriends = Object.values(this.state.friendships).map(friend => ( <FriendIndexItemContainer key={`friend${friend.friendship.id}`} friend={friend.friend} friendship={friend.friendship} /> ))
             } 
         }
         return(

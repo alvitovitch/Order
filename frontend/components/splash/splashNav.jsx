@@ -13,9 +13,21 @@ class SplashNav extends React.Component {
             </div>
             <div id='splashNavLinks'>
                 <ul>
-                    <li className="nonWorkingButton">LinkedIn</li>
-                    <li className="nonWorkingButton">Github</li>
-                    <li className="nonWorkingButton">Instagram</li>
+                    <li>
+                        <a className="links" href="https://www.linkedin.com/in/alvitovitch/">
+                            LinkedIn
+                        </a> 
+                    </li>
+                    <li>
+                        <a className="links" href="https://github.com/alvitovitch">
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a className="links" href="https://www.instagram.com/brooklyn_dandy/">
+                            Instagram
+                        </a>
+                    </li>
                 </ul>
             </div>
             <a id='loginHref'href="/#/login">

@@ -45,7 +45,7 @@ class MessageIndex extends React.Component {
         return(
             <div id='messageIndex'>
                 <div id='messageIndexItems'>
-                    {Object.values(this.props.messages).map(message => (<MessageIndexItemContainer message={message}/>))}
+                    {Object.values(this.props.messages).map(message => (<MessageIndexItemContainer key={message.id} message={message}/>))}
                 </div>
                     <form id='messageForm' onSubmit={this.handleSubmit}>
                                 <input type="text" value={this.state.body} 

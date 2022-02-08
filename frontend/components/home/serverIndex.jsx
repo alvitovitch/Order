@@ -17,11 +17,13 @@ class ServerIndex extends React.Component {
     // user to their own channel
     // Whenever a user is added to a server all members of that server fetch the user
 
-    componentDidUpdate() {
+    componentDidMount() {
         if (this.props.currentUser !== undefined){
 
             const fetchUser = this.props.fetchUser
             const fetchFriends = () => this.props.fetchFriendships(this.props.currentUser.id)
+            const fetchServers = () => this.props.fetchServers()
+            consumer.subscriptions.unsubscribe
             consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
                 connected() {
                   // Called when the subscription is ready for use on the server'
@@ -33,13 +35,15 @@ class ServerIndex extends React.Component {
               
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
-                  switch (data.type) {
-                      case 'fetchUser':
-                        fetchUser(data.userId)
-                    case 'friendship':
-                        fetchFriends()
-                      default:
-                          console.log('Not sure what that was @serverIndex')
+                    switch (data.type) {
+                        case 'fetchUser':
+                            fetchUser(data.userId)
+                        case 'friendship':
+                            fetchFriends()
+                        case 'servers':
+                            fetchServers()
+                        default:
+                            console.log('Not sure what that was @serverIndex')
                   }
                 }
               });

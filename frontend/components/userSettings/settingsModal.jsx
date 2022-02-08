@@ -8,7 +8,7 @@ class SettingsModal extends React.Component {
             id: this.props.currentUser.id,
             username: this.props.currentUser.username,
             email: this.props.currentUser.email,
-            phone_number: this.props.currentUser.phone_number,
+            phone_number: this.props.currentUser.phone_number || '',
             
 
         }
@@ -27,7 +27,6 @@ class SettingsModal extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault()
         const user = Object.assign({}, this.state)
         this.props.updateUser({user: user})
@@ -36,7 +35,8 @@ class SettingsModal extends React.Component {
 
     close(e){        
         if (e.target.id === 'username-form-container' || e.target.id === 'email-form-container' || e.target.id === 'phone_number-form-container'){
-           e.target.style.display = 'none'
+           
+            e.target.style.display = 'none'
         }
     }
 

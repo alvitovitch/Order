@@ -11,14 +11,16 @@ const mSTP = (state, ownProps) => {
         servers: Object.values(state.entities.servers),
         users: state.entities.users,
         currentUser:  state.entities.users[state.session.id],
-
+        
     }
     }
 
 const mDTP = dispatch => ({
     createServer: server => dispatch(createServer(server)),
     fetchUser: userId => dispatch(fetchUser(userId)),
-    fetchFriendships: userId => dispatch( fetchFriendships(userId))
+    fetchFriendships: userId => dispatch( fetchFriendships(userId)),
+    getServers: () => dispatch(fetchServers()),
+
 })
 
 

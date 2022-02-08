@@ -4,6 +4,8 @@ class FriendIndexItem extends React.Component {
 
     constructor(props){
         super(props)
+        this.createFriendship = this.createFriendship.bind(this)
+        this.deleteFriendship = this.deleteFriendship.bind(this)
     }
 
     click(e) {
@@ -14,8 +16,12 @@ class FriendIndexItem extends React.Component {
 
     deleteFriendship() {
         if (this.props.friendship.mutual === true){
-
+            
         }
+    }
+
+    createFriendship() {
+        this.props.createFriendship(this.props.currentUser.id, {friendship: {user_id: this.props.currentUser.id, friend_id: this.props.friend.id}})
     }
 
     render() {
@@ -50,11 +56,12 @@ class FriendIndexItem extends React.Component {
                     </div>
                         
                        {this.props.friendship.user_id === this.props.currentUser.id ? 
-                            <div className="friend-buttons">                                <button className='accept-friend'>
-                                </button> <button className="delete-friendship">X</button>
+                            <div className="friend-buttons">                                
+                                <button className="delete-friendship">X</button>
                            </div>
                            : 
-                            <div className="friend-buttons">
+                           <div className="friend-buttons">
+                                <button onClick={this.createFriendship} className='accept-friend'></button>
                                 <button className="delete-friendship">X</button> 
                             </div>}
                 </div>
