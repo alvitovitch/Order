@@ -37,7 +37,7 @@ export const createCategory = (serverId, category) => dispatch => {
 
 export const patchCategory = (serverId, category) => dispatch => (
     categoryApiUtil.updateCategory(serverId, category)
-        .then(category => dispatch(receiveCategory(category.id)))
+        .then(category => dispatch(receiveCategory(category)))
 )
 
 export const deleteCategory = (serverId, categoryId) => dispatch =>{ 

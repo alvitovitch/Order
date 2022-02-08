@@ -3,9 +3,11 @@ import { fetchChannels, deleteChannel } from "../../actions/channel_actions";
 import ChannelIndex from "./channelIndex";
 
 
-const mSTP = state => {
+const mSTP = (state, ownProps) => {
     return{
-        channels: Object.values(state.entities.channels)
+        channels: Object.values(state.entities.channels),
+        currentUser:  state.entities.users[state.session.id],
+
     }
 }
 

@@ -4,7 +4,6 @@ import { logoutSessionUser } from "../../actions/session_actions";
 import { updateUser } from "../../actions/user_actions";
 
 const mSTP = state => {
-    debugger
     return {
         currentUser:  state.entities.users[state.session.id],
     }

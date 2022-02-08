@@ -12,6 +12,7 @@ const CategoriesReducer = (oldState = {}, action) => {
         case RECEIVE_CATEGORIES:
             return action.categories
         case RECEIVE_CATEGORY:
+            debugger
             newState[action.category.id] = action.category
             return newState
         case REMOVE_CATEGORY:

@@ -15,19 +15,19 @@ class FriendIndexItem extends React.Component {
     }
 
     deleteFriendship() {
-        if (this.props.friendship.mutual === true){
-            
-        }
+        this.props.deleteFriendship(this.props.currentUser.Id, this.props.friendship.id)
+        document.getElementById(`friend-index-item${this.props.friendship.id}`).style.display = 'none'
     }
 
     createFriendship() {
         this.props.createFriendship(this.props.currentUser.id, {friendship: {user_id: this.props.currentUser.id, friend_id: this.props.friend.id}})
+        document.getElementById(`friend-index-item${this.props.friendship.id}`).style.display = 'none'
     }
 
     render() {
         if (Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0] !== undefined){
             return (
-                <div onClick={e => this.click(e) } className="friend-index-item">
+                <div onClick={e => this.click(e) } className="friend-index-item" id={`friend-index-item${this.props.friendship.id}`}>
                     <div className="friend-name-tag">
                         <img className='userAvatar' src={window.userAvatar} alt="" />
                         <div className="friend-username">
@@ -38,7 +38,8 @@ class FriendIndexItem extends React.Component {
                         </div>
                     </div>
                     <div className="friend-buttons">
-                        <button className="delete-friendship">X</button> 
+                        {this.props.friendship.mutual !== true ? <button onClick={this.createFriendship} className='accept-friend'></button> : null}
+                        <button onClick={this.deleteFriendship} className="delete-friendship">X</button> 
                     </div>
                 </div>
             )
@@ -57,18 +58,18 @@ class FriendIndexItem extends React.Component {
                         
                        {this.props.friendship.user_id === this.props.currentUser.id ? 
                             <div className="friend-buttons">                                
-                                <button className="delete-friendship">X</button>
+                                <button onClick={this.deleteFriendship} className="delete-friendship">X</button>
                            </div>
                            : 
                            <div className="friend-buttons">
                                 <button onClick={this.createFriendship} className='accept-friend'></button>
-                                <button className="delete-friendship">X</button> 
+                                <button onClick={this.deleteFriendship} className="delete-friendship">X</button> 
                             </div>}
                 </div>
             )
         } else {
             return(
-                <div>loading</div>
+                null
             )
         }
     }

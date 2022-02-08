@@ -22,7 +22,7 @@ class ServerIndex extends React.Component {
 
             const fetchUser = this.props.fetchUser
             const fetchFriends = () => this.props.fetchFriendships(this.props.currentUser.id)
-            const fetchServers = () => this.props.fetchServers()
+            const fetchServers = this.props.getServers
             consumer.subscriptions.unsubscribe
             consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
                 connected() {
@@ -35,17 +35,18 @@ class ServerIndex extends React.Component {
               
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
-                    switch (data.type) {
-                        case 'fetchUser':
-                            fetchUser(data.userId)
-                        case 'friendship':
-                            fetchFriends()
-                        case 'servers':
-                            fetchServers()
-                        default:
-                            console.log('Not sure what that was @serverIndex')
+                    if (data.type === 'fetchUser'){
+                        debugger
+                        fetchUser(data.user_id)
+                    } else if (data.type === 'friendship'){
+                        fetchFriends()
+                    } else if (data.type === 'servers'){
+                        fetchServers()
+                    } else {
+                        console.log('Not sure what that was @serverIndex')
+                    }
                   }
-                }
+                
               });
         }
     }

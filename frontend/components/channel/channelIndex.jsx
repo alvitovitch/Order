@@ -48,7 +48,7 @@ class ChannelIndex extends React.Component {
                             {  channel.name}
                         </div>
                     </button>
-                    <button className="channelDeleteButton" onClick={() => this.props.deleteChannel(this.props.serverId, this.props.categoryId, channel.id)}>X</button>
+                    { this.props.server.members[this.props.currentUser.id] !== undefined && this.props.server.members[this.props.currentUser.id].role === 'Moderator' ?  <button className="channelDeleteButton" onClick={() => this.props.deleteChannel(this.props.serverId, this.props.categoryId, channel.id)}>X</button> : null }
                 </div>
             )
         }

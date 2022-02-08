@@ -4,6 +4,7 @@ import ServerIndex from './serverIndex';
 import { createServer } from '../../actions/server_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchFriendships } from '../../actions/friendship_actions';
+import { fetchServers } from '../../actions/server_actions';
 
 const mSTP = (state, ownProps) => {
     

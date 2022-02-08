@@ -48,6 +48,7 @@ class Api::FriendshipsController < ApplicationController
             end
             @friendship.delete
             ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'friendship'
+            ActionCable.server.broadcast "user#{@friendship.user_id}", type: 'friendship'
             render :show
         end
     end

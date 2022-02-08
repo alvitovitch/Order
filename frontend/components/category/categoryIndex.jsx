@@ -11,7 +11,8 @@ class CategoryIndex extends React.Component {
         this.state = {
             name: '',
             categories: this.props.categories,
-            last_server: ''
+            last_server: '',
+            categoryName: ''
         }
         this.deleteCategory = this.deleteCategory.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -57,8 +58,9 @@ class CategoryIndex extends React.Component {
         }
     
     handleSubmit(e) {
+        debugger
         e.preventDefault()
-        const ele = document.getElementById('createChannelBackground')
+        let ele = document.getElementById('createChannelBackground')
         if (ele.style.visibility === 'visible') {
             this.props.createChannel(ele.category, {
                 channel: {
@@ -69,13 +71,22 @@ class CategoryIndex extends React.Component {
             .then(document.getElementById('createChannelBackground').style.visibility = 'hidden')
             
         }
-        else {
+        else if (document.getElementById('createCategoryBackground').style.visibility === 'visible') {
             this.props.createCategory(this.props.server.id, {
                 category: {
                     name: this.state.name, server_id: this.props.server.id 
                 }
             })
             .then(document.getElementById('createCategoryBackground').style.visibility = 'hidden')
+            .then(this.setState({name: ''}))
+        } else if (document.getElementById('editCategoryBackground').style.visibility === 'visible') {
+            ele = document.getElementById('editCategoryBackground')
+            this.props.patchCategory(this.props.server.id, {
+                category: {
+                    id: ele.category.id, name: this.state.name, server_id: this.props.server.id
+                }
+            })
+            .then(ele.style.visibility = 'hidden')
             .then(this.setState({name: ''}))
         }
 
@@ -85,6 +96,11 @@ class CategoryIndex extends React.Component {
         e.currentTarget.action()()
         e.currentTarget.style.display = 'none'
     }
+    
+    editCategory(e) {
+        document.getElementById('editCategoryBackground').style.visibility = 'visible'
+    }
+
 
     update(field) {
             return e=> this.setState({[field]: e.currentTarget.value})
@@ -113,7 +129,7 @@ class CategoryIndex extends React.Component {
                 <div id='categoryIndex'>
                     <div id='serverName'>
                         {this.props.server.server_name}
-                        <button id='newServerButton' onClick={this.show}>+</button>
+                        { this.props.server.members[this.props.currentUser.id] !== undefined && this.props.server.members[this.props.currentUser.id].role === 'Moderator' ? <button id='newServerButton' onClick={this.show}>+</button> : null }
                     </div>
                     <div id='createCategoryBackground' onClick={e => this.hideBackground(e)}>
                         <div id='createCategory' >
@@ -151,9 +167,33 @@ class CategoryIndex extends React.Component {
                                 </form>
                             </div>
                     </div>
-                    <button id='deleteCategoryButton' onClick={e => this.deleteCategory(e)}>Delete Category</button>
+                    <div id='editCategoryBackground' onClick={e => this.hideBackground(e)}>
+                        <div id='editCategory'>
+                            <form id='editCategoryForm' onSubmit={this.handleSubmit}>
+                                <div id='editCategoryTitle'>
+                                    Edit Category
+                                </div>
+                                    <div>
+                                        <div id='categoryName'>
+                                            CATEGORY NAME
+                                        </div>
+                                        <input className="inputBox" type="text" value={this.state.name} 
+                                        onChange= {this.update('name')}/>
+                                    </div>
+                                        <div id='editCategoryButtonDiv'>
+                                            <button id='editCategoryButton'>Edit Category</button>
+                                        </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id='categoryOptions'>
+                        <button id='deleteCategoryButton' onClick={e => this.deleteCategory(e)}>Delete Category</button>
+                        <button id='editCategoryButton' onClick={e => this.editCategory(e)}>Edit Category</button>
+                    </div>
                     <div id='indexOfCategories'>
-                        {this.props.categories.map(category => (<CategoryIndexItemContainer key={category.id} category={category}/>))}
+                        {this.props.server.members[this.props.currentUser.id] !== undefined ? 
+                        this.props.categories.map(category => (<CategoryIndexItemContainer key={category.id} server={this.props.server} category={category}/>))
+                    : null}
                     </div>
                         
                 </div>
@@ -187,6 +227,25 @@ class CategoryIndex extends React.Component {
                                         <button>Create Channel</button>
                                 </form>
                             </div>
+                    </div>
+                    <div id='editCategoryBackground' onClick={e => this.hideBackground(e)}>
+                        <div id='editCategory'>
+                            <form id='editCategoryForm' onSubmit={this.handleSubmit}>
+                                <div id='editCategoryTitle'>
+                                    Edit Category
+                                </div>
+                                    <div>
+                                        <div id='categoryName'>
+                                            CATEGORY NAME
+                                        </div>
+                                        <input className="inputBox" type="text" value={this.state.name} 
+                                        onChange= {this.update('name')}/>
+                                    </div>
+                                        <div id='editCategoryButtonDiv'>
+                                            <button id='editCategoryButton'>Edit Category</button>
+                                        </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             )

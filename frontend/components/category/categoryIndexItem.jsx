@@ -12,6 +12,7 @@ class CategoryIndexItem extends React.Component {
         this.handleDelete = this.handleDelete.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.reveal = this.reveal.bind(this)
+        this.categoryOptions = this.categoryOptions.bind(this)
     }
 
     handleDelete() {
@@ -62,29 +63,32 @@ class CategoryIndexItem extends React.Component {
 
        }
     }
+
+    categoryOptions(e) {
+        e.preventDefault()
+        if (this.props.server.members[this.props.currentUser.id] !== undefined && this.props.server.members[this.props.currentUser.id].role === 'Moderator'){
+                const options = document.getElementById('categoryOptions')
+                options.style.display = 'flex'
+                options.style.left = `${e.clientX}px`
+                options.style.top = `${e.clientY}px`
+                document.getElementById('deleteCategoryButton').action = () => this.handleDelete
+                document.getElementById('editCategoryBackground').category = this.props.category
+        }
+            
+    }
     
 
     render() {
-        document.addEventListener("contextmenu", e => {
-            if (e.target.className === 'categoryCollapse' || e.target.parentElement.className === 'categoryCollapse') {
-                e.preventDefault()
-                const deleteButton = document.getElementById('deleteCategoryButton')
-                deleteButton.style.display = 'flex'
-                deleteButton.style.left = `${e.x}px`
-                deleteButton.style.top = `${e.y}px`
-                deleteButton.action = () => this.handleDelete
-            }
-            
-          });
+        
         document.addEventListener('click', e => {
-            const deleteButton = document.getElementById('deleteCategoryButton')
-            if (deleteButton !== undefined && deleteButton.style.display === 'flex' &&
-            e.currentTarget !== deleteButton ) {
-                deleteButton.style.display = 'none'
+            const options = document.getElementById('categoryOptions')
+            if (options !== undefined && options.style.display === 'flex' &&
+            e.currentTarget !== options ) {
+                options.style.display = 'none'
             }
         })
         return(
-            <div className='categoryItem'>
+            <div className='categoryItem' onContextMenu={e => this.categoryOptions(e)}>
                 <div className='categoryTopLine'>
                     <div className='categoryCollapse' onClick={this.reveal}>
                         <button id={`categoryTitle${this.props.category.id}`} className='collapseButton' >{'>'}</button>
@@ -92,9 +96,9 @@ class CategoryIndexItem extends React.Component {
                             {this.props.category.name.toUpperCase()}
                         </div>
                     </div>
-                <button className="addChannelButton" onClick={this.show}>+</button>
+                { this.props.server.members[this.props.currentUser.id] !== undefined && this.props.server.members[this.props.currentUser.id].role === 'Moderator' ?  <button className="addChannelButton" onClick={this.show}>+</button> : null}
                 </div>
-                <ChannelIndexContainer serverId={this.props.category.server_id}
+                <ChannelIndexContainer serverId={this.props.category.server_id} server={this.props.server}
                  categoryId={this.props.category.id} />
                  <div>
                     

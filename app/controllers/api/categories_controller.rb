@@ -21,12 +21,12 @@ class Api::CategoriesController < ApplicationController
     end
 
     def update
-        @category = Category.find_by(id: params[:id])
-        if @category.server.creator_id == current_user.id
+        @category = Category.find_by(id: params[:category][:id])
+        # if @category.server.creator_id == current_user.id
             @category.update(category_params)
             ActionCable.server.broadcast "#{@category.server_id}", messages: 'hi'
             render :show
-        end
+        # end
     end
 
     def destroy
@@ -42,7 +42,7 @@ class Api::CategoriesController < ApplicationController
     private
 
     def category_params 
-        params.require(:category).permit(:name, :server_id)
+        params.require(:category).permit(:name, :server_id, :id)
     end
 
 end

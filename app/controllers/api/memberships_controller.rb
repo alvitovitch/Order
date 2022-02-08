@@ -5,6 +5,7 @@ class Api::MembershipsController < ApplicationController
         if @membership.save
             Server.find_by(id: @membership.server_id).memberships.each do |membership|
                 ActionCable.server.broadcast "user#{membership.user_id}", {type: 'fetchUser', user_id: @membership.user_id}
+                ActionCable.server.broadcast "user#{membership.user_id}", {type: 'servers'}
             end
             render :show
         else

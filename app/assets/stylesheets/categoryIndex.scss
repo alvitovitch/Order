@@ -204,3 +204,43 @@
     width: 120px;
     padding: 10px;
 }
+#editCategoryForm {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#editCategoryBackground {
+    position: absolute;
+    z-index: 1;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.496);
+    visibility: hidden;
+}
+
+
+
+#editCategoryTitle {
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    padding: 30px;
+}
+
+#editCategoryButtonDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    align-items: center;
+
+}
+

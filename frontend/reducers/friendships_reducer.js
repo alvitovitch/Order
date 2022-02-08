@@ -15,7 +15,6 @@ switch (action.type) {
         return newState
     case REMOVE_FRIENDSHIP:
         delete newState['outgoing_friendships'][action.friendshipId]
-        debugger
         return newState
     case LOGOUT_USER:
         return {}
