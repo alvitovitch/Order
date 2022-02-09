@@ -43,7 +43,7 @@ export const patchServer = server => (
 export const removeServer = serverId => (
     $.ajax({
         url: `/api/servers/${serverId}`,
-        method: 'DETETE'
+        method: 'DELETE'
     })
 )
 

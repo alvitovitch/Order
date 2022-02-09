@@ -34,6 +34,9 @@ class Api::ServersController < ApplicationController
         @server = Server.find_by(id: params[:id])
         if @server
             @server.destroy
+            @server.members.each do |member|
+                ActionCable.server.broadcast "user#{member.id}", {type: 'servers'}
+            end
             render :show
         end
     end

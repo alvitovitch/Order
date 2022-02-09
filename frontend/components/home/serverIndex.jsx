@@ -83,7 +83,7 @@ class ServerIndex extends React.Component {
                 <ul>
                     <button  id='homeButton' onClick={() => this.goHome()}></button>
                     <div id='seperator'></div>
-                    {this.props.servers.filter(server => server.server_type === 1 && (Object.values(server.members).filter(member => member.id === this.props.currentUser.id).length > 0)).map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
+                    {this.props.servers.filter(server => server.server_type === 1 && (server.members !== undefined && Object.values(server.members).filter(member => member.id === this.props.currentUser.id).length > 0)).map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
                 </ul>
                 <button id='createNewServerButton' onClick={this.show}>+</button>
                 <div id='createServerBackground' onClick={e => this.hideBackground(e)}>

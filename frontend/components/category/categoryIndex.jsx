@@ -110,8 +110,9 @@ class CategoryIndex extends React.Component {
     }
 
     deleteServer(e) {
-        e.currentTarget.action()()
-        e.currentTarget.style.display = 'none'
+        debugger
+        location.hash = '/@me'
+        this.props.deleteServer(this.props.server.id)
     }
     
     editServer(e) {
@@ -160,7 +161,7 @@ class CategoryIndex extends React.Component {
                 options.style.display = 'none'
             }
         })
-        if (this.props.categories.length > 0){
+        if (this.props.categories.length >= 0){
             return(
                 <div id='categoryIndex'>
                     <div id='serverName' onContextMenu={e => this.serverOptions(e)}>
