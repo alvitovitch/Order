@@ -4,7 +4,7 @@
         @user = User.new(user_params)
 
         if @user.save
-            Membership.create(server_id: Server.first.id, user_id: @user.id, role_id: Role.first.id)
+            Membership.create(server_id: Server.first.id, user_id: @user.id, role_id: Role.second.id)
             login!(@user)
             render :show
         else
