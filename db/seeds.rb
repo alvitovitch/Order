@@ -14,7 +14,7 @@ Role.delete_all
 Membership.delete_all
 Friendship.delete_all
 
-
+admin_user = User.create!(username: 'TheCreator', email: 'mine@test.fake', password: 'veryFake')
 model_user = User.create!(username: 'DemoBro', email: 'example@test.fake', password: 'veryFake')
 model_user2 = User.create!(username: 'OtherBro', email: 'example2@test.fake', password: 'veryFake')
 model_user3 = User.create!(username: 'MysteryMan', email: 'example3@test.fake', password: 'veryFake')
@@ -31,10 +31,12 @@ model_role2 = Role.create!(server_id: Server.first.id, name: 'Member')
 model_membership = Membership.create!(server_id: Server.first.id, user_id: User.first.id, role_id: Role.first.id)
 model_membership2 = Membership.create!(server_id: Server.first.id, user_id: User.second.id, role_id: Role.second.id)
 model_membership3 = Membership.create!(server_id: Server.first.id, user_id: User.third.id, role_id: Role.second.id)
+model_membership3 = Membership.create!(server_id: Server.first.id, user_id: User.fourth.id, role_id: Role.second.id)
 
 model_friendship = Friendship.create(user_id: User.first.id, friend_id: User.second.id)
 model_friendship2 = Friendship.create(user_id: User.second.id, friend_id: User.first.id)
-model_friendship3 = Friendship.create(user_id: User.first.id, friend_id: User.third.id)
+model_friendship3 = Friendship.create(user_id: User.third.id, friend_id: User.second.id)
+model_friendship3 = Friendship.create(user_id: User.fourth.id, friend_id: User.second.id)
 
 model_friend_server = Server.create!(server_name: 'DemoBroOtherBro', server_type: 0,  creator_id: User.first.id)
 model_category = Category.create!(name: 'Text Channels', server_id: Server.last.id)
