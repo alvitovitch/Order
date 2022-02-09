@@ -15,11 +15,14 @@ class Server < ApplicationRecord
 
     has_many :roles,
     foreign_key: :server_id,
-    class_name: :Role
+    class_name: :Role,
+    dependent: :destroy
+
 
     has_many :memberships,
     foreign_key: :server_id,
-    class_name: :Membership
+    class_name: :Membership,
+    dependent: :destroy
 
     has_many :members,
     through: :memberships

@@ -16,9 +16,10 @@ class Api::FriendshipsController < ApplicationController
                 category.save
                 channel = Channel.new(category_id: category.id, name: 'Friend Chat')
                 channel.save
+                ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'servers'
+                ActionCable.server.broadcast "user#{@friendship.user_id}", type: 'servers'
             end
             ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'friendship'
-            ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'servers'
             render :show
         else
             render json: @friendship.errors.full_messages, status: 422
@@ -45,8 +46,18 @@ class Api::FriendshipsController < ApplicationController
             if @friendship.is_mutual?
                 other_friendship = Friendship.find_by(user_id: @friendship.friend_id, friend_id: @friendship.user_id)
                 other_friendship.delete
+                server = Server.find_by(server_name: "#{@friendship.user.username}#{@friendship.friend.username}")
+                if server
+                    server.delete
+                end
+                other_server = Server.find_by(server_name: "#{@friendship.friend.username}#{@friendship.user.username}")
+                if other_server
+                    other_server.delete  
+                end
             end
             @friendship.delete
+            ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'servers'
+            ActionCable.server.broadcast "user#{@friendship.user_id}", type: 'servers'
             ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'friendship'
             ActionCable.server.broadcast "user#{@friendship.user_id}", type: 'friendship'
             render :show

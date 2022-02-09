@@ -21,8 +21,9 @@ class FriendIndexItem extends React.Component {
 
     createFriendship() {
         this.props.createFriendship(this.props.currentUser.id, {friendship: {user_id: this.props.currentUser.id, friend_id: this.props.friend.id}})
-        document.getElementById(`friend-index-item${this.props.friendship.id}`).style.display = 'none'
+
     }
+
 
     render() {
         if (Object.values(this.props.servers).filter(server => server.server_type === 0 && server.server_name.includes(this.props.friend.username))[0] !== undefined){
@@ -45,7 +46,7 @@ class FriendIndexItem extends React.Component {
             )
         } else if (this.props.friend !== undefined) {
             return (
-                <div className="friend-index-item">
+                <div className="friend-index-item" id={`friend-index-item${this.props.friendship.id}`}>
                     <div className="friend-name-tag">
                         <img className='userAvatar' src={window.userAvatar} alt="" />
                         <div className="friend-username">

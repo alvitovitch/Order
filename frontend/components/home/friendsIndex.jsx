@@ -12,7 +12,7 @@ class FriendsIndex extends React.Component {
         if (this.props.friendships !== undefined){
             this.setState({selected: document.getElementById('all'),
                         friendships: this.props.friendships.outgoing_friendships.map(friendship => {
-                            if (friendship.mutual === true){
+                            if (friendship !== null && friendship.mutual === true){
                             return {friend: this.props.users[friendship.friend_id], friendship: friendship}
                         }}).filter(friendship => friendship !== undefined)
              })
@@ -20,15 +20,37 @@ class FriendsIndex extends React.Component {
         
     }
     
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         if (this.state !== null){
             if (this.state.selected !== undefined){
                 this.state.selected.style.background = 'rgba(128, 128, 128, 0.326)'
                 this.state.selected.style.color = 'white'
             }
+            if (prevProps.friendships !== this.props.friendships) {
+                if (this.state.selected.id === 'all') {
+                    this.setState({
+                        friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                            if (friendship.mutual === true){
+                            return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+                        }}).filter(friendship => friendship !== undefined)
+                    })
+            } else if (this.state.selected.id === 'pending') {
+                this.setState({
+                    friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                        if (friendship.mutual === false){
+                            return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+                    }}).filter(friendship => friendship !== undefined).concat(
+                        this.props.friendships.pending.map(friendship => {
+                            if (friendship.mutual === false){
+                            return {friend: this.props.users[friendship.user_id], friendship: friendship}
+                        }}).filter(friendship => friendship !== undefined)
+                    )
+                })
+                }
+            }
         }
-        
     }
+    
 
     handleClick(e) {
         this.state.selected.style.background = '';
@@ -52,15 +74,15 @@ class FriendsIndex extends React.Component {
                     }}).filter(friendship => friendship !== undefined)
                 )
             })
-        } else if (e.target.id === 'online') {
-            this.setState({selected: e.target,
-                friendships: this.props.friendships.outgoing_friendships.map(friendship => {
-                    if (friendship.mutual === true){
-                    return {friend: this.props.users[friendship.friend_id], friendship: friendship}
-                }
+        // } else if (e.target.id === 'online') {
+        //     this.setState({selected: e.target,
+        //         friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+        //             if (friendship.mutual === true){
+        //             return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+        //         }
 
-            }).filter(friendship => friendship !== undefined)
-        })
+        //     }).filter(friendship => friendship !== undefined)
+        // })
         }  
     }
 
@@ -73,7 +95,7 @@ class FriendsIndex extends React.Component {
             </div>
         if (this.state !== null){
             if (this.state.friendships[0] !== undefined){
-                selectedFriends = Object.values(this.state.friendships).map(friend => ( <FriendIndexItemContainer key={`friend${friend.friendship.id}`} friend={friend.friend} friendship={friend.friendship} /> ))
+                selectedFriends = Object.values(this.state.friendships).map(friend => friend !== null ? ( <FriendIndexItemContainer key={`friend${friend.friendship.id}`} friend={friend.friend} friendship={friend.friendship} /> ): null)
             } 
         }
         return(

@@ -30,6 +30,15 @@ class Api::ServersController < ApplicationController
         render :show
     end
 
+    def destroy
+        @server = Server.find_by(id: params[:id])
+        if @server
+            @server.destroy
+            render :show
+        end
+    end
+
+
     def update
         @server = Server.find_by(id: params[:server][:id])
         if @server
