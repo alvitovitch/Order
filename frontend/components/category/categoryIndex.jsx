@@ -153,6 +153,13 @@ class CategoryIndex extends React.Component {
     
 
     render() {
+        document.addEventListener('click', e => {
+            const options = document.getElementById('serverOptions')
+            if (options !== undefined && options.style.display === 'flex' &&
+            e.currentTarget !== options ) {
+                options.style.display = 'none'
+            }
+        })
         if (this.props.categories.length > 0){
             return(
                 <div id='categoryIndex'>
