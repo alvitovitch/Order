@@ -101,7 +101,7 @@ class ServerShow extends React.Component {
                         <div id='rightComponent'>
                             <div>
                                 <div id='memberSearchBar'>
-                                    This will be a search bar
+                                    {/* This will be a search bar */}
                                 </div>
                                 <MemberRolesContainer server={this.props.server} />
                             </div>
@@ -127,12 +127,12 @@ class ServerShow extends React.Component {
                             
                         </div>
                         <div id='rightComponent'>
-                            <div>
+                            {/* <div>
                                 <div id='memberSearchBar'>
                                     This will be a search bar
                                 </div>
                                 
-                            </div>
+                            </div> */}
                         </div> 
                     </div>
                         
@@ -140,7 +140,7 @@ class ServerShow extends React.Component {
                 }
             } else {
                 return (
-                    <div>loading</div>
+                    null
                 )
             }
         }

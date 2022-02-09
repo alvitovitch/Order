@@ -88,8 +88,8 @@ class CategoryIndexItem extends React.Component {
             }
         })
         return(
-            <div className='categoryItem' onContextMenu={e => this.categoryOptions(e)}>
-                <div className='categoryTopLine'>
+            <div className='categoryItem' >
+                <div className='categoryTopLine' onContextMenu={e => this.categoryOptions(e)}>
                     <div className='categoryCollapse' onClick={this.reveal}>
                         <button id={`categoryTitle${this.props.category.id}`} className='collapseButton' >{'>'}</button>
                         <div>

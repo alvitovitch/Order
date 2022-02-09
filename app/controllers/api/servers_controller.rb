@@ -30,6 +30,18 @@ class Api::ServersController < ApplicationController
         render :show
     end
 
+    def update
+        @server = Server.find_by(id: params[:server][:id])
+        if @server
+            if @server.update(server_params)
+                @server.memberships.each do |membership|
+                    ActionCable.server.broadcast "user#{membership.user_id}", {type: 'servers'}
+                end
+                render :show
+            end
+        end
+    end
+
 
     private
 

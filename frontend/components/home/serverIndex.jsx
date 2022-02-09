@@ -87,13 +87,21 @@ class ServerIndex extends React.Component {
                 </ul>
                 <button id='createNewServerButton' onClick={this.show}>+</button>
                 <div id='createServerBackground' onClick={e => this.hideBackground(e)}>
-                        <div id='createServer' >
-                            <form onSubmit={this.createServer}>Create Server
-                                <label>Server Name
-                                    <input type="text" value={this.state.name} 
-                                    onChange= {this.update('name')}/>
-                                </label>  
-                                    <button>Create Server</button>
+                        <div id='createServer'>
+                            <form id='createServerForm' onSubmit={this.createServer}>
+                                <div id='createServerTitle'>
+                                Create Server
+                                </div>
+                                <div>
+                                    <div id='serverName'>SERVER NAME
+                                    </div>
+                                        <input className='inputBox' type="text" value={this.state.name} 
+                                        onChange= {this.update('name')}/>
+                                </div>
+                                    <div id='createServerButtonDiv'>
+                                        <button id='createServerButton'>Create Server</button>
+                                    </div>
+                                  
                             </form>
                         </div>
                 </div>
