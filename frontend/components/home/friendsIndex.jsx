@@ -74,15 +74,6 @@ class FriendsIndex extends React.Component {
                     }}).filter(friendship => friendship !== undefined)
                 )
             })
-        // } else if (e.target.id === 'online') {
-        //     this.setState({selected: e.target,
-        //         friendships: this.props.friendships.outgoing_friendships.map(friendship => {
-        //             if (friendship.mutual === true){
-        //             return {friend: this.props.users[friendship.friend_id], friendship: friendship}
-        //         }
-
-        //     }).filter(friendship => friendship !== undefined)
-        // })
         }  
     }
 

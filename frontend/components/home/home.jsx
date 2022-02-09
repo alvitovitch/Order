@@ -18,7 +18,7 @@ class Home extends React.Component {
         this.props.getServers()
         this.props.getUsers()
         this.props.getFriendships()
-        document.getElementById('homeButton').style.background = 'rgb(54, 182, 79)'
+        document.getElementById('homeButton').style.background = '#ff4ef5'
 
     }
     

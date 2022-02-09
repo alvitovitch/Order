@@ -37,7 +37,7 @@ class SignupFormContainer extends React.Component {
 
     oldEnough() {
         let birthdate = new Date(`${this.state.month} ${this.state.day}, ${this.state.year}`)
-        debugger
+        
         birthdate.setFullYear(birthdate.getFullYear() + 13)
         const currentDate = new Date()
         return currentDate > birthdate

@@ -3,20 +3,22 @@
 <h1>Order</h1>
 
 
-
 <i>"In all chaos there is a cosmos, in all discord a secret Order."
 
 --Carl Jung</i>
+
+<br>
+<a h='https://app-order-vitovitch.herokuapp.com/#/'>Live Site </a>
 
 <br>
 <img src='./app/assets/images/readme/OrderScreenShot.png'  height='360px' />
 
 # Table of Contents #
 
-* [About]
-* [Technology Utilized]
-* [Live Chat]
-* [Code Related to Broadcasting]
+* About
+* Technology Utilized
+* Live Chat
+* Code Related to Broadcasting
 
 ## About 
 ---
@@ -56,3 +58,57 @@
     end
  ``` 
 
+ <br>
+
+ Once I got this basic broadcasting down I realized I could use it for more than just sending messages, but also reporting user actions to other users. If a mod renames a Server everyone who is a member is told to fetch the Server. Likewise with Friendships, if one is made let the other person know it's time to update your incoming friendships!
+
+ ## Code relating to updating friendships 
+
+### In the Friendship Controller
+```
+if @friendship.save
+    ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'friendship'
+end
+```
+### In the Server Index
+```
+consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
+    received(data) {
+        if (data.type === 'friendship'){
+            fetchFriends()
+        }
+    }
+}
+``` 
+### In the Friendship Index
+```
+componentDidUpdate(prevProps) {
+        if (this.state !== null){
+            if (prevProps.friendships !== this.props.friendships) {
+                if (this.state.selected.id === 'all') {
+                    this.setState({
+                        friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                            if (friendship.mutual === true){
+                            return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+                        }}).filter(friendship => friendship !== undefined)
+                    })
+            } else if (this.state.selected.id === 'pending') {
+                this.setState({
+                    friendships: this.props.friendships.outgoing_friendships.map(friendship => {
+                        if (friendship.mutual === false){
+                            return {friend: this.props.users[friendship.friend_id], friendship: friendship}
+                    }}).filter(friendship => friendship !== undefined).concat(
+                        this.props.friendships.pending.map(friendship => {
+                            if (friendship.mutual === false){
+                            return {friend: this.props.users[friendship.user_id], friendship: friendship}
+                        }}).filter(friendship => friendship !== undefined)
+                    )
+                })
+                }
+            }
+        }
+    }
+```
+Just an example of the shenanagins I got up to with Redis and dynamically updating each user's components. 
+<br>
+All in all I am very proud of my work! Please check it out! 

@@ -36,7 +36,6 @@ class ServerIndex extends React.Component {
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
                     if (data.type === 'fetchUser'){
-                        debugger
                         fetchUser(data.user_id)
                     } else if (data.type === 'friendship'){
                         fetchFriends()
@@ -81,7 +80,7 @@ class ServerIndex extends React.Component {
         return(
             <div id='serverIndex'>
                 <ul>
-                    <button  id='homeButton' onClick={() => this.goHome()}></button>
+                    <img src={window.order} id='homeButton' onClick={() => this.goHome()}></img>
                     <div id='seperator'></div>
                     {this.props.servers.filter(server => server.server_type === 1 && (server.members !== undefined && Object.values(server.members).filter(member => member.id === this.props.currentUser.id).length > 0)).map(server => ( <ServerIndexItem key={server.id} server={server}/>))}
                 </ul>

@@ -138,7 +138,7 @@
     border-style: none;
     border-radius: 5px;
     padding: 10px;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 #edit-user-button:hover {
@@ -241,19 +241,20 @@
     font-size: 1.5em;
     color: grey;
     justify-content: center;
+    padding: 2rem;
 }
 
 #username-form label {
-    font-size: 1em;
+    font-size: .8em;
     display: flex;
     flex-direction: column;
     width: 80%;
-    gap: 10px;
+    gap: .8rem;
 }
 
 #username-form input {
     font-size: 1em;
-    height: 20px;
+    height: fit-content;
 }
 #email-form-container {
     position: absolute;
@@ -280,19 +281,20 @@
     font-size: 1.5em;
     color: grey;
     justify-content: center;
+    padding: 2rem;
 }
 
 #email-form label {
-    font-size: 1em;
+    font-size: .8em;
     display: flex;
     flex-direction: column;
     width: 80%;
-    gap: 10px;
+    gap: 1rem;
 }
 
 #email-form input {
     font-size: 1em;
-    height: 20px;
+    height: fit-content;
 }
 #phone_number-form-container {
     position: absolute;
@@ -319,17 +321,18 @@
     font-size: 1.5em;
     color: grey;
     justify-content: center;
+    padding: 2rem;
 }
 
 #phone_number-form label {
-    font-size: 1em;
+    font-size: .8em;
     display: flex;
     flex-direction: column;
     width: 80%;
-    gap: 10px;
+    gap: 1rem;
 }
 
 #phone_number-form input {
     font-size: 1em;
-    height: 20px;
+    height: fit-content;
 }

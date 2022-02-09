@@ -110,7 +110,6 @@ class CategoryIndex extends React.Component {
     }
 
     deleteServer(e) {
-        debugger
         location.hash = '/@me'
         this.props.deleteServer(this.props.server.id)
     }

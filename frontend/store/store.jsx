@@ -18,7 +18,7 @@ const persistedReducer = persistReducer(persistConfig, RootReducer);
 
 
 const configureStore = (preloadedState = {}) => (
-    createStore(persistedReducer, preloadedState, applyMiddleware(thunk, logger))
+    createStore(persistedReducer, preloadedState, applyMiddleware(thunk))
 )
 
 
