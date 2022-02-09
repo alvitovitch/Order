@@ -44,11 +44,11 @@ class MemberRoles extends React.Component {
     render() {
         addEventListener('click', e => {
             const friendButton = document.getElementById('addFriendButton')
-            if (e.target !== friendButton ){
+            if (e.target !== friendButton && friendButton !== null ){
                 friendButton.style.display = 'none'
             }
             const unfriendButton = document.getElementById('unFriendButton')
-            if (e.target !== unfriendButton) {
+            if (e.target !== unfriendButton && unfriendButton !== null) {
                 unfriendButton.style.display = 'none'
             }
         })

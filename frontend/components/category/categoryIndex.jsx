@@ -155,7 +155,7 @@ class CategoryIndex extends React.Component {
     render() {
         document.addEventListener('click', e => {
             const options = document.getElementById('serverOptions')
-            if (options !== undefined && options.style.display === 'flex' &&
+            if ((options !== undefined && options !== null) && options.style.display === 'flex' &&
             e.currentTarget !== options ) {
                 options.style.display = 'none'
             }

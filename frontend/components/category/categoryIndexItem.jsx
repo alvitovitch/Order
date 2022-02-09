@@ -82,7 +82,7 @@ class CategoryIndexItem extends React.Component {
         
         document.addEventListener('click', e => {
             const options = document.getElementById('categoryOptions')
-            if (options !== undefined && options.style.display === 'flex' &&
+            if ((options !== undefined && options !== null) && options.style.display === 'flex' &&
             e.currentTarget !== options ) {
                 options.style.display = 'none'
             }
