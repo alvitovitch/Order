@@ -26,7 +26,7 @@ class DmIndex extends React.Component {
 
 
     render() {
-        const dmServers = Object.values(this.props.servers).filter(server => server.server_type === 0)
+        const dmServers = Object.values(this.props.servers).filter(server => server.server_type === 0 && server.members[this.props.currentUser.id] !== undefined)
         return (
             <div>
                 <div id='directMessages'>
