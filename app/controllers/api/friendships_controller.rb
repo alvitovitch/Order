@@ -20,6 +20,7 @@ class Api::FriendshipsController < ApplicationController
                 ActionCable.server.broadcast "user#{@friendship.user_id}", type: 'servers'
             end
             ActionCable.server.broadcast "user#{@friendship.friend_id}", type: 'friendship'
+            ActionCable.server.broadcast "user#{@friendship.user_id}", type: 'friendship'
             render :show
         else
             render json: @friendship.errors.full_messages, status: 422

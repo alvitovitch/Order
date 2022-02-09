@@ -69,7 +69,7 @@ class ServerShow extends React.Component {
 
     render(){
         if (this.props.server !== undefined){
-
+            debugger
             if (this.props.users.length !== 0 && this.props.server.members !== undefined) {
                 return (
                     <div className="showPage">
@@ -109,7 +109,7 @@ class ServerShow extends React.Component {
                     </div>
                 )}
                 else {
-        
+                    debugger
                     return (
                         <div className="showPage">
                             <div id='leftComponent'>

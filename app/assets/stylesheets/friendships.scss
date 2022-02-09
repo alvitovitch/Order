@@ -54,6 +54,9 @@
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;
+    flex-direction: row;
+    margin-left: 2%;
+    width: 90%;
 }
 
 .friend-index-item:hover {
@@ -85,3 +88,42 @@
     display: flex;
 }
 
+.delete-friendship {
+    background: none;
+    border-style: none;
+    border: 3px solid #7b7b7b85;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    color: #7b7b7b85;
+    cursor: pointer;
+}
+
+.delete-friendship:hover {
+    background: red;
+    color: white;
+    border: 3px solid red;
+}
+
+.friend-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.accept-friend {
+    background: none;
+    border-style: none;
+    border: 3px solid #7b7b7b85;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    color: #7b7b7b85;
+    cursor: pointer;
+}
+
+.accept-friend:hover {
+    background: #00ff08;
+    color: white;
+    border: 3px solid #00ff08;
+}

@@ -41,6 +41,7 @@
     border-bottom: 1px solid #202225;
     padding-top: 5px;
     padding-bottom: 5px;
+    cursor: pointer;
 }
 
 #createCategory {
@@ -50,8 +51,7 @@
     background-color: rgb(64, 63, 71);
     height: 220px;
     width: 460px;
-    left: 33%;
-    top: 20%;
+    
     z-index: 2;
     align-items: center;
     border-radius: 5px;
@@ -83,12 +83,15 @@
 #createCategoryBackground {
     position: absolute;
     z-index: 1;
-    top:0;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.496);
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .categoryItem {
@@ -137,8 +140,7 @@
     background-color: rgb(64, 63, 71);
     height: 220px;
     width: 460px;
-    left: 33%;
-    top: 20%;
+    
     z-index: 2;
     align-items: center;
     border-radius: 5px;
@@ -164,12 +166,15 @@
 #createChannelBackground {
     position: absolute;
     z-index: 1;
-    top:0;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.496);
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -215,12 +220,15 @@
 #editCategoryBackground {
     position: absolute;
     z-index: 1;
-    top:0;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.496);
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -251,8 +259,7 @@
     background-color: rgb(64, 63, 71);
     height: 220px;
     width: 460px;
-    left: 33%;
-    top: 20%;
+    
     z-index: 2;
     align-items: center;
     border-radius: 5px;
@@ -265,18 +272,21 @@
     width: inherit;
     display: flex;
     flex-direction: column;
-
+    
 }
 
 #editServerBackground {
     position: absolute;
     z-index: 1;
-    top:0;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.496);
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -307,8 +317,7 @@
     background-color: rgb(64, 63, 71);
     height: 220px;
     width: 460px;
-    left: 33%;
-    top: 20%;
+    
     z-index: 2;
     align-items: center;
     border-radius: 5px;
@@ -333,6 +342,9 @@
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.496);
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -363,8 +375,7 @@
     background-color: rgb(64, 63, 71);
     height: 220px;
     width: 460px;
-    left: 33%;
-    top: 20%;
+    
     z-index: 2;
     align-items: center;
     border-radius: 5px;

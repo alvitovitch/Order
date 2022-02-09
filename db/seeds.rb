@@ -25,7 +25,7 @@ model_category = Category.create!(name: 'Text Channels', server_id: Server.first
 
 model_channel = Channel.create!(category_id: Category.first.id, name: 'Text Chat')
 
-model_role = Role.create!(server_id: Server.first.id, name: 'Creator')
+model_role = Role.create!(server_id: Server.first.id, name: 'Moderator')
 model_role2 = Role.create!(server_id: Server.first.id, name: 'Member')
 
 model_membership = Membership.create!(server_id: Server.first.id, user_id: User.first.id, role_id: Role.first.id)

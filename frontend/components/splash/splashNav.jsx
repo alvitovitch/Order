@@ -14,17 +14,17 @@ class SplashNav extends React.Component {
             <div id='splashNavLinks'>
                 <ul>
                     <li>
-                        <a className="links" href="https://www.linkedin.com/in/alvitovitch/">
+                        <a className="links" target='_blank' href="https://www.linkedin.com/in/alvitovitch/">
                             LinkedIn
                         </a> 
                     </li>
                     <li>
-                        <a className="links" href="https://github.com/alvitovitch">
+                        <a className="links" target='_blank' href="https://github.com/alvitovitch">
                             Github
                         </a>
                     </li>
                     <li>
-                        <a className="links" href="https://www.instagram.com/brooklyn_dandy/">
+                        <a className="links" target='_blank' href="https://www.instagram.com/brooklyn_dandy/">
                             Instagram
                         </a>
                     </li>

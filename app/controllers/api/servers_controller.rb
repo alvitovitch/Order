@@ -14,6 +14,7 @@ class Api::ServersController < ApplicationController
             d_role2.save
             d_mem = Membership.new(server_id: @server.id, role_id: d_role.id, user_id: current_user.id)
             d_mem.save
+            ActionCable.server.broadcast "global", {type: 'servers'}
             render :show
         else
             render json: @server.errors.full_messages, status: 422
@@ -21,7 +22,7 @@ class Api::ServersController < ApplicationController
     end
 
     def index
-        @servers = current_user.servers
+        @servers = Server.all
         render :index
     end
 

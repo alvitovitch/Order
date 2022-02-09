@@ -5,6 +5,7 @@ class UsersChannel < ApplicationCable::Channel
       # stream_for @channel
       
       stream_from "user#{params[:id]}"
+      stream_from "global"
     end
   
     def receive(data)

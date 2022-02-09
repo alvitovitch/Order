@@ -26,16 +26,18 @@ class SignupFormContainer extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        if (!this.oldEnough()) {
-            this.setState({over13: false})
-        } else {
-        const user = Object.assign({}, this.state)
-        this.props.processForm(user)
+        
+            if (!this.oldEnough()) {
+                this.setState({over13: false})
+            } else {
+            const user = Object.assign({}, this.state)
+            this.props.processForm(user)
         }
     }
 
     oldEnough() {
         let birthdate = new Date(`${this.state.month} ${this.state.day}, ${this.state.year}`)
+        debugger
         birthdate.setFullYear(birthdate.getFullYear() + 13)
         const currentDate = new Date()
         return currentDate > birthdate
@@ -81,6 +83,7 @@ class SignupFormContainer extends React.Component {
                 <img id='clouds' src={window.cloud} alt="clouds" />
                     <div id='SignupFormContainer'>
                         <h1 id='unableHeader'>Unable to register</h1>
+                        
                         <p>You need to be 13 or older in order to user Order.</p>
                         <button id='signupButton' onClick={ () => this.props.history.push('/login')}>Back to Login</button>
                     </div>

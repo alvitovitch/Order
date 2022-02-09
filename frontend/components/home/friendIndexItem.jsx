@@ -39,7 +39,7 @@ class FriendIndexItem extends React.Component {
                         </div>
                     </div>
                     <div className="friend-buttons">
-                        {this.props.friendship.mutual !== true ? <button onClick={this.createFriendship} className='accept-friend'></button> : null}
+                        {this.props.friendship.mutual !== true ? <button onClick={this.createFriendship} className='accept-friend'>O</button> : null}
                         <button onClick={this.deleteFriendship} className="delete-friendship">X</button> 
                     </div>
                 </div>
@@ -63,14 +63,14 @@ class FriendIndexItem extends React.Component {
                            </div>
                            : 
                            <div className="friend-buttons">
-                                <button onClick={this.createFriendship} className='accept-friend'></button>
+                                <button onClick={this.createFriendship} className='accept-friend'>O</button>
                                 <button onClick={this.deleteFriendship} className="delete-friendship">X</button> 
                             </div>}
                 </div>
             )
         } else {
             return(
-                null
+                <div>Show Page Loading</div>
             )
         }
     }
