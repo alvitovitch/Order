@@ -38,7 +38,7 @@ model_friendship2 = Friendship.create(user_id: User.second.id, friend_id: User.f
 model_friendship3 = Friendship.create(user_id: User.third.id, friend_id: User.second.id)
 model_friendship3 = Friendship.create(user_id: User.fourth.id, friend_id: User.second.id)
 
-model_friend_server = Server.create!(server_name: 'TheMakerDemoBro', server_type: 0,  creator_id: User.first.id)
+model_friend_server = Server.create!(server_name: 'TheCreatorDemoBro', server_type: 0,  creator_id: User.first.id)
 model_category = Category.create!(name: 'Text Channels', server_id: Server.last.id)
 model_channel = Channel.create!(category_id: Category.last.id, name: 'Text Chat')
 mode_friend_role = Role.create!(server_id: Server.last.id, name: 'Friend')
