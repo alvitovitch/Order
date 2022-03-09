@@ -27,6 +27,7 @@ class ServerIndex extends React.Component {
             consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
                 connected() {
                   // Called when the subscription is ready for use on the server'
+                  
                 },
               
                 disconnected() {
