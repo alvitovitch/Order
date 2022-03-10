@@ -1,4 +1,3 @@
-import React from "react";
 import { connect } from "react-redux";
 import { logoutSessionUser } from "../../actions/session_actions";
 import { fetchServers } from "../../actions/server_actions";
