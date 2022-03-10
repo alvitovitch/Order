@@ -72,9 +72,9 @@ class SettingsModal extends React.Component {
                                     <h2 id='username-info'>{`${this.props.currentUser.username}`}</h2>
                                     <h2 id='tag-info'>{`${this.props.currentUser.tag}`}</h2>
                                 </div>
-                                <button id='edit-user-button'>
+                                <div id='edit-user-button'>
                                     Edit User Profile
-                                </button>
+                                </div>
                             </div>
                             <div id='info-fields'>
                                 <div id='field-username'>
@@ -85,7 +85,7 @@ class SettingsModal extends React.Component {
                                             <h2>{this.props.currentUser.tag}</h2>
                                         </div>
                                     </div>
-                                    <button onClick={this.openUsername} className="edit-button">Edit</button>
+                                    {this.props.currentUser.username === 'DemoBro' ? null: <button onClick={this.openUsername} className="edit-button">Edit</button>}
                                 </div>
                                 <div id='field-email'>
                                     <div>
@@ -94,7 +94,7 @@ class SettingsModal extends React.Component {
                                             <h2>{this.props.currentUser.email}</h2>
                                         </div>
                                     </div>
-                                    <button onClick={this.openEmail} className="edit-button" >Edit</button>
+                                    {this.props.currentUser.username === 'DemoBro' ? null: <button onClick={this.openEmail} className="edit-button" >Edit</button>}
                                 </div>
                                 <div id='field-phone'>
                                     <div>
@@ -103,7 +103,7 @@ class SettingsModal extends React.Component {
                                             <h2>{this.props.currentUser.phone_number === null ? 'Feel free to add your phone number' : this.props.currentUser.phone_number }</h2>
                                         </div>
                                     </div>
-                                    <button onClick={this.openPhone} className="edit-button" >Edit</button>
+                                    {this.props.currentUser.username === 'DemoBro' ? null: <button onClick={this.openPhone} className="edit-button" >Edit</button> }
                                 </div>
                         </div>
                     </div>

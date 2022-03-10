@@ -27,13 +27,11 @@ class ServerIndex extends React.Component {
             consumer.subscriptions.create({channel: 'UsersChannel', id: this.props.currentUser.id}, {
                 connected() {
                   // Called when the subscription is ready for use on the server'
-                  
                 },
               
                 disconnected() {
                   // Called when the subscription has been terminated by the server
                 },
-              
                 received(data) {
                   // Called when there's incoming data on the websocket for this channel
                     if (data.type === 'fetchUser'){
@@ -46,7 +44,6 @@ class ServerIndex extends React.Component {
                         console.log('Not sure what that was @serverIndex')
                     }
                   }
-                
               });
         }
     }
@@ -105,7 +102,6 @@ class ServerIndex extends React.Component {
                             </form>
                         </div>
                 </div>
-
             </div>
         )
     }

@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import MessageIndexItem from "./messageIndexItem";
-import { User} from '../../actions/user_actions'
 
 const mSTP = (state, ownProps) => {
     return {
@@ -10,7 +9,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        fetchUser: userId => dispatch(fetchUser())
+        fetchUser: userId => dispatch(fetchUser(userId))
     }
 }
 

@@ -29,13 +29,6 @@ class ServerShow extends React.Component {
     componentDidUpdate() {
         if (this.props.server !== undefined) {
         if (this.props.channel !== undefined) {
-            // if (this.props.messages === undefined ||
-            //      (Object.values(this.props.messages).length === 0 && this.fetched === false) ||
-            //      Object.values(this.props.messages)[0].channel_id !== this.props.channel.id 
-            //      ) {
-            //     this.feteched = true
-            //     
-            // }
             if (this.channel !== '') {
                 this.channel.unsubscribe()
             }

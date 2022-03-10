@@ -4,7 +4,6 @@ import FriendIndexItemContainer from "./friendIndexItemContainer";
 class FriendsIndex extends React.Component {
     constructor(props) {
         super(props)
-        
         this.handleClick = this.handleClick.bind(this)
     }
 
