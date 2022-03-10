@@ -9,9 +9,10 @@ class MessagesChannel < ApplicationCable::Channel
 
   def receive(data)
     
-    user = User.find_by(id: data['currentUserId'])
-    message = @channel.messages.create(content: data['content', user: user])
-    MessagesChannel.broadcast_to(@channel, MessageSerializer.new(message).serialized_json)
+    # user = User.find_by(id: data['currentUserId'])
+    # message = @channel.messages.create(content: data['content', user: user])
+    # MessagesChannel.broadcast_to(@channel, MessageSerializer.new(message).serialized_json)
+    MessagesChannel.broadcast_to(@channel.id, {type: 'fetchMessages'})
   end
 
   def unsubscribed

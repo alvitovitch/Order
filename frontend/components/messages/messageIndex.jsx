@@ -1,5 +1,6 @@
 import React from "react";
 import MessageIndexItemContainer from "./messageIndexItemContainer";
+import consumer from '../../consumer';
 
 class MessageIndex extends React.Component {
     constructor(props) {
@@ -19,6 +20,21 @@ class MessageIndex extends React.Component {
     componentDidMount() {
         this.props.fetchMessages(this.props.serverId, this.props.channel.category_id, this.props.channel.id )
         this.channelId = this.props.channel.id
+
+        const fetchMessages = () => this.props.fetchMessages(this.props.serverId, this.props.channel.category_id, this.props.channel.id)
+        consumer.subscriptions.create({channel: 'MessagesChannel', id:this.props.channel.id}, {
+            connected(){
+
+            },
+            disconnected() {
+
+            },
+            received(data) {
+                if (data.type = 'fetchMessages'){
+                    fetchMessages()
+                }
+            }
+        })
     }
     componentDidUpdate() {
         if (this.channelId !== this.props.channel.id){

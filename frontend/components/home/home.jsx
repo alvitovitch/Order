@@ -55,7 +55,7 @@ class Home extends React.Component {
                 <div id='middleComponent'>
                     <Switch>
                         <Route path='/@me/*' component={SelectedDmContainer} />
-                        { this.props.friendships.pending !== undefined ? <Route path='/@me' component={FriendsIndexContainer} /> : <div></div> }
+                        { this.props.friendships.pending !== undefined ? <Route path='/@me' component={FriendsIndexContainer} /> : null }
                     </Switch>
                 </div>
             </div>

@@ -90,9 +90,9 @@ class ServerIndex extends React.Component {
                                 Create Server
                                 </div>
                                 <div>
-                                    <div id='serverName'>SERVER NAME
+                                    <div id='channelName'>SERVER NAME
                                     </div>
-                                        <input className='inputBox' type="text" value={this.state.name} 
+                                        <input id='server-input' className='inputBox' type="text" value={this.state.name} 
                                         onChange= {this.update('name')}/>
                                 </div>
                                     <div id='createServerButtonDiv'>
