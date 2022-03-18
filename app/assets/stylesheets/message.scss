@@ -129,12 +129,12 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-a:link, a:active, a {
+.messageBody a:link, a:active, a {
     text-decoration: underline;
     color: rgb(0, 221, 255);
 }
 
-a:visited {
+.messageBody a:visited {
     text-decoration: underline;
     color: rgb(174, 97, 255);
 }
