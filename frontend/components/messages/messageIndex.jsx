@@ -41,6 +41,7 @@ class MessageIndex extends React.Component {
             this.props.fetchMessages(this.props.serverId, this.props.channel.category_id, this.props.channel.id )
             this.channelId = this.props.channel.id
         }
+        this.scrollToBottom()
     }
 
     handleSubmit(e) {
@@ -53,6 +54,11 @@ class MessageIndex extends React.Component {
             }} )
             .then(this.setState({body: ``}))
             
+    }
+
+    scrollToBottom() {
+        const final = document.getElementById('messageIndexItems').lastChild
+        final.scrollIntoView({behavior: 'smooth'})
     }
 
     render() {

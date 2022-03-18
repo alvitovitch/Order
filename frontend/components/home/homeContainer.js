@@ -5,7 +5,7 @@ import Home from "./home";
 import { fetchUsers } from "../../actions/user_actions";
 import { fetchFriendships } from "../../actions/friendship_actions";
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
     return {
         currentUser:  state.entities.users[state.session.id],
         servers: Object.values(state.entities.servers),
