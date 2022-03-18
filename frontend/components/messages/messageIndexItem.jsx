@@ -8,6 +8,7 @@ class MessageIndexItem extends React.Component {
     }
 
     // is a string a valid url
+
     bodyType(str) {
     
         var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -19,12 +20,13 @@ class MessageIndexItem extends React.Component {
         if (!!pattern.test(str)) {
                 const len = str.length
                 if (['png', 'gif', 'jpg'].includes(str.slice(len-3)) ) {
+                    const backup = <div><img src={window.wumpus}/>Invalid path</div>
                     return(
-                        <img className="message-image" onClick={() => window.open(str, "_blank")} src={str}/>
+                        <img className="message-image" alt="Image not found" onError={(e) => {e.target=backup}} onClick={() => window.open(str, "_blank")} src={str} />
                     )
                 }
                 return <a href={str} target='_blank'>{str}</a>
-            };  
+            };      
         return str
       }
 
