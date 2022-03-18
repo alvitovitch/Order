@@ -9,6 +9,13 @@ class MessageIndexItem extends React.Component {
 
     // is a string a valid url
 
+    scroll(e){
+        e.target.src=window.missing; 
+        e.target.onClick={}; 
+        const final = document.getElementById('messageIndexItems').lastChild
+        final.scrollIntoView({behavior: 'smooth'})
+    }
+
     bodyType(str) {
     
         var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -21,7 +28,7 @@ class MessageIndexItem extends React.Component {
                 const len = str.length
                 if (['png', 'gif', 'jpg'].includes(str.slice(len-3)) ) {
                     return(
-                        <img className="message-image" alt="Image not found" onError={(e) => {e.target.src=window.missing; e.target.onClick={}}} onClick={() => window.open(str, "_blank")} src={str} />
+                        <img className="message-image" alt="Image not found" onError={(e) => this.scroll(e)} onClick={() => window.open(str, "_blank")} src={str} />
                     )
                 }
                 return <a href={str} target='_blank'>{str}</a>
