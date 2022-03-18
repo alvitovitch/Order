@@ -41,7 +41,9 @@ class MessageIndex extends React.Component {
             this.props.fetchMessages(this.props.serverId, this.props.channel.category_id, this.props.channel.id )
             this.channelId = this.props.channel.id
         }
-        this.scrollToBottom()
+        if (document.getElementById('messageIndexItems') !== null){
+            this.scrollToBottom()
+        }
     }
 
     handleSubmit(e) {
