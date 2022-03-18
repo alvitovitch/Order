@@ -7,6 +7,27 @@ class MessageIndexItem extends React.Component {
         
     }
 
+    // is a string a valid url
+    bodyType(str) {
+    
+        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        if (!!pattern.test(str)) {
+                const len = str.length
+                if (['png', 'gif', 'jpg'].includes(str.slice(len-3)) ) {
+                    return(
+                        <img className="message-image" src={str}/>
+                    )
+                }
+                return <a href={str} target='_blank'>{str}</a>
+            };  
+        return str
+      }
+
 
     render() {
         if (this.props.author !== undefined){
@@ -25,7 +46,7 @@ class MessageIndexItem extends React.Component {
                             </div>
                         </div>
                         <div className="messageBody">
-                            {this.props.message.body}
+                            {this.bodyType(this.props.message.body)}
                         </div>
                     </div>
                 </div>
