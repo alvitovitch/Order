@@ -10,7 +10,7 @@ class MessageIndexItem extends React.Component {
     // is a string a valid url
 
     scroll(e){
-        e.target.src=window.missing; 
+        // e.target.src=window.missing; 
         e.target.onClick={}; 
         const final = document.getElementById('messageIndexItems').lastChild
         final.scrollIntoView({behavior: 'smooth'})
